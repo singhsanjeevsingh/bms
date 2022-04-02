@@ -96,7 +96,7 @@
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="pass" max="32767" attributes="0"/>
                               <Component id="deposit" max="32767" attributes="0"/>
-                              <Component id="acc" pref="306" max="32767" attributes="0"/>
+                              <Component id="RaccountNumber" pref="306" max="32767" attributes="0"/>
                               <Component id="firstname" max="32767" attributes="0"/>
                               <Component id="email" alignment="1" max="32767" attributes="0"/>
                               <Component id="lastname" alignment="0" max="32767" attributes="0"/>
@@ -117,8 +117,8 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel5" min="-2" pref="96" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="dob" min="-2" pref="107" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="14" max="32767" attributes="0"/>
@@ -139,7 +139,7 @@
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="acc" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="RaccountNumber" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="firstname" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -155,9 +155,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="pnumber" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel5" pref="30" max="32767" attributes="0"/>
-                          <Component id="dob" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel5" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="deposit" min="-2" pref="35" max="-2" attributes="0"/>
@@ -283,7 +283,7 @@
                 <Property name="text" type="java.lang.String" value=" Death Of Birth :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="acc">
+            <Component class="javax.swing.JTextField" name="RaccountNumber">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="78" green="78" red="78" type="rgb"/>
@@ -298,7 +298,8 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="accActionPerformed"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="RaccountNumberMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RaccountNumberActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="deposit">
@@ -363,7 +364,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="dob">
+            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
             </Component>
           </SubComponents>
         </Container>
