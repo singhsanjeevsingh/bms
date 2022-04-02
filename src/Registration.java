@@ -41,12 +41,12 @@ public class Registration extends javax.swing.JFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         pnumber = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        acc = new javax.swing.JTextField();
+        RaccountNumber = new javax.swing.JTextField();
         deposit = new javax.swing.JTextField();
         pass = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         cpass = new javax.swing.JPasswordField();
-        dob = new com.toedter.calendar.JDateChooser();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -111,12 +111,17 @@ public class Registration extends javax.swing.JFrame {
 
         jLabel5.setText(" Death Of Birth :");
 
-        acc.setForeground(new java.awt.Color(120, 120, 120));
-        acc.setText(" Account Number");
-        acc.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        acc.addActionListener(new java.awt.event.ActionListener() {
+        RaccountNumber.setForeground(new java.awt.Color(120, 120, 120));
+        RaccountNumber.setText(" Account Number");
+        RaccountNumber.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        RaccountNumber.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RaccountNumberMouseClicked(evt);
+            }
+        });
+        RaccountNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accActionPerformed(evt);
+                RaccountNumberActionPerformed(evt);
             }
         });
 
@@ -155,7 +160,7 @@ public class Registration extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(pass)
                         .addComponent(deposit)
-                        .addComponent(acc, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
+                        .addComponent(RaccountNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
                         .addComponent(firstname)
                         .addComponent(email)
                         .addComponent(lastname, javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,8 +178,8 @@ public class Registration extends javax.swing.JFrame {
                         .addComponent(jRadioButton2))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(dob, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(41, 41, 41)
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(14, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -189,7 +194,7 @@ public class Registration extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
-                .addComponent(acc, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RaccountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(firstname, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -204,9 +209,9 @@ public class Registration extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnumber, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(dob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(deposit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -275,9 +280,10 @@ public class Registration extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pnumberActionPerformed
 
-    private void accActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accActionPerformed
+    private void RaccountNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RaccountNumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_accActionPerformed
+        System.out.println("jfsdlf");
+    }//GEN-LAST:event_RaccountNumberActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     
@@ -304,6 +310,14 @@ public class Registration extends javax.swing.JFrame {
     private void depositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_depositActionPerformed
+
+    Boolean b1= true;
+    private void RaccountNumberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RaccountNumberMouseClicked
+        // TODO add your handling code here:
+        if(b1){
+            RaccountNumber.setText("");
+        }
+    }//GEN-LAST:event_RaccountNumberMouseClicked
 
     /**
      * @param args the command line arguments
@@ -335,14 +349,14 @@ public class Registration extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField acc;
+    private javax.swing.JTextField RaccountNumber;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JPasswordField cpass;
     private javax.swing.JTextField deposit;
-    private com.toedter.calendar.JDateChooser dob;
     private javax.swing.JTextField email;
     private javax.swing.JTextField firstname;
     private javax.swing.JButton jButton1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
