@@ -290,8 +290,9 @@ public class Registration extends javax.swing.JFrame {
                 Statement stm =con.createStatement();
                 
                 
+                
             }
-            catch (Exception e){
+            catch (ClassNotFoundException | SQLException e){
                 
             }
         }
