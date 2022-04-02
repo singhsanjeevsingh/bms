@@ -289,8 +289,10 @@ public class Registration extends javax.swing.JFrame {
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankManagement","root","sachin@123");
                 Statement stm =con.createStatement();
                 
+                
+                
             }
-            catch (Exception e){
+            catch (ClassNotFoundException | SQLException e){
                 
             }
         }
