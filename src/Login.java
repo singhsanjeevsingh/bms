@@ -82,6 +82,11 @@ public class Login extends javax.swing.JFrame {
                 jTextField1MouseClicked(evt);
             }
         });
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(176, 82, 240));
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -215,6 +220,10 @@ public class Login extends javax.swing.JFrame {
        this.setVisible(false);
        
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
