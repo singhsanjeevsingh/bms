@@ -68,6 +68,11 @@ public class Login extends javax.swing.JFrame {
         jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(79, 211, 112), 0));
         jButton2.setFocusPainted(false);
         jButton2.setFocusable(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jTextField1.setForeground(new java.awt.Color(120, 120, 120));
         jTextField1.setText(" Account Number");
@@ -191,6 +196,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
@@ -202,6 +208,13 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTextField1.setText("");
     }//GEN-LAST:event_jTextField1MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+       new Registration().setVisible(true);
+       this.setVisible(false);
+       
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
