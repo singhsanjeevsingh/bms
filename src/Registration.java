@@ -282,6 +282,7 @@ public class Registration extends javax.swing.JFrame {
 
     private void RaccountNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RaccountNumberActionPerformed
         // TODO add your handling code here:
+        System.out.println("jfsdlf");
     }//GEN-LAST:event_RaccountNumberActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
