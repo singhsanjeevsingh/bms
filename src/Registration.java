@@ -286,7 +286,8 @@ public class Registration extends javax.swing.JFrame {
         {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankManagement","root","sachin@123");
+                Statement stm =con.createStatement();
                 
             }
             catch (Exception e){
