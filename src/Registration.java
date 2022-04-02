@@ -66,7 +66,8 @@ public class Registration extends javax.swing.JFrame {
 
         firstname.setForeground(new java.awt.Color(120, 120, 120));
         firstname.setText(" First Name");
-        firstname.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        firstname.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true)
+        );
         firstname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 firstnameActionPerformed(evt);
@@ -75,7 +76,7 @@ public class Registration extends javax.swing.JFrame {
 
         lastname.setForeground(new java.awt.Color(120, 120, 120));
         lastname.setText(" Last Name");
-        lastname.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        lastname.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
         lastname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastnameActionPerformed(evt);
@@ -84,7 +85,7 @@ public class Registration extends javax.swing.JFrame {
 
         email.setForeground(new java.awt.Color(120, 120, 120));
         email.setText(" Email Id");
-        email.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        email.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
         email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailActionPerformed(evt);
@@ -111,7 +112,7 @@ public class Registration extends javax.swing.JFrame {
 
         pnumber.setForeground(new java.awt.Color(120, 120, 120));
         pnumber.setText(" Phone Number");
-        pnumber.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        pnumber.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
         pnumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pnumberActionPerformed(evt);
@@ -122,7 +123,7 @@ public class Registration extends javax.swing.JFrame {
 
         RaccountNumber.setForeground(new java.awt.Color(120, 120, 120));
         RaccountNumber.setText(" Account Number");
-        RaccountNumber.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        RaccountNumber.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
         RaccountNumber.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 RaccountNumberMouseClicked(evt);
@@ -136,7 +137,7 @@ public class Registration extends javax.swing.JFrame {
 
         deposit.setForeground(new java.awt.Color(120, 120, 120));
         deposit.setText("Deposit Amount");
-        deposit.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        deposit.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
         deposit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 depositActionPerformed(evt);
@@ -145,7 +146,7 @@ public class Registration extends javax.swing.JFrame {
 
         pass.setForeground(new java.awt.Color(120, 120, 120));
         pass.setText("Password");
-        pass.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        pass.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
 
         jButton1.setBackground(new java.awt.Color(176, 82, 240));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -158,7 +159,7 @@ public class Registration extends javax.swing.JFrame {
 
         cpass.setForeground(new java.awt.Color(120, 120, 120));
         cpass.setText("Password");
-        cpass.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        cpass.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
