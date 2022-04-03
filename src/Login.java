@@ -189,6 +189,7 @@ public class Login extends javax.swing.JFrame {
     Boolean B2=true;
     private void LaccountFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LaccountFieldMouseClicked
         // TODO add your handling code here:
+        LaccountField.setEditable(true);
         if(B2){
         LaccountField.setText("");
         B2=false;
@@ -211,8 +212,10 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
          int key=evt.getKeyChar();
          
-        if(B1 && key >='0' && key <='9' ){
+        if(B1 && key >='0' && key <='9' || evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ){
+            if(B1){
             LaccountField.setText("");
+            }
             LaccountField.setEditable(true);
             B1=false;
             B2=false;
