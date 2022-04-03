@@ -82,10 +82,11 @@ public class Login extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(704, 440, 106, 38));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(704, 440, 110, 40));
 
         LaccountField.setForeground(new java.awt.Color(120, 120, 120));
         LaccountField.setText(" Account Number");
+        LaccountField.setToolTipText("Account Number");
         LaccountField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
         LaccountField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -117,7 +118,7 @@ public class Login extends javax.swing.JFrame {
                 jButton3KeyPressed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, 116, 36));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, 120, 40));
 
         LForgetField.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         LForgetField.setForeground(new java.awt.Color(51, 153, 0));
@@ -142,6 +143,7 @@ public class Login extends javax.swing.JFrame {
 
         LpassField.setForeground(new java.awt.Color(120, 120, 120));
         LpassField.setText("Password");
+        LpassField.setToolTipText("Password");
         LpassField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
         LpassField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -159,17 +161,15 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(874, 645));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
