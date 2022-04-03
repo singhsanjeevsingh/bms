@@ -45,18 +45,28 @@ public class HomeSection extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         centeralpanel = new javax.swing.JLayeredPane();
-        transactionpanel = new javax.swing.JPanel();
         homepanel = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TransactionTable = new javax.swing.JTable();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        transactionpanel = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(860, 638));
@@ -66,16 +76,49 @@ public class HomeSection extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(204, 102, 255));
         jLabel1.setFont(new java.awt.Font("Dubai", 1, 24)); // NOI18N
         jLabel1.setText("HOME SECTION");
-        headpanel.add(jLabel1);
+
+        javax.swing.GroupLayout headpanelLayout = new javax.swing.GroupLayout(headpanel);
+        headpanel.setLayout(headpanelLayout);
+        headpanelLayout.setHorizontalGroup(
+            headpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headpanelLayout.createSequentialGroup()
+                .addGap(371, 371, 371)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        headpanelLayout.setVerticalGroup(
+            headpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headpanelLayout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 6, Short.MAX_VALUE))
+        );
 
         Iconpanel.setBackground(new java.awt.Color(176, 82, 240));
 
         jPanel1.setBackground(new java.awt.Color(176, 82, 240));
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel1MouseClicked(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home_icon_1.png"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel2MouseEntered(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("    Home");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -98,11 +141,26 @@ public class HomeSection extends javax.swing.JFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(176, 82, 240));
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel2MouseClicked(evt);
+            }
+        });
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/transaction_icon.png"))); // NOI18N
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText(" Transaction");
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -167,7 +225,7 @@ public class HomeSection extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(jLabel5))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,21 +266,6 @@ public class HomeSection extends javax.swing.JFrame {
 
         centeralpanel.setLayout(new java.awt.CardLayout());
 
-        transactionpanel.setBackground(new java.awt.Color(153, 153, 153));
-
-        javax.swing.GroupLayout transactionpanelLayout = new javax.swing.GroupLayout(transactionpanel);
-        transactionpanel.setLayout(transactionpanelLayout);
-        transactionpanelLayout.setHorizontalGroup(
-            transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1037, Short.MAX_VALUE)
-        );
-        transactionpanelLayout.setVerticalGroup(
-            transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 586, Short.MAX_VALUE)
-        );
-
-        centeralpanel.add(transactionpanel, "card3");
-
         homepanel.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -237,7 +280,7 @@ public class HomeSection extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(198, 131, 243));
         jLabel12.setText("Welcome To Bank");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TransactionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -245,10 +288,25 @@ public class HomeSection extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Date", "Account Number", "Amount", "C/D"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(TransactionTable);
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
@@ -275,53 +333,154 @@ public class HomeSection extends javax.swing.JFrame {
                 .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(homepanelLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addGroup(homepanelLayout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel16))))
+                    .addGroup(homepanelLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
                             .addGroup(homepanelLayout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel11))))
-                    .addGroup(homepanelLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel15))
-                    .addGroup(homepanelLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel16)))
-                .addGap(41, 41, 41)
+                                .addComponent(jLabel11)))))
+                .addGap(45, 45, 45)
                 .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
-                .addContainerGap(322, Short.MAX_VALUE))
+                .addContainerGap(936, Short.MAX_VALUE))
         );
         homepanelLayout.setVerticalGroup(
             homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homepanelLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11)
-                    .addGroup(homepanelLayout.createSequentialGroup()
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)))
                 .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(homepanelLayout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(homepanelLayout.createSequentialGroup()
+                        .addGap(136, 136, 136)
                         .addComponent(jLabel12)
-                        .addGap(72, 72, 72)
+                        .addGap(66, 66, 66)
                         .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
-                            .addComponent(jLabel17)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(86, Short.MAX_VALUE))
+                            .addComponent(jLabel17))))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         centeralpanel.add(homepanel, "card2");
+
+        transactionpanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel18.setText("Withdrawal");
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/withdrawl_icon.png"))); // NOI18N
+
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Withdraw_new_2.gif"))); // NOI18N
+
+        jTextField1.setForeground(new java.awt.Color(120, 120, 120));
+        jTextField1.setText(" Enter Amount");
+        jTextField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
+
+        jButton1.setBackground(new java.awt.Color(176, 82, 240));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton1.setText("Confirm");
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel21.setText("Deposite");
+
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/deposite_icon.png"))); // NOI18N
+
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/deposit_new.gif"))); // NOI18N
+
+        jTextField2.setForeground(new java.awt.Color(120, 120, 120));
+        jTextField2.setText(" Enter Amount");
+        jTextField2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
+
+        jButton2.setBackground(new java.awt.Color(176, 82, 240));
+        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton2.setText("Confirm");
+
+        javax.swing.GroupLayout transactionpanelLayout = new javax.swing.GroupLayout(transactionpanel);
+        transactionpanel.setLayout(transactionpanelLayout);
+        transactionpanelLayout.setHorizontalGroup(
+            transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(transactionpanelLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(transactionpanelLayout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel19)
+                        .addGap(27, 27, 27))
+                    .addGroup(transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(transactionpanelLayout.createSequentialGroup()
+                        .addGap(191, 191, 191)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(transactionpanelLayout.createSequentialGroup()
+                        .addGap(191, 191, 191)
+                        .addGroup(transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(transactionpanelLayout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel22))
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, transactionpanelLayout.createSequentialGroup()
+                        .addGap(168, 168, 168)
+                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(1027, Short.MAX_VALUE))
+        );
+        transactionpanelLayout.setVerticalGroup(
+            transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(transactionpanelLayout.createSequentialGroup()
+                .addGroup(transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(transactionpanelLayout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addComponent(jLabel22))
+                    .addGroup(transactionpanelLayout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addGroup(transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(transactionpanelLayout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addGap(7, 7, 7))
+                            .addGroup(transactionpanelLayout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(transactionpanelLayout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addGap(7, 7, 7)))
+                        .addGroup(transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(163, Short.MAX_VALUE))
+        );
+
+        centeralpanel.add(transactionpanel, "card3");
 
         javax.swing.GroupLayout mainpanelLayout = new javax.swing.GroupLayout(mainpanel);
         mainpanel.setLayout(mainpanelLayout);
@@ -356,6 +515,43 @@ public class HomeSection extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
+        // TODO add your handling code here:   
+    }//GEN-LAST:event_jLabel2MouseEntered
+
+    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jPanel1MouseClicked
+
+    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel2MouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
+        homepanel.setVisible(true);
+        transactionpanel.setVisible(false);
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        homepanel.setVisible(true);
+        transactionpanel.setVisible(false);
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // TODO add your handling code here:
+          transactionpanel.setVisible(true);
+         homepanel.setVisible(false);
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        // TODO add your handling code here:
+          transactionpanel.setVisible(true);
+         homepanel.setVisible(false);
+    }//GEN-LAST:event_jLabel7MouseClicked
 
     /**
      * @param args the command line arguments
@@ -393,9 +589,12 @@ public class HomeSection extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Iconpanel;
+    private javax.swing.JTable TransactionTable;
     private javax.swing.JLayeredPane centeralpanel;
     private javax.swing.JPanel headpanel;
     private javax.swing.JPanel homepanel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -405,7 +604,13 @@ public class HomeSection extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -418,7 +623,8 @@ public class HomeSection extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel mainpanel;
     private javax.swing.JPanel transactionpanel;
     // End of variables declaration//GEN-END:variables
