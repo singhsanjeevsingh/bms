@@ -55,7 +55,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(153, 0, 255));
         jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank_icon.gif"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bank_icon.png"))); // NOI18N
         jLabel4.setMaximumSize(new java.awt.Dimension(52, 52));
         jLabel4.setMinimumSize(new java.awt.Dimension(52, 52));
         jLabel4.setPreferredSize(new java.awt.Dimension(52, 52));
