@@ -1,3 +1,8 @@
+
+import javax.swing.JOptionPane;
+import java.sql.*;
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -250,9 +255,19 @@ public class HomeSection extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(176, 82, 240));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logout_icon.png"))); // NOI18N
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel9.setText("  Log Out");
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -774,7 +789,8 @@ public class HomeSection extends javax.swing.JFrame {
             .addComponent(mainpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(2315, 696));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
@@ -834,6 +850,35 @@ public class HomeSection extends javax.swing.JFrame {
         homepanel.setVisible(false);
         transactionpanel.setVisible(false);
     }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        // TODO add your handling code here:
+        int p=JOptionPane.showConfirmDialog(null, "Are you Sure to LogOut ?","LogOut",JOptionPane.YES_NO_OPTION);
+                   if(p==0)
+                   {
+                       new Login().setVisible(true);
+                       this.setVisible(false);
+                   }
+                   else
+                   {
+                       this.setVisible(true);
+                   }
+        
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        // TODO add your handling code here:
+        int p=JOptionPane.showConfirmDialog(null, "Are you Sure to LogOut ?","LogOut",JOptionPane.YES_NO_OPTION);
+                   if(p==0)
+                   {
+                       new Login().setVisible(true);
+                       this.setVisible(false);
+                   }
+                   else
+                   {
+                       this.setVisible(true);
+                   }
+    }//GEN-LAST:event_jLabel9MouseClicked
 
     /**
      * @param args the command line arguments

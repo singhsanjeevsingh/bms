@@ -4,6 +4,8 @@
  */
 import java.awt.*;
 import javax.swing.*;
+import java.sql.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Sachin Kumar
@@ -190,6 +192,34 @@ public class Login extends javax.swing.JFrame {
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         // TODO add your handling code here:
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankManagement","root","Kabcd02.");
+            Statement stm =con.createStatement();
+            String accountn = LaccountField.getText();
+            String pass = new String(LpassField.getPassword());
+            
+            String sql = "select * from AccountDetails where AccountNumber = '"+accountn+"' and Password ='"+pass+"'; ";
+            
+            ResultSet rs = stm.executeQuery(sql);
+            
+            if(rs.next())
+            {
+                 new HomeSection().setVisible(true);
+                 this.setVisible(false);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Incorrect Username Or Password", "Login Failed", 2);
+            }
+            
+        }
+        catch (HeadlessException | ClassNotFoundException | SQLException e)
+        {
+            JOptionPane.showMessageDialog(null,e.getMessage());
+        }
+        
+        
         
     }//GEN-LAST:event_LoginButtonActionPerformed
 
