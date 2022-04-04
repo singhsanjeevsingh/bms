@@ -35,9 +35,9 @@ public class Login extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        LregisterButton = new javax.swing.JButton();
         LaccountField = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        LoginButton = new javax.swing.JButton();
         LForgetField = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -71,18 +71,23 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 72, 546, -1));
 
-        jButton2.setBackground(new java.awt.Color(176, 82, 240));
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton2.setText("Create Account");
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(79, 211, 112), 0));
-        jButton2.setFocusPainted(false);
-        jButton2.setFocusable(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        LregisterButton.setBackground(new java.awt.Color(176, 82, 240));
+        LregisterButton.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        LregisterButton.setText("Create Account");
+        LregisterButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(79, 211, 112), 0));
+        LregisterButton.setFocusPainted(false);
+        LregisterButton.setFocusable(false);
+        LregisterButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LregisterButtonMouseEntered(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(704, 440, 110, 40));
+        LregisterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LregisterButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(LregisterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(704, 440, 110, 40));
 
         LaccountField.setForeground(new java.awt.Color(120, 120, 120));
         LaccountField.setText(" Account Number");
@@ -105,20 +110,31 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel1.add(LaccountField, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 263, 240, 42));
 
-        jButton3.setBackground(new java.awt.Color(176, 82, 240));
-        jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton3.setText("Login");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        LoginButton.setBackground(new java.awt.Color(176, 82, 240));
+        LoginButton.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        LoginButton.setText("Login");
+        LoginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LoginButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LoginButtonMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                LoginButtonMousePressed(evt);
+            }
+        });
+        LoginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                LoginButtonActionPerformed(evt);
             }
         });
-        jButton3.addKeyListener(new java.awt.event.KeyAdapter() {
+        LoginButton.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jButton3KeyPressed(evt);
+                LoginButtonKeyPressed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, 120, 40));
+        jPanel1.add(LoginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, 120, 40));
 
         LForgetField.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         LForgetField.setForeground(new java.awt.Color(51, 153, 0));
@@ -172,10 +188,10 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_LoginButtonActionPerformed
 
     private void LForgetFieldMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LForgetFieldMouseEntered
         // TODO add your handling code here:
@@ -196,12 +212,12 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_LaccountFieldMouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void LregisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LregisterButtonActionPerformed
         // TODO add your handling code here:
        new Registration().setVisible(true);
        this.setVisible(false);
        
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_LregisterButtonActionPerformed
 
     private void LaccountFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaccountFieldActionPerformed
         // TODO add your handling code here:
@@ -255,11 +271,11 @@ public class Login extends javax.swing.JFrame {
         
     }//GEN-LAST:event_LpassFieldFocusGained
 
-    private void jButton3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton3KeyPressed
+    private void LoginButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LoginButtonKeyPressed
         // TODO add your handling code here:
        
         
-    }//GEN-LAST:event_jButton3KeyPressed
+    }//GEN-LAST:event_LoginButtonKeyPressed
 
     private void LForgetFieldMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LForgetFieldMouseExited
         // TODO add your handling code here:
@@ -267,6 +283,27 @@ public class Login extends javax.swing.JFrame {
         LForgetField.setForeground(new java.awt.Color(51, 153, 0));
     }//GEN-LAST:event_LForgetFieldMouseExited
 
+    private void LoginButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginButtonMouseEntered
+        // TODO add your handling code here:
+        LoginButton.setBackground(new java.awt.Color(51,153, 0));
+        LoginButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_LoginButtonMouseEntered
+
+    private void LoginButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginButtonMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LoginButtonMousePressed
+
+    private void LoginButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginButtonMouseExited
+        // TODO add your handling code here:
+        LoginButton.setBackground(new java.awt.Color(176, 82, 240));
+    }//GEN-LAST:event_LoginButtonMouseExited
+
+    private void LregisterButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LregisterButtonMouseEntered
+        // TODO add your handling code here:
+       LregisterButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_LregisterButtonMouseEntered
+
+   
     /**
      * @param args the command line arguments
      */
@@ -305,9 +342,9 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LForgetField;
     private javax.swing.JTextField LaccountField;
+    private javax.swing.JButton LoginButton;
     private javax.swing.JPasswordField LpassField;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton LregisterButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
