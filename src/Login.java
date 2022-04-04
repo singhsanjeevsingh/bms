@@ -179,7 +179,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 986, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,16 +279,16 @@ public class Login extends javax.swing.JFrame {
     
     private void LpassFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LpassFieldKeyPressed
         // TODO add your handling code here:
-         int key= evt.getKeyCode();
+         /*int key= evt.getKeyCode();
         
          if( key==10){
             //comparision yahan pr krio next screen pr jaane ke liye
              this.setVisible(false);
-            new Registration().setVisible(true);
+            new HomeSection().setVisible(true);
         }else{
             LpassField.setEchoChar('*');
             LpassField.setForeground(new java.awt.Color(0, 0, 0));
-        }
+        }*/
     }//GEN-LAST:event_LpassFieldKeyPressed
     Boolean B4=true;
     private void LpassFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LpassFieldFocusGained
