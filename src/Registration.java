@@ -16,6 +16,8 @@ public class Registration extends javax.swing.JFrame {
      */
     public Registration() {
         initComponents();
+        RpassField1.setEchoChar( (char) 0);
+        RpassField2.setEchoChar( (char) 0);
     }
 
     /**
@@ -35,19 +37,19 @@ public class Registration extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        firstname = new javax.swing.JTextField();
-        lastname = new javax.swing.JTextField();
-        email = new javax.swing.JTextField();
+        RfirstName = new javax.swing.JTextField();
+        RlastName = new javax.swing.JTextField();
+        RemailId = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
-        pnumber = new javax.swing.JTextField();
+        RphoneNumber = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         RaccountNumber = new javax.swing.JTextField();
-        deposit = new javax.swing.JTextField();
-        pass = new javax.swing.JPasswordField();
+        RdepositAmount = new javax.swing.JTextField();
+        RpassField1 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
-        cpass = new javax.swing.JPasswordField();
+        RpassField2 = new javax.swing.JPasswordField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -64,31 +66,46 @@ public class Registration extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registration_icon.png"))); // NOI18N
 
-        firstname.setForeground(new java.awt.Color(120, 120, 120));
-        firstname.setText(" First Name");
-        firstname.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true)
+        RfirstName.setForeground(new java.awt.Color(120, 120, 120));
+        RfirstName.setText(" First Name");
+        RfirstName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true)
         );
-        firstname.addActionListener(new java.awt.event.ActionListener() {
+        RfirstName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                RfirstNameFocusGained(evt);
+            }
+        });
+        RfirstName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstnameActionPerformed(evt);
+                RfirstNameActionPerformed(evt);
             }
         });
 
-        lastname.setForeground(new java.awt.Color(120, 120, 120));
-        lastname.setText(" Last Name");
-        lastname.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
-        lastname.addActionListener(new java.awt.event.ActionListener() {
+        RlastName.setForeground(new java.awt.Color(120, 120, 120));
+        RlastName.setText(" Last Name");
+        RlastName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
+        RlastName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                RlastNameFocusGained(evt);
+            }
+        });
+        RlastName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lastnameActionPerformed(evt);
+                RlastNameActionPerformed(evt);
             }
         });
 
-        email.setForeground(new java.awt.Color(120, 120, 120));
-        email.setText(" Email Id");
-        email.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
-        email.addActionListener(new java.awt.event.ActionListener() {
+        RemailId.setForeground(new java.awt.Color(120, 120, 120));
+        RemailId.setText(" Email Id");
+        RemailId.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
+        RemailId.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                RemailIdFocusGained(evt);
+            }
+        });
+        RemailId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
+                RemailIdActionPerformed(evt);
             }
         });
 
@@ -110,12 +127,22 @@ public class Registration extends javax.swing.JFrame {
             }
         });
 
-        pnumber.setForeground(new java.awt.Color(120, 120, 120));
-        pnumber.setText(" Phone Number");
-        pnumber.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
-        pnumber.addActionListener(new java.awt.event.ActionListener() {
+        RphoneNumber.setForeground(new java.awt.Color(120, 120, 120));
+        RphoneNumber.setText(" Phone Number");
+        RphoneNumber.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
+        RphoneNumber.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                RphoneNumberFocusGained(evt);
+            }
+        });
+        RphoneNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pnumberActionPerformed(evt);
+                RphoneNumberActionPerformed(evt);
+            }
+        });
+        RphoneNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                RphoneNumberKeyPressed(evt);
             }
         });
 
@@ -134,19 +161,39 @@ public class Registration extends javax.swing.JFrame {
                 RaccountNumberActionPerformed(evt);
             }
         });
-
-        deposit.setForeground(new java.awt.Color(120, 120, 120));
-        deposit.setText("Deposit Amount");
-        deposit.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
-        deposit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                depositActionPerformed(evt);
+        RaccountNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                RaccountNumberKeyPressed(evt);
             }
         });
 
-        pass.setForeground(new java.awt.Color(120, 120, 120));
-        pass.setText("Password");
-        pass.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
+        RdepositAmount.setForeground(new java.awt.Color(120, 120, 120));
+        RdepositAmount.setText("Deposit Amount");
+        RdepositAmount.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
+        RdepositAmount.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                RdepositAmountFocusGained(evt);
+            }
+        });
+        RdepositAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RdepositAmountActionPerformed(evt);
+            }
+        });
+        RdepositAmount.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                RdepositAmountKeyPressed(evt);
+            }
+        });
+
+        RpassField1.setForeground(new java.awt.Color(120, 120, 120));
+        RpassField1.setText("Password");
+        RpassField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
+        RpassField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                RpassField1FocusGained(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(176, 82, 240));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -157,9 +204,14 @@ public class Registration extends javax.swing.JFrame {
             }
         });
 
-        cpass.setForeground(new java.awt.Color(120, 120, 120));
-        cpass.setText("Password");
-        cpass.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
+        RpassField2.setForeground(new java.awt.Color(120, 120, 120));
+        RpassField2.setText("Password");
+        RpassField2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
+        RpassField2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                RpassField2FocusGained(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -168,18 +220,18 @@ public class Registration extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(pass)
-                        .addComponent(deposit)
+                        .addComponent(RpassField1)
+                        .addComponent(RdepositAmount)
                         .addComponent(RaccountNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
-                        .addComponent(firstname)
-                        .addComponent(email)
-                        .addComponent(lastname, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pnumber, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(RfirstName)
+                        .addComponent(RemailId)
+                        .addComponent(RlastName, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(RphoneNumber, javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel3))
-                        .addComponent(cpass, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addComponent(RpassField2, javax.swing.GroupLayout.Alignment.LEADING))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
@@ -206,28 +258,28 @@ public class Registration extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(RaccountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(firstname, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RfirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lastname, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RlastName, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RemailId, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jRadioButton1)
                     .addComponent(jRadioButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnumber, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RphoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(deposit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RdepositAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RpassField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cpass, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RpassField2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -269,29 +321,29 @@ public class Registration extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void firstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstnameActionPerformed
+    private void RfirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RfirstNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_firstnameActionPerformed
+    }//GEN-LAST:event_RfirstNameActionPerformed
 
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+    private void RemailIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemailIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailActionPerformed
+    }//GEN-LAST:event_RemailIdActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
-    private void lastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastnameActionPerformed
+    private void RlastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RlastNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lastnameActionPerformed
+    }//GEN-LAST:event_RlastNameActionPerformed
 
-    private void pnumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pnumberActionPerformed
+    private void RphoneNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RphoneNumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_pnumberActionPerformed
+    }//GEN-LAST:event_RphoneNumberActionPerformed
 
     private void RaccountNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RaccountNumberActionPerformed
         // TODO add your handling code here:
-        System.out.println("jfsdlf");
+        
     }//GEN-LAST:event_RaccountNumberActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -317,16 +369,18 @@ public class Registration extends javax.swing.JFrame {
     
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void depositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositActionPerformed
+    private void RdepositAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RdepositAmountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_depositActionPerformed
+    }//GEN-LAST:event_RdepositAmountActionPerformed
 
-    Boolean b1= true;
+    Boolean B2= true;
     private void RaccountNumberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RaccountNumberMouseClicked
         // TODO add your handling code here:
-        if(b1){
+        if(B2){
             RaccountNumber.setText("");
+            B2=false;
         }
+        RaccountNumber.setEditable(true);
     }//GEN-LAST:event_RaccountNumberMouseClicked
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
@@ -334,6 +388,117 @@ public class Registration extends javax.swing.JFrame {
   
         
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    Boolean B1=true;
+    private void RaccountNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RaccountNumberKeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyChar();
+         
+        if( key >='0' && key <='9' || evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ){
+            if(B1){
+                RaccountNumber.setText("");
+            }
+             RaccountNumber.setEditable(true);
+             RaccountNumber.setForeground(new java.awt.Color(0, 0, 0));
+            B1=false;
+            B2=false;
+        }else{       
+            RaccountNumber.setEditable(false);   
+        }
+    }//GEN-LAST:event_RaccountNumberKeyPressed
+    Boolean B3=true;
+    private void RfirstNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RfirstNameFocusGained
+        // TODO add your handling code here:
+        if(B3){
+            RfirstName.setText("");
+            B3=false;
+        }
+    }//GEN-LAST:event_RfirstNameFocusGained
+    
+    Boolean B4=true;
+    private void RlastNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RlastNameFocusGained
+         // TODO add your handling code here:
+        if(B4){
+            RlastName.setText("");
+            B4=false;
+        }
+    }//GEN-LAST:event_RlastNameFocusGained
+    
+    Boolean B5=true;
+    private void RemailIdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RemailIdFocusGained
+       // TODO add your handling code here:
+        if(B5){
+            RemailId.setText("");
+            B5=false;
+        }
+    }//GEN-LAST:event_RemailIdFocusGained
+    
+    Boolean B6=true;
+    private void RphoneNumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RphoneNumberFocusGained
+        // TODO add your handling code here:                                    
+        // TODO add your handling code here:
+        if(B6){
+            RphoneNumber.setText("");
+            B6=false;
+        }
+    }//GEN-LAST:event_RphoneNumberFocusGained
+
+    private void RphoneNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RphoneNumberKeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyChar();
+         
+        if( key >='0' && key <='9' || evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ){
+             RphoneNumber.setEditable(true);
+             RphoneNumber.setForeground(new java.awt.Color(0, 0, 0));
+           
+        }else{       
+            RphoneNumber.setEditable(false);   
+        }
+    }//GEN-LAST:event_RphoneNumberKeyPressed
+
+    private void RdepositAmountKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RdepositAmountKeyPressed
+        // TODO add your handling code here:
+        int key=evt.getKeyChar();
+         
+        if( key >='0' && key <='9' || evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ){
+             RdepositAmount.setEditable(true);
+             RdepositAmount.setForeground(new java.awt.Color(0, 0, 0));
+            
+        }else{       
+            RdepositAmount.setEditable(false);   
+        }
+    }//GEN-LAST:event_RdepositAmountKeyPressed
+
+    Boolean B7=true;
+    private void RdepositAmountFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RdepositAmountFocusGained
+                // TODO add your handling code here:
+        if( B7 ){
+            RdepositAmount.setText("");
+            B7=false;
+        }
+    }//GEN-LAST:event_RdepositAmountFocusGained
+
+        Boolean B8=true;
+    private void RpassField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RpassField1FocusGained
+        // TODO add your handling code here:
+    
+        if(B8){
+            RpassField1.setText("");
+            RpassField1.setEchoChar('*');
+            B8=false;
+        }
+    }//GEN-LAST:event_RpassField1FocusGained
+
+    Boolean B9=true;
+    private void RpassField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RpassField2FocusGained
+        // TODO add your handling code here:
+        
+        if(B9){
+            RpassField2.setText("");
+            RpassField2.setEchoChar('*');
+            B9=false;
+        }
+    }//GEN-LAST:event_RpassField2FocusGained
 
     /**
      * @param args the command line arguments
@@ -366,13 +531,16 @@ public class Registration extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField RaccountNumber;
+    private javax.swing.JTextField RdepositAmount;
+    private javax.swing.JTextField RemailId;
+    private javax.swing.JTextField RfirstName;
+    private javax.swing.JTextField RlastName;
+    private javax.swing.JPasswordField RpassField1;
+    private javax.swing.JPasswordField RpassField2;
+    private javax.swing.JTextField RphoneNumber;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
-    private javax.swing.JPasswordField cpass;
-    private javax.swing.JTextField deposit;
-    private javax.swing.JTextField email;
-    private javax.swing.JTextField firstname;
     private javax.swing.JButton jButton1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
@@ -384,8 +552,5 @@ public class Registration extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JTextField lastname;
-    private javax.swing.JPasswordField pass;
-    private javax.swing.JTextField pnumber;
     // End of variables declaration//GEN-END:variables
 }

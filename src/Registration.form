@@ -96,19 +96,19 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="pass" max="32767" attributes="0"/>
-                              <Component id="deposit" max="32767" attributes="0"/>
+                              <Component id="RpassField1" max="32767" attributes="0"/>
+                              <Component id="RdepositAmount" max="32767" attributes="0"/>
                               <Component id="RaccountNumber" pref="306" max="32767" attributes="0"/>
-                              <Component id="firstname" max="32767" attributes="0"/>
-                              <Component id="email" alignment="1" max="32767" attributes="0"/>
-                              <Component id="lastname" alignment="0" max="32767" attributes="0"/>
-                              <Component id="pnumber" alignment="0" max="32767" attributes="0"/>
+                              <Component id="RfirstName" max="32767" attributes="0"/>
+                              <Component id="RemailId" alignment="1" max="32767" attributes="0"/>
+                              <Component id="RlastName" alignment="0" max="32767" attributes="0"/>
+                              <Component id="RphoneNumber" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel2" min="-2" pref="116" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="cpass" alignment="0" max="32767" attributes="0"/>
+                              <Component id="RpassField2" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabel4" min="-2" pref="69" max="-2" attributes="0"/>
@@ -143,11 +143,11 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="RaccountNumber" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="firstname" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="RfirstName" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="lastname" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="RlastName" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="email" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="RemailId" min="-2" pref="38" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
@@ -155,18 +155,18 @@
                           <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pnumber" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="RphoneNumber" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel5" pref="30" max="32767" attributes="0"/>
                           <Component id="jDateChooser1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="deposit" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="RdepositAmount" min="-2" pref="35" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="pass" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="RpassField1" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="cpass" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="RpassField2" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" pref="38" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
@@ -190,7 +190,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="firstname">
+            <Component class="javax.swing.JTextField" name="RfirstName">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="78" green="78" red="78" type="rgb"/>
@@ -201,10 +201,11 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstnameActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="RfirstNameFocusGained"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RfirstNameActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="lastname">
+            <Component class="javax.swing.JTextField" name="RlastName">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="78" green="78" red="78" type="rgb"/>
@@ -215,10 +216,11 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lastnameActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="RlastNameFocusGained"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RlastNameActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="email">
+            <Component class="javax.swing.JTextField" name="RemailId">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="78" green="78" red="78" type="rgb"/>
@@ -229,7 +231,8 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emailActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="RemailIdFocusGained"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RemailIdActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
@@ -259,7 +262,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton2ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="pnumber">
+            <Component class="javax.swing.JTextField" name="RphoneNumber">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="78" green="78" red="78" type="rgb"/>
@@ -270,7 +273,9 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pnumberActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="RphoneNumberFocusGained"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RphoneNumberActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="RphoneNumberKeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
@@ -291,9 +296,10 @@
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="RaccountNumberMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RaccountNumberActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="RaccountNumberKeyPressed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="deposit">
+            <Component class="javax.swing.JTextField" name="RdepositAmount">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="78" green="78" red="78" type="rgb"/>
@@ -304,10 +310,12 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="depositActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="RdepositAmountFocusGained"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RdepositAmountActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="RdepositAmountKeyPressed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="pass">
+            <Component class="javax.swing.JPasswordField" name="RpassField1">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="78" green="78" red="78" type="rgb"/>
@@ -317,6 +325,9 @@
                   <Connection code="new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true)" type="code"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="RpassField1FocusGained"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
@@ -332,7 +343,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="cpass">
+            <Component class="javax.swing.JPasswordField" name="RpassField2">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="78" green="78" red="78" type="rgb"/>
@@ -342,6 +353,9 @@
                   <Connection code="new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true)" type="code"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="RpassField2FocusGained"/>
+              </Events>
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
             </Component>
