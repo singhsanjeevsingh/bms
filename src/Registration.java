@@ -1,5 +1,6 @@
 import java.sql.*;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -216,6 +217,8 @@ public class Registration extends javax.swing.JFrame {
             }
         });
 
+        jDateChooser1.setDateFormatString("yyyy-MM-dd");
+
         jButton2.setBackground(new java.awt.Color(176, 82, 240));
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton2.setText("Confirm");
@@ -240,7 +243,7 @@ public class Registration extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -334,7 +337,8 @@ public class Registration extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(818, 679));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void RfirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RfirstNameActionPerformed
@@ -364,25 +368,8 @@ public class Registration extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     
-        int p=JOptionPane.showConfirmDialog(null, "Are you Sure to save?","Confirm",JOptionPane.YES_NO_OPTION);
-        if(p==0)
-        {
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankManagement","root","sachin@123");
-                Statement stm =con.createStatement();
-                
-                
-                
-                
-            }
-            catch (ClassNotFoundException | SQLException e){
-                
-            }
-        }
-
-
-    
+        new Login().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void RdepositAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RdepositAmountActionPerformed
@@ -518,6 +505,58 @@ public class Registration extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankManagement","root","Kabcd02.");
+                String sql = "insert into AccountDetails values(?,?,?,?,?,?,?,?,?);";
+                PreparedStatement pst = con.prepareStatement(sql);
+                String gender="";
+                if(jRadioButton1.isSelected())
+                {
+                    gender = "Male";
+                }
+                if(jRadioButton2.isSelected())
+                {
+                    gender = "Female";
+                }
+                pst.setString(1,RaccountNumber.getText());
+                pst.setString(2,RfirstName.getText());
+                pst.setString(3,RlastName.getText());
+                pst.setString(4,RemailId.getText());
+                pst.setString(5,gender);
+                pst.setString(6,RphoneNumber.getText());
+                pst.setString(7,((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText());
+                pst.setString(8,RdepositAmount.getText());
+                pst.setString(9,new String(RpassField1.getPassword()));
+                
+                if(new String(RpassField1.getPassword()).equals(new String(RpassField2.getPassword())))
+                {
+                    
+                   int p=JOptionPane.showConfirmDialog(null, "Are you Sure to save?","Confirm",JOptionPane.YES_NO_OPTION);
+                   if(p==0)
+                   {
+                       pst.execute();
+                       JOptionPane.showMessageDialog(null,"Account created sucessfully ");
+                       new Login().setVisible(true);
+                       this.setVisible(false);
+                   }
+                   else
+                   {
+                       this.setVisible(true);
+                   }
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null,"Password not matched please check ! ");
+                }
+                
+                
+            }
+            catch (ClassNotFoundException | SQLException e){
+                JOptionPane.showMessageDialog(null,e.getMessage());
+            }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
