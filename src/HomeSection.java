@@ -23,6 +23,7 @@ public class HomeSection extends javax.swing.JFrame {
         homepanel.setVisible(true);
         transactionpanel.setVisible(false);
         ProfilePanel.setVisible(false);
+        
     }
 
     /**

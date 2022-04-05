@@ -3,12 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 import java.awt.*;
-import javax.swing.*;
 import java.sql.*;
 import javax.swing.JOptionPane;
 /**
  *
- * @author Sachin Kumar
+ * @author  Kumar
  */
 public class Login extends javax.swing.JFrame {
 
@@ -82,6 +81,9 @@ public class Login extends javax.swing.JFrame {
         LregisterButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 LregisterButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LregisterButtonMouseExited(evt);
             }
         });
         LregisterButton.addActionListener(new java.awt.event.ActionListener() {
@@ -278,17 +280,39 @@ public class Login extends javax.swing.JFrame {
 
     
     private void LpassFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LpassFieldKeyPressed
-        // TODO add your handling code here:
-         /*int key= evt.getKeyCode();
-        
+        //TODO add your handling code here:
+         int key= evt.getKeyCode();
+         LpassField.setEchoChar('*');
          if( key==10){
             //comparision yahan pr krio next screen pr jaane ke liye
-             this.setVisible(false);
-            new HomeSection().setVisible(true);
-        }else{
-            LpassField.setEchoChar('*');
-            LpassField.setForeground(new java.awt.Color(0, 0, 0));
-        }*/
+            try {
+                
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankManagement","root","Kabcd02.");
+                Statement stm =con.createStatement();
+                String accountn = LaccountField.getText();
+                String pass = new String(LpassField.getPassword());
+                
+                String sql = "select * from AccountDetails where AccountNumber = '"+accountn+"' and Password ='"+pass+"'; ";
+                
+                ResultSet rs = stm.executeQuery(sql);
+            
+                if(rs.next())
+                {
+                    new HomeSection().setVisible(true);
+                    this.setVisible(false);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Incorrect Username Or Password", "Login Failed", 2);
+                }
+            
+            }
+            catch (HeadlessException | ClassNotFoundException | SQLException e)
+            {
+                JOptionPane.showMessageDialog(null,e.getMessage());
+            }
+        }
     }//GEN-LAST:event_LpassFieldKeyPressed
     Boolean B4=true;
     private void LpassFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LpassFieldFocusGained
@@ -330,8 +354,14 @@ public class Login extends javax.swing.JFrame {
 
     private void LregisterButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LregisterButtonMouseEntered
         // TODO add your handling code here:
+       LregisterButton.setBackground(new java.awt.Color(51,153, 0));
        LregisterButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_LregisterButtonMouseEntered
+
+    private void LregisterButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LregisterButtonMouseExited
+        // TODO add your handling code here:
+        LregisterButton.setBackground(new java.awt.Color(176, 82, 240));
+    }//GEN-LAST:event_LregisterButtonMouseExited
 
    
     /**
@@ -369,6 +399,7 @@ public class Login extends javax.swing.JFrame {
         });
     }
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LForgetField;
     private javax.swing.JTextField LaccountField;
