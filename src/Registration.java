@@ -15,8 +15,12 @@ public class Registration extends javax.swing.JFrame {
     /**
      * Creates new form Registration
      */
+    Connection con =null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
     public Registration() {
         initComponents();
+        con = database.db();
         RpassField1.setEchoChar( (char) 0);
         RpassField2.setEchoChar( (char) 0);
     }
@@ -507,10 +511,9 @@ public class Registration extends javax.swing.JFrame {
         // TODO add your handling code here:
         
             try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankManagement","root","Kabcd02.");
+                
                 String sql = "insert into AccountDetails values(?,?,?,?,?,?,?,?,?);";
-                PreparedStatement pst = con.prepareStatement(sql);
+                pst = con.prepareStatement(sql);
                 String gender="";
                 if(jRadioButton1.isSelected())
                 {
@@ -553,7 +556,7 @@ public class Registration extends javax.swing.JFrame {
                 
                 
             }
-            catch (ClassNotFoundException | SQLException e){
+            catch (SQLException e){
                 JOptionPane.showMessageDialog(null,e.getMessage());
             }
         

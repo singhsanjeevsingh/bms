@@ -14,9 +14,13 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    Connection con =null;
+    ResultSet rs = null;
+    Statement stm = null;
     public Login() {
         
         initComponents();
+        con = database.db();
         LpassField.setEchoChar( (char) 0);
         LForgetField.setText("<html>Forget Password ?</html>");
         LForgetField.setAlignmentX(RIGHT_ALIGNMENT);
@@ -195,15 +199,14 @@ public class Login extends javax.swing.JFrame {
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
         // TODO add your handling code here:
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankManagement","root","Kabcd02.");
-            Statement stm =con.createStatement();
+            
+            stm =con.createStatement();
             String accountn = LaccountField.getText();
             String pass = new String(LpassField.getPassword());
             
             String sql = "select * from AccountDetails where AccountNumber = '"+accountn+"' and Password ='"+pass+"'; ";
             
-            ResultSet rs = stm.executeQuery(sql);
+            rs = stm.executeQuery(sql);
             
             if(rs.next())
             {
@@ -216,7 +219,7 @@ public class Login extends javax.swing.JFrame {
             }
             
         }
-        catch (HeadlessException | ClassNotFoundException | SQLException e)
+        catch (HeadlessException | SQLException e)
         {
             JOptionPane.showMessageDialog(null,e.getMessage());
         }
@@ -287,15 +290,14 @@ public class Login extends javax.swing.JFrame {
             //comparision yahan pr krio next screen pr jaane ke liye
             try {
                 
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankManagement","root","Kabcd02.");
-                Statement stm =con.createStatement();
+                
+                stm =con.createStatement();
                 String accountn = LaccountField.getText();
                 String pass = new String(LpassField.getPassword());
                 
                 String sql = "select * from AccountDetails where AccountNumber = '"+accountn+"' and Password ='"+pass+"'; ";
                 
-                ResultSet rs = stm.executeQuery(sql);
+                rs = stm.executeQuery(sql);
             
                 if(rs.next())
                 {
@@ -308,7 +310,7 @@ public class Login extends javax.swing.JFrame {
                 }
             
             }
-            catch (HeadlessException | ClassNotFoundException | SQLException e)
+            catch (HeadlessException | SQLException e)
             {
                 JOptionPane.showMessageDialog(null,e.getMessage());
             }
@@ -402,7 +404,7 @@ public class Login extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LForgetField;
-    private javax.swing.JTextField LaccountField;
+    public static javax.swing.JTextField LaccountField;
     private javax.swing.JButton LoginButton;
     private javax.swing.JPasswordField LpassField;
     private javax.swing.JButton LregisterButton;
