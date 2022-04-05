@@ -1,4 +1,5 @@
 
+import java.awt.Cursor;
 import javax.swing.JOptionPane;
 import java.sql.*;
 
@@ -17,6 +18,7 @@ public class HomeSection extends javax.swing.JFrame {
     /**
      * Creates new form Deposit_And_Withdrawal
      */
+    //String acountn = Login.LaccountField.getText();
     public HomeSection() {
         initComponents();
         
@@ -25,6 +27,7 @@ public class HomeSection extends javax.swing.JFrame {
         ProfilePanel.setVisible(false);
         
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -134,6 +137,12 @@ public class HomeSection extends javax.swing.JFrame {
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel1MouseExited(evt);
             }
         });
 
@@ -797,6 +806,8 @@ public class HomeSection extends javax.swing.JFrame {
 
     private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
         // TODO add your handling code here:   
+       
+        
     }//GEN-LAST:event_jLabel2MouseEntered
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
@@ -881,6 +892,16 @@ public class HomeSection extends javax.swing.JFrame {
                        this.setVisible(true);
                    }
     }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void jPanel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseEntered
+        // TODO add your handling code here:
+         
+    }//GEN-LAST:event_jPanel1MouseEntered
+
+    private void jPanel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseExited
+        // TODO add your handling code here:
+         
+    }//GEN-LAST:event_jPanel1MouseExited
 
     /**
      * @param args the command line arguments
