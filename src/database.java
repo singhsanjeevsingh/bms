@@ -12,8 +12,6 @@ import java.sql.*;
 import javax.swing.*;
 
 public class database {
-    
-    Connection con = null;
     public static Connection db(){
        try {
            Class.forName("com.mysql.jdbc.Driver");
