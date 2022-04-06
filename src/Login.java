@@ -4,6 +4,8 @@
  */
 import java.awt.*;
 import java.sql.*;
+import javax.swing.JFrame;
+
 import javax.swing.JOptionPane;
 /**
  *
@@ -11,6 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class Login extends javax.swing.JFrame {
 
+    public static JFrame jframe;
     /**
      * Creates new form Login
      */
@@ -24,6 +27,7 @@ public class Login extends javax.swing.JFrame {
         LpassField.setEchoChar( (char) 0);
         LForgetField.setText("<html>Forget Password ?</html>");
         LForgetField.setAlignmentX(RIGHT_ALIGNMENT);
+        LaccountField.setCaretPosition(1);
     }
 
     /**
@@ -101,6 +105,14 @@ public class Login extends javax.swing.JFrame {
         LaccountField.setText(" Account Number");
         LaccountField.setToolTipText("Account Number");
         LaccountField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
+        LaccountField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                LaccountFieldFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                LaccountFieldFocusLost(evt);
+            }
+        });
         LaccountField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 LaccountFieldMouseClicked(evt);
@@ -149,6 +161,9 @@ public class Login extends javax.swing.JFrame {
         LForgetField.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         LForgetField.setText("Forget Password ?");
         LForgetField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LForgetFieldMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 LForgetFieldMouseEntered(evt);
             }
@@ -172,6 +187,9 @@ public class Login extends javax.swing.JFrame {
         LpassField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 LpassFieldFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                LpassFieldFocusLost(evt);
             }
         });
         LpassField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -264,7 +282,7 @@ public class Login extends javax.swing.JFrame {
          int key=evt.getKeyChar();
          
         if(B1 && key >='0' && key <='9' || evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ){
-            if(B1){
+            if(B1 || LaccountField.getText().equals("Account Number")){
             LaccountField.setText("");
             }
             LaccountField.setEditable(true);
@@ -281,52 +299,7 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_LaccountFieldKeyPressed
 
-    
-    private void LpassFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LpassFieldKeyPressed
-        //TODO add your handling code here:
-         int key= evt.getKeyCode();
-         LpassField.setEchoChar('*');
-         if( key==10){
-            //comparision yahan pr krio next screen pr jaane ke liye
-            try {
-                
-                
-                stm =con.createStatement();
-                String accountn = LaccountField.getText();
-                String pass = new String(LpassField.getPassword());
-                
-                String sql = "select * from AccountDetails where AccountNumber = '"+accountn+"' and Password ='"+pass+"'; ";
-                
-                rs = stm.executeQuery(sql);
-            
-                if(rs.next())
-                {
-                    new HomeSection().setVisible(true);
-                    this.setVisible(false);
-                }
-                else
-                {
-                    JOptionPane.showMessageDialog(null, "Incorrect Username Or Password", "Login Failed", 2);
-                }
-            
-            }
-            catch (HeadlessException | SQLException e)
-            {
-                JOptionPane.showMessageDialog(null,e.getMessage());
-            }
-        }
-    }//GEN-LAST:event_LpassFieldKeyPressed
-    Boolean B4=true;
-    private void LpassFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LpassFieldFocusGained
-        // TODO add your handling code here:
-        if(B4){
-            LpassField.setText("");
-            B4=false;
-            
-        }
-        
-    }//GEN-LAST:event_LpassFieldFocusGained
-
+        Boolean B4=true;
     private void LoginButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LoginButtonKeyPressed
         // TODO add your handling code here:
        
@@ -365,7 +338,90 @@ public class Login extends javax.swing.JFrame {
         LregisterButton.setBackground(new java.awt.Color(176, 82, 240));
     }//GEN-LAST:event_LregisterButtonMouseExited
 
-   
+    private void LaccountFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LaccountFieldFocusLost
+        // TODO add your handling code here:
+        if(LaccountField.getText().equals("")){
+            LaccountField.setForeground(new java.awt.Color(120, 120, 120));
+            LaccountField.setText("Account Number");
+           
+        }
+    }//GEN-LAST:event_LaccountFieldFocusLost
+
+    private void LaccountFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LaccountFieldFocusGained
+        // TODO add your handling code here:
+        if(LaccountField.getText().equals("Account Number")){
+            LaccountField.setText("");
+        }
+    }//GEN-LAST:event_LaccountFieldFocusGained
+
+    private void LpassFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LpassFieldKeyPressed
+        //TODO add your handling code here:
+        int key= evt.getKeyCode();
+        LpassField.setForeground(new java.awt.Color(0, 0, 0));
+        LpassField.setEchoChar('*');
+        if( key==10){
+            //comparision yahan pr krio next screen pr jaane ke liye
+            try {
+
+                stm =con.createStatement();
+                String accountn = LaccountField.getText();
+                String pass = new String(LpassField.getPassword());
+
+                String sql = "select * from AccountDetails where AccountNumber = '"+accountn+"' and Password ='"+pass+"'; ";
+
+                rs = stm.executeQuery(sql);
+
+                if(rs.next())
+                {
+                    new HomeSection().setVisible(true);
+                    this.setVisible(false);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Incorrect Username Or Password", "Login Failed", 2);
+                }
+
+            }
+            catch (HeadlessException | SQLException e)
+            {
+                JOptionPane.showMessageDialog(null,e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_LpassFieldKeyPressed
+
+    private void LpassFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LpassFieldFocusLost
+        // TODO add your handling code here:
+        String pass= new String(LpassField.getPassword());
+
+        if( pass.equals("")){
+            LpassField.setForeground(new java.awt.Color(120, 120, 120));
+            LpassField.setText("Password");
+            LpassField.setEchoChar( (char) 0);
+        }
+
+    }//GEN-LAST:event_LpassFieldFocusLost
+
+    private void LpassFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LpassFieldFocusGained
+        // TODO add your handling code here:
+        String pass = new String(LpassField.getPassword());
+        if(B4 || pass.equals("Password")){
+            LpassField.setText("");
+            B4=false;
+
+        }
+
+    }//GEN-LAST:event_LpassFieldFocusGained
+
+    private void LForgetFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LForgetFieldMouseClicked
+        // TODO add your handling code here:
+        new ResetPassword().setVisible(true);
+        jframe =this;
+        jframe.setEnabled(false);
+    }//GEN-LAST:event_LForgetFieldMouseClicked
+
+   public JFrame getJframe(){
+       return this;
+   }
     /**
      * @param args the command line arguments
      */
