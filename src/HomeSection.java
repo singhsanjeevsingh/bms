@@ -1,9 +1,9 @@
 
 import java.awt.Cursor;
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
-import java.time.LocalDate;
 
 
 /*
@@ -17,14 +17,21 @@ import java.time.LocalDate;
  */
 public class HomeSection extends javax.swing.JFrame {
 
-    /**
+    private final DefaultTableModel model;
+/**
      * Creates new form Deposit_And_Withdrawal
      */
-    
-    private final String account;
+        private  String account;
+        private  Connection con;
+        private  Statement stm;
+        private ResultSet rs;
+        
+        
     public HomeSection() {
+        
         initComponents();
         
+        this.model = (DefaultTableModel)TransactionTable.getModel();
         homepanel.setVisible(true);
         transactionpanel.setVisible(false);
         ProfilePanel.setVisible(false);
@@ -32,20 +39,20 @@ public class HomeSection extends javax.swing.JFrame {
         String accountn = Login.LaccountField.getText();
         accountdetails info = new  accountdetails(accountn);
         jLabel11.setText(info.fname);
-        jLabel16.setText(""+info.deopsitamount);
+        jLabel16.setText(""+info.depositamount);
         account = accountn;
         if(transaction.check()){
             try {
-                Connection con = database.db();
-                Statement stm = con.createStatement();
+                con = database.db();
+                stm = con.createStatement();
                 String sql = "select * from transactions where AccountNumber = '"+accountn+"'; ";
-                ResultSet rs = stm.executeQuery(sql);
+                rs = stm.executeQuery(sql);
                 while (rs.next()){
                     Date tdate =rs.getDate("Date");
                     String ac = rs.getString("AccountNumber");
                     double amount = rs.getDouble("Amount");
                     String cd = rs.getString("CorD");
-                    DefaultTableModel model = (DefaultTableModel)TransactionTable.getModel();
+                    
                     model .addRow(new Object [] {tdate,ac,amount,cd});
                 }
             }
@@ -860,25 +867,6 @@ public class HomeSection extends javax.swing.JFrame {
         homepanel.setVisible(true);
         transactionpanel.setVisible(false);
         ProfilePanel.setVisible(false);
-        if(transaction.check()){
-            try {
-                Connection con = database.db();
-                Statement stm = con.createStatement();
-                String sql = "select * from transactions where AccountNumber = '"+account+"'; ";
-                ResultSet rs = stm.executeQuery(sql);
-                while (rs.next()){
-                    Date tdate =rs.getDate("Date");
-                    String ac = rs.getString("AccountNumber");
-                    double amount = rs.getDouble("Amount");
-                    String cd = rs.getString("CorD");
-                    DefaultTableModel model = (DefaultTableModel)TransactionTable.getModel();
-                    model .addRow(new Object [] {tdate,ac,amount,cd});
-                }
-            }
-            catch (SQLException e){
-                JOptionPane.showMessageDialog(null, e.getMessage(),"Error !!", 3);
-            }
-        }
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
@@ -886,25 +874,6 @@ public class HomeSection extends javax.swing.JFrame {
         homepanel.setVisible(true);
         transactionpanel.setVisible(false);
         ProfilePanel.setVisible(false);
-        if(transaction.check()){
-            try {
-                Connection con = database.db();
-                Statement stm = con.createStatement();
-                String sql = "select * from transactions where AccountNumber = '"+account+"'; ";
-                ResultSet rs = stm.executeQuery(sql);
-                while (rs.next()){
-                    Date tdate =rs.getDate("Date");
-                    String ac = rs.getString("AccountNumber");
-                    double amount = rs.getDouble("Amount");
-                    String cd = rs.getString("CorD");
-                    DefaultTableModel model = (DefaultTableModel)TransactionTable.getModel();
-                    model .addRow(new Object [] {tdate,ac,amount,cd});
-                }
-            }
-            catch (SQLException e){
-                JOptionPane.showMessageDialog(null, e.getMessage(),"Error !!", 3);
-            }
-        }
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
@@ -980,10 +949,10 @@ public class HomeSection extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try{
-            Connection con =database.db();
-            Statement stm =  con.createStatement();
+            con =database.db();
+            stm =  con.createStatement();
             String sql ="select * from AccountDetails where AccountNumber = '"+account+"'; ";
-            ResultSet rs = stm.executeQuery(sql);
+            rs = stm.executeQuery(sql);
            while(rs.next()){
                 double amt =Double.parseDouble(jTextField1.getText());
                 java.sql.Date date=new java.sql.Date(System.currentTimeMillis());
@@ -998,17 +967,38 @@ public class HomeSection extends javax.swing.JFrame {
                 
                 amt =rs.getDouble("Deposit")-amt;
                 accountdetails info = new accountdetails(account);
-                info.deopsitamount= amt;
+                info.depositamount= amt;
                 String query2 = "update AccountDetails set Deposit = ? where AccountNumber = ?;";
                 PreparedStatement pst1 = con.prepareStatement(query2);
                 pst1.setDouble(1,amt); 
                 pst1.setString(2, account);
                 pst1.execute();
+                
+                jLabel16.setText(" "+info.depositamount);
             }
-            
-           JOptionPane.showMessageDialog(null,"Amount deposited ","Deposit",2);
+           JOptionPane.showMessageDialog(null,"Amount Debited ","Withdrawal",3);
+           model.setRowCount(0);
+           if(transaction.check()){
+            try {
+                con = database.db();
+                stm = con.createStatement();
+                String sql1 = "select * from transactions where AccountNumber = '"+account+"'; ";
+                rs = stm.executeQuery(sql1);
+                while (rs.next()){
+                    Date tdate =rs.getDate("Date");
+                    String ac = rs.getString("AccountNumber");
+                    double amount = rs.getDouble("Amount");
+                    String cd = rs.getString("CorD");
+                    
+                    model .addRow(new Object [] {tdate,ac,amount,cd});
+                }
+            }
+            catch (SQLException e){
+                JOptionPane.showMessageDialog(null, e.getMessage(),"Error !!", 3);
+            }
         }
-        catch (Exception e){
+        }
+        catch (HeadlessException | NumberFormatException | SQLException e){
             JOptionPane.showMessageDialog(null,e.getMessage(),"Error !",1);
         }
     }//GEN-LAST:event_jButton1ActionPerformed

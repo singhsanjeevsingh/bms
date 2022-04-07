@@ -82,10 +82,18 @@ public class Registration extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 RfirstNameFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                RfirstNameFocusLost(evt);
+            }
         });
         RfirstName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RfirstNameActionPerformed(evt);
+            }
+        });
+        RfirstName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                RfirstNameKeyPressed(evt);
             }
         });
 
@@ -96,10 +104,18 @@ public class Registration extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 RlastNameFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                RlastNameFocusLost(evt);
+            }
         });
         RlastName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RlastNameActionPerformed(evt);
+            }
+        });
+        RlastName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                RlastNameKeyPressed(evt);
             }
         });
 
@@ -109,6 +125,9 @@ public class Registration extends javax.swing.JFrame {
         RemailId.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 RemailIdFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                RemailIdFocusLost(evt);
             }
         });
         RemailId.addActionListener(new java.awt.event.ActionListener() {
@@ -142,6 +161,9 @@ public class Registration extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 RphoneNumberFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                RphoneNumberFocusLost(evt);
+            }
         });
         RphoneNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,6 +181,14 @@ public class Registration extends javax.swing.JFrame {
         RaccountNumber.setForeground(new java.awt.Color(120, 120, 120));
         RaccountNumber.setText(" Account Number");
         RaccountNumber.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
+        RaccountNumber.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                RaccountNumberFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                RaccountNumberFocusLost(evt);
+            }
+        });
         RaccountNumber.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 RaccountNumberMouseClicked(evt);
@@ -176,11 +206,14 @@ public class Registration extends javax.swing.JFrame {
         });
 
         RdepositAmount.setForeground(new java.awt.Color(120, 120, 120));
-        RdepositAmount.setText("Deposit Amount");
+        RdepositAmount.setText(" Deposit Amount");
         RdepositAmount.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
         RdepositAmount.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 RdepositAmountFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                RdepositAmountFocusLost(evt);
             }
         });
         RdepositAmount.addActionListener(new java.awt.event.ActionListener() {
@@ -195,11 +228,14 @@ public class Registration extends javax.swing.JFrame {
         });
 
         RpassField1.setForeground(new java.awt.Color(120, 120, 120));
-        RpassField1.setText("Password");
+        RpassField1.setText(" Password");
         RpassField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
         RpassField1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 RpassField1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                RpassField1FocusLost(evt);
             }
         });
 
@@ -213,11 +249,14 @@ public class Registration extends javax.swing.JFrame {
         });
 
         RpassField2.setForeground(new java.awt.Color(120, 120, 120));
-        RpassField2.setText("Password");
+        RpassField2.setText(" Confirm Password");
         RpassField2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
         RpassField2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 RpassField2FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                RpassField2FocusLost(evt);
             }
         });
 
@@ -383,7 +422,7 @@ public class Registration extends javax.swing.JFrame {
     Boolean B2= true;
     private void RaccountNumberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RaccountNumberMouseClicked
         // TODO add your handling code here:
-        if(B2){
+        if(RaccountNumber.getText().equals( " Account Number")){
             RaccountNumber.setText("");
             B2=false;
         }
@@ -413,40 +452,38 @@ public class Registration extends javax.swing.JFrame {
             RaccountNumber.setEditable(false);   
         }
     }//GEN-LAST:event_RaccountNumberKeyPressed
-    Boolean B3=true;
+   
     private void RfirstNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RfirstNameFocusGained
         // TODO add your handling code here:
-        if(B3){
+        if( RfirstName.getText().equals(" First Name")){
             RfirstName.setText("");
-            B3=false;
         }
     }//GEN-LAST:event_RfirstNameFocusGained
     
-    Boolean B4=true;
+   
     private void RlastNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RlastNameFocusGained
          // TODO add your handling code here:
-        if(B4){
+        if(RlastName.getText().equals(" Last Name")){
             RlastName.setText("");
-            B4=false;
         }
     }//GEN-LAST:event_RlastNameFocusGained
     
-    Boolean B5=true;
+   
     private void RemailIdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RemailIdFocusGained
        // TODO add your handling code here:
-        if(B5){
+        if( RemailId.getText().equals(" Email Id")){
             RemailId.setText("");
-            B5=false;
+         
         }
     }//GEN-LAST:event_RemailIdFocusGained
     
-    Boolean B6=true;
+   
     private void RphoneNumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RphoneNumberFocusGained
         // TODO add your handling code here:                                    
         // TODO add your handling code here:
-        if(B6){
+        if(RphoneNumber.getText().equals(" Phone Number")){
             RphoneNumber.setText("");
-            B6=false;
+           
         }
     }//GEN-LAST:event_RphoneNumberFocusGained
 
@@ -476,34 +513,32 @@ public class Registration extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_RdepositAmountKeyPressed
 
-    Boolean B7=true;
+  
     private void RdepositAmountFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RdepositAmountFocusGained
                 // TODO add your handling code here:
-        if( B7 ){
+        if(  RdepositAmount.getText().equals(" Deposit Amount")){
             RdepositAmount.setText("");
-            B7=false;
         }
     }//GEN-LAST:event_RdepositAmountFocusGained
 
-        Boolean B8=true;
+        
     private void RpassField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RpassField1FocusGained
         // TODO add your handling code here:
     
-        if(B8){
+        if( new String(RpassField1.getPassword()).equals(" Password")){
             RpassField1.setText("");
             RpassField1.setEchoChar('*');
-            B8=false;
+           
         }
     }//GEN-LAST:event_RpassField1FocusGained
 
-    Boolean B9=true;
+    
     private void RpassField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RpassField2FocusGained
         // TODO add your handling code here:
         
-        if(B9){
-            RpassField2.setText("");
-            RpassField2.setEchoChar('*');
-            B9=false;
+        if(new  String( RpassField2.getPassword()).equals(" Confirm Password")){
+                RpassField2.setEchoChar( '*');
+                RpassField2.setText("");
         }
     }//GEN-LAST:event_RpassField2FocusGained
 
@@ -561,6 +596,87 @@ public class Registration extends javax.swing.JFrame {
             }
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void RaccountNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RaccountNumberFocusLost
+        // TODO add your handling code here:
+        if(RaccountNumber.getText().equals("")){
+            RaccountNumber.setForeground(new java.awt.Color(120, 120, 120));
+            RaccountNumber.setText(" Account Number"); 
+            
+        }
+        B2=false;
+    }//GEN-LAST:event_RaccountNumberFocusLost
+
+    private void RaccountNumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RaccountNumberFocusGained
+        // TODO add your handling code here:
+        if(RaccountNumber.getText().equals(" Account Number") && B2==false){
+            RaccountNumber.setText("");
+        }
+    }//GEN-LAST:event_RaccountNumberFocusGained
+
+    private void RfirstNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RfirstNameFocusLost
+        // TODO add your handling code here:
+        if(RfirstName.getText().equals("")){
+            RfirstName.setForeground(new java.awt.Color(120, 120, 120));
+            RfirstName.setText(" First Name");
+        }
+    }//GEN-LAST:event_RfirstNameFocusLost
+
+    private void RlastNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RlastNameFocusLost
+        // TODO add your handling code here:
+        if(RlastName.getText().equals("")){
+            RlastName.setForeground(new java.awt.Color(120, 120, 120));
+            RlastName.setText(" Last Name");
+        }
+    }//GEN-LAST:event_RlastNameFocusLost
+
+    private void RemailIdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RemailIdFocusLost
+        // TODO add your handling code here:
+        if(RemailId.getText().equals("")){
+           
+            RemailId.setText(" Email Id");
+        }
+    }//GEN-LAST:event_RemailIdFocusLost
+
+    private void RphoneNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RphoneNumberFocusLost
+        // TODO add your handling code here:
+        if(RphoneNumber.getText().equals("")){
+            RphoneNumber.setText(" Phone Number");
+        }
+    }//GEN-LAST:event_RphoneNumberFocusLost
+
+    private void RdepositAmountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RdepositAmountFocusLost
+        // TODO add your handling code here:
+        if(RdepositAmount.getText().equals("")){
+            RdepositAmount.setText(" Deposit Amount");
+        }
+    }//GEN-LAST:event_RdepositAmountFocusLost
+
+    private void RpassField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RpassField1FocusLost
+        // TODO add your handling code here:
+        if(new  String( RpassField1.getPassword()).equals("")){
+                RpassField1.setEchoChar( (char) 0);
+                RpassField1.setText(" Password");
+        }
+    }//GEN-LAST:event_RpassField1FocusLost
+
+    private void RpassField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RpassField2FocusLost
+        // TODO add your handling code here:
+        if(new  String( RpassField2.getPassword()).equals("")){
+                RpassField2.setEchoChar( (char) 0);
+                RpassField2.setText(" Confirm Password");
+        }
+    }//GEN-LAST:event_RpassField2FocusLost
+
+    private void RfirstNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RfirstNameKeyPressed
+        // TODO add your handling code here:
+        RfirstName.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_RfirstNameKeyPressed
+
+    private void RlastNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RlastNameKeyPressed
+        // TODO add your handling code here:
+       RlastName.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_RlastNameKeyPressed
 
     /**
      * @param args the command line arguments
