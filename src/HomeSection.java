@@ -2,6 +2,8 @@
 import java.awt.Cursor;
 import javax.swing.JOptionPane;
 import java.sql.*;
+import javax.swing.table.DefaultTableModel;
+import java.time.LocalDate;
 
 
 /*
@@ -18,13 +20,39 @@ public class HomeSection extends javax.swing.JFrame {
     /**
      * Creates new form Deposit_And_Withdrawal
      */
-    //String acountn = Login.LaccountField.getText();
+    
+    private final String account;
     public HomeSection() {
         initComponents();
         
         homepanel.setVisible(true);
         transactionpanel.setVisible(false);
         ProfilePanel.setVisible(false);
+        
+        String accountn = Login.LaccountField.getText();
+        accountdetails info = new  accountdetails(accountn);
+        jLabel11.setText(info.fname);
+        jLabel16.setText(""+info.deopsitamount);
+        account = accountn;
+        if(transaction.check()){
+            try {
+                Connection con = database.db();
+                Statement stm = con.createStatement();
+                String sql = "select * from transactions where AccountNumber = '"+accountn+"'; ";
+                ResultSet rs = stm.executeQuery(sql);
+                while (rs.next()){
+                    Date tdate =rs.getDate("Date");
+                    String ac = rs.getString("AccountNumber");
+                    double amount = rs.getDouble("Amount");
+                    String cd = rs.getString("CorD");
+                    DefaultTableModel model = (DefaultTableModel)TransactionTable.getModel();
+                    model .addRow(new Object [] {tdate,ac,amount,cd});
+                }
+            }
+            catch (SQLException e){
+                JOptionPane.showMessageDialog(null, e.getMessage(),"Error !!", 3);
+            }
+        }
         
     }
     
@@ -106,7 +134,6 @@ public class HomeSection extends javax.swing.JFrame {
         jLabel47 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(860, 638));
         setResizable(false);
 
         headpanel.setBackground(new java.awt.Color(176, 82, 240));
@@ -338,7 +365,6 @@ public class HomeSection extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(176, 82, 240));
-        jLabel11.setText("NameHere!");
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(198, 131, 243));
@@ -346,10 +372,7 @@ public class HomeSection extends javax.swing.JFrame {
 
         TransactionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Date", "Account Number", "Amount", "C/D"
@@ -411,23 +434,29 @@ public class HomeSection extends javax.swing.JFrame {
                             .addGroup(homepanelLayout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel11)))))
-                .addGap(45, 45, 45)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(12, 12, 12)
                 .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
-                .addContainerGap(1464, Short.MAX_VALUE))
+                    .addGroup(homepanelLayout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(jLabel13)))
+                .addContainerGap(1512, Short.MAX_VALUE))
         );
         homepanelLayout.setVerticalGroup(
             homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homepanelLayout.createSequentialGroup()
                 .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(homepanelLayout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11))
+                        .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(homepanelLayout.createSequentialGroup()
+                                .addGap(99, 99, 99)
+                                .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homepanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(homepanelLayout.createSequentialGroup()
@@ -441,8 +470,10 @@ public class HomeSection extends javax.swing.JFrame {
                         .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
                             .addComponent(jLabel17))))
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
+
+        jLabel11.getAccessibleContext().setAccessibleName("");
 
         centeralpanel.add(homepanel, "card2");
 
@@ -462,6 +493,11 @@ public class HomeSection extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(176, 82, 240));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setText("Confirm");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel21.setText("Deposite");
@@ -824,6 +860,25 @@ public class HomeSection extends javax.swing.JFrame {
         homepanel.setVisible(true);
         transactionpanel.setVisible(false);
         ProfilePanel.setVisible(false);
+        if(transaction.check()){
+            try {
+                Connection con = database.db();
+                Statement stm = con.createStatement();
+                String sql = "select * from transactions where AccountNumber = '"+account+"'; ";
+                ResultSet rs = stm.executeQuery(sql);
+                while (rs.next()){
+                    Date tdate =rs.getDate("Date");
+                    String ac = rs.getString("AccountNumber");
+                    double amount = rs.getDouble("Amount");
+                    String cd = rs.getString("CorD");
+                    DefaultTableModel model = (DefaultTableModel)TransactionTable.getModel();
+                    model .addRow(new Object [] {tdate,ac,amount,cd});
+                }
+            }
+            catch (SQLException e){
+                JOptionPane.showMessageDialog(null, e.getMessage(),"Error !!", 3);
+            }
+        }
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
@@ -831,6 +886,25 @@ public class HomeSection extends javax.swing.JFrame {
         homepanel.setVisible(true);
         transactionpanel.setVisible(false);
         ProfilePanel.setVisible(false);
+        if(transaction.check()){
+            try {
+                Connection con = database.db();
+                Statement stm = con.createStatement();
+                String sql = "select * from transactions where AccountNumber = '"+account+"'; ";
+                ResultSet rs = stm.executeQuery(sql);
+                while (rs.next()){
+                    Date tdate =rs.getDate("Date");
+                    String ac = rs.getString("AccountNumber");
+                    double amount = rs.getDouble("Amount");
+                    String cd = rs.getString("CorD");
+                    DefaultTableModel model = (DefaultTableModel)TransactionTable.getModel();
+                    model .addRow(new Object [] {tdate,ac,amount,cd});
+                }
+            }
+            catch (SQLException e){
+                JOptionPane.showMessageDialog(null, e.getMessage(),"Error !!", 3);
+            }
+        }
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
@@ -902,6 +976,42 @@ public class HomeSection extends javax.swing.JFrame {
         // TODO add your handling code here:
          
     }//GEN-LAST:event_jPanel1MouseExited
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try{
+            Connection con =database.db();
+            Statement stm =  con.createStatement();
+            String sql ="select * from AccountDetails where AccountNumber = '"+account+"'; ";
+            ResultSet rs = stm.executeQuery(sql);
+           while(rs.next()){
+                double amt =Double.parseDouble(jTextField1.getText());
+                java.sql.Date date=new java.sql.Date(System.currentTimeMillis());
+                String cd = "Debited";
+                String query1 = "insert into transactions values (?,?,?,?);";
+                PreparedStatement pst = con.prepareStatement(query1);
+                pst.setDate(1,date);
+                pst.setString(2,account);
+                pst.setDouble(3, amt);
+                pst.setString(4,cd);
+                pst.execute();
+                
+                amt =rs.getDouble("Deposit")-amt;
+                accountdetails info = new accountdetails(account);
+                info.deopsitamount= amt;
+                String query2 = "update AccountDetails set Deposit = ? where AccountNumber = ?;";
+                PreparedStatement pst1 = con.prepareStatement(query2);
+                pst1.setDouble(1,amt); 
+                pst1.setString(2, account);
+                pst1.execute();
+            }
+            
+           JOptionPane.showMessageDialog(null,"Amount deposited ","Deposit",2);
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,e.getMessage(),"Error !",1);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
