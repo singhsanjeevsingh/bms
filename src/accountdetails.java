@@ -22,7 +22,7 @@ public class accountdetails {
     public  String gender;
     public  String phonenumber;
     public  Date dob ;
-    public  double deopsitamount;
+    public  double depositamount;
     public  String password;
     
     public accountdetails(String accountn){
@@ -41,7 +41,7 @@ public class accountdetails {
             gender = rs.getString("Gender");
             phonenumber =rs.getString("Phone");
             dob = rs.getDate("DOB");
-            deopsitamount = rs.getDouble("Deposit");
+            depositamount = rs.getDouble("Deposit");
             password = rs.getString("Password");  
         }
         else 

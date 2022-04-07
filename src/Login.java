@@ -337,20 +337,21 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         LregisterButton.setBackground(new java.awt.Color(176, 82, 240));
     }//GEN-LAST:event_LregisterButtonMouseExited
-
+    Boolean B10=true;
     private void LaccountFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LaccountFieldFocusLost
         // TODO add your handling code here:
         if(LaccountField.getText().equals("")){
             LaccountField.setForeground(new java.awt.Color(120, 120, 120));
-            LaccountField.setText("Account Number");
-           
+            LaccountField.setText(" Account Number");
+            B10=false;
         }
     }//GEN-LAST:event_LaccountFieldFocusLost
-
+    
     private void LaccountFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LaccountFieldFocusGained
         // TODO add your handling code here:
-        if(LaccountField.getText().equals("Account Number")){
+        if(!B10){
             LaccountField.setText("");
+            B10=true;
         }
     }//GEN-LAST:event_LaccountFieldFocusGained
 
@@ -450,10 +451,8 @@ public class Login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Login().setVisible(true);
         });
     }
 
