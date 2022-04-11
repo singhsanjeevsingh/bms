@@ -230,6 +230,7 @@ public class Login extends javax.swing.JFrame {
             {
                  new HomeSection().setVisible(true);
                  this.setVisible(false);
+                 this.dispose();
             }
             else
             {
@@ -269,6 +270,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
        new Registration().setVisible(true);
        this.setVisible(false);
+       this.dispose();
        
     }//GEN-LAST:event_LregisterButtonActionPerformed
 

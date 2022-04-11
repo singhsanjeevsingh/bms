@@ -122,7 +122,6 @@ public class HomeSection extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
@@ -145,6 +144,8 @@ public class HomeSection extends javax.swing.JFrame {
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -500,7 +501,7 @@ public class HomeSection extends javax.swing.JFrame {
                             .addGroup(homepanelLayout.createSequentialGroup()
                                 .addGap(162, 162, 162)
                                 .addComponent(jLabel13)))))
-                .addContainerGap(1512, Short.MAX_VALUE))
+                .addContainerGap(1514, Short.MAX_VALUE))
         );
         homepanelLayout.setVerticalGroup(
             homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -646,7 +647,7 @@ public class HomeSection extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel22))
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(1558, Short.MAX_VALUE))
+                .addContainerGap(1560, Short.MAX_VALUE))
         );
         transactionpanelLayout.setVerticalGroup(
             transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -678,51 +679,42 @@ public class HomeSection extends javax.swing.JFrame {
                         .addGroup(transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
 
         centeralpanel.add(transactionpanel, "card3");
 
         ProfilePanel.setBackground(new java.awt.Color(255, 255, 255));
+        ProfilePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel24.setBackground(new java.awt.Color(255, 255, 255));
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/profile_gif.gif"))); // NOI18N
 
         jPanel5.setBackground(new java.awt.Color(176, 82, 240));
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/boy_profile.png"))); // NOI18N
 
-        jLabel26.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setText("Name");
-
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
         jLabel27.setText("Account Number");
 
         jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("Name");
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
         jLabel29.setText("Email Id");
 
         jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
         jLabel30.setText("Gender");
 
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
         jLabel31.setText("Phone Number");
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
         jLabel32.setText("Date Of Birth");
 
         jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
         jLabel33.setText("Balance");
 
         jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -753,50 +745,63 @@ public class HomeSection extends javax.swing.JFrame {
         jLabel41.setForeground(new java.awt.Color(255, 255, 255));
         jLabel41.setText(":");
 
-        jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel34.setFont(new java.awt.Font("Centaur", 1, 14)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(0, 0, 204));
         jLabel34.setText("jLabel34");
 
-        jLabel42.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel42.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel42.setFont(new java.awt.Font("Centaur", 1, 14)); // NOI18N
+        jLabel42.setForeground(new java.awt.Color(0, 0, 204));
         jLabel42.setText("jLabel42");
 
-        jLabel43.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel43.setFont(new java.awt.Font("Centaur", 1, 14)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(0, 0, 204));
         jLabel43.setText("jLabel43");
 
-        jLabel44.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel44.setFont(new java.awt.Font("Centaur", 1, 14)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(0, 0, 204));
         jLabel44.setText("jLabel44");
 
-        jLabel45.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel45.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel45.setFont(new java.awt.Font("Centaur", 1, 14)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(0, 0, 204));
         jLabel45.setText("jLabel45");
 
-        jLabel46.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel46.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel46.setFont(new java.awt.Font("Centaur", 1, 14)); // NOI18N
+        jLabel46.setForeground(new java.awt.Color(0, 0, 204));
         jLabel46.setText("jLabel46");
 
-        jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel47.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel47.setFont(new java.awt.Font("Centaur", 1, 14)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(0, 0, 204));
         jLabel47.setText("jLabel47");
+
+        jLabel26.setFont(new java.awt.Font("Centaur", 1, 14)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("Account Details");
+        jLabel26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jButton4.setBackground(new java.awt.Color(255, 0, 51));
+        jButton4.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
+        jButton4.setText("Delete");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton4MouseExited(evt);
+            }
+        });
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(jLabel25))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addComponent(jLabel26))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -830,21 +835,33 @@ public class HomeSection extends javax.swing.JFrame {
                                     .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(54, 54, 54)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                            .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(jLabel25))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton4)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jLabel25)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel26)
+                .addGap(7, 7, 7)
+                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
@@ -882,7 +899,9 @@ public class HomeSection extends javax.swing.JFrame {
                     .addComponent(jLabel33)
                     .addComponent(jLabel41)
                     .addComponent(jLabel47))
-                .addGap(0, 80, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout ProfilePanelLayout = new javax.swing.GroupLayout(ProfilePanel);
@@ -903,7 +922,7 @@ public class HomeSection extends javax.swing.JFrame {
                 .addGroup(ProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         centeralpanel.add(ProfilePanel, "card4");
@@ -995,6 +1014,20 @@ public class HomeSection extends javax.swing.JFrame {
         jLabel1.setText("PROFILE SECTION");
         homepanel.setVisible(false);
         transactionpanel.setVisible(false);
+        try{
+            accountdetails detail = new accountdetails(account);
+            jLabel34.setText(account);
+            jLabel42.setText(detail.fname+" "+detail.lname);
+            jLabel43.setText(detail.emailid);
+            jLabel44.setText(detail.gender);
+            jLabel45.setText(detail.phonenumber);
+            jLabel46.setText(""+detail.dob);
+            jLabel47.setText(""+detail.depositamount);
+            
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+        }
         
         
     }//GEN-LAST:event_jLabel4MouseClicked
@@ -1014,6 +1047,7 @@ public class HomeSection extends javax.swing.JFrame {
                    {
                        new Login().setVisible(true);
                        this.setVisible(false);
+                       this.dispose();
                    }
                    else
                    {
@@ -1029,6 +1063,7 @@ public class HomeSection extends javax.swing.JFrame {
                    {
                        new Login().setVisible(true);
                        this.setVisible(false);
+                       this.dispose();
                    }
                    else
                    {
@@ -1262,7 +1297,7 @@ public class HomeSection extends javax.swing.JFrame {
 
     private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
         // TODO add your handling code here:
-        jLabel3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        jLabel5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_jLabel5MouseEntered
 
     private void jLabel9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseEntered
@@ -1337,7 +1372,7 @@ public class HomeSection extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-         int p=JOptionPane.showConfirmDialog(null, "Are you Sure to clear Transaactions?","Clear",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE);
+        int p=JOptionPane.showConfirmDialog(null, "Are you Sure to clear Transaactions?","Clear",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE);
         if(p==0){
         try {
             // TODO add your handling code here:
@@ -1351,6 +1386,35 @@ public class HomeSection extends javax.swing.JFrame {
         }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseEntered
+        // TODO add your handling code here:
+        jButton4.setBackground(new java.awt.Color(51,153, 0));
+        jButton4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_jButton4MouseEntered
+
+    private void jButton4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseExited
+         jButton4.setBackground(new java.awt.Color(255,0,51));
+    }//GEN-LAST:event_jButton4MouseExited
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        
+        int p=JOptionPane.showConfirmDialog(null, "Are you Sure to Delete account?","Delete",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+        if(p==0){
+        try {
+           con = database.db();
+           String sql ="delete from AccountDetails where AccountNumber = '"+account+"';";
+           stm = con.createStatement();
+           stm.executeUpdate(sql);
+           new Login().setVisible(true);
+           this.setVisible(false);
+           dispose();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage(),"ERROR",JOptionPane.ERROR_MESSAGE);
+        }
+        }
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1396,6 +1460,7 @@ public class HomeSection extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

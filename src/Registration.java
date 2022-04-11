@@ -616,6 +616,7 @@ public class Registration extends javax.swing.JFrame {
                        JOptionPane.showMessageDialog(null,"Account created sucessfully ");
                        new Login().setVisible(true);
                        this.setVisible(false);
+                       this.dispose();
                    }
                    else
                    {
