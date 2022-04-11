@@ -35,7 +35,7 @@ public class ResetPassword extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        VaccountNumber = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
@@ -58,12 +58,22 @@ public class ResetPassword extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(176, 82, 240));
         jLabel2.setText("First Check It's You");
 
-        jTextField1.setForeground(new java.awt.Color(120, 120, 120));
-        jTextField1.setText(" Enter Account Number");
-        jTextField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        VaccountNumber.setForeground(new java.awt.Color(120, 120, 120));
+        VaccountNumber.setText(" Enter Account Number");
+        VaccountNumber.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
+        VaccountNumber.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                VaccountNumberMouseClicked(evt);
+            }
+        });
+        VaccountNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                VaccountNumberActionPerformed(evt);
+            }
+        });
+        VaccountNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                VaccountNumberKeyPressed(evt);
             }
         });
 
@@ -97,7 +107,7 @@ public class ResetPassword extends javax.swing.JFrame {
                         .addGap(176, 176, 176))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(VaccountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(120, 120, 120))
@@ -113,7 +123,7 @@ public class ResetPassword extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(30, 30, 30)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(VaccountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
@@ -136,9 +146,9 @@ public class ResetPassword extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void VaccountNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VaccountNumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_VaccountNumberActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
@@ -153,7 +163,7 @@ public class ResetPassword extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             stm = con.createStatement();
-            String accountn = jTextField1.getText();
+            String accountn = VaccountNumber.getText();
             String phone = jTextField2.getText();
             
             String sql = "select * from AccountDetails where AccountNumber = '"+accountn+"' and Phone ='"+phone+"'; ";
@@ -176,6 +186,20 @@ public class ResetPassword extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void VaccountNumberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VaccountNumberMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_VaccountNumberMouseClicked
+
+    private void VaccountNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_VaccountNumberKeyPressed
+        // TODO add your handling code here:
+        int key = evt.getKeyCode();
+        
+        if(key>='0' && key<='9'){
+           
+        }
+    }//GEN-LAST:event_VaccountNumberKeyPressed
 
     /**
      * @param args the command line arguments
@@ -211,11 +235,11 @@ public class ResetPassword extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField VaccountNumber;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
