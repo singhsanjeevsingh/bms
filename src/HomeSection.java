@@ -3,6 +3,11 @@ import java.awt.Cursor;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.Box;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -25,7 +30,7 @@ public class HomeSection extends javax.swing.JFrame {
         private  Connection con;
         private  Statement stm;
         private ResultSet rs;
-        
+        private JPasswordField pf;
         
     public HomeSection() {
         
@@ -101,6 +106,7 @@ public class HomeSection extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         transactionpanel = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -196,6 +202,9 @@ public class HomeSection extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel3MouseEntered(evt);
+            }
         });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -230,6 +239,9 @@ public class HomeSection extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel6MouseEntered(evt);
+            }
         });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -237,6 +249,9 @@ public class HomeSection extends javax.swing.JFrame {
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel7MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel7MouseEntered(evt);
             }
         });
 
@@ -267,6 +282,9 @@ public class HomeSection extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel4MouseEntered(evt);
+            }
         });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -274,6 +292,9 @@ public class HomeSection extends javax.swing.JFrame {
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel8MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel8MouseEntered(evt);
             }
         });
 
@@ -304,6 +325,9 @@ public class HomeSection extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel5MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel5MouseEntered(evt);
+            }
         });
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -311,6 +335,9 @@ public class HomeSection extends javax.swing.JFrame {
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel9MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel9MouseEntered(evt);
             }
         });
 
@@ -371,12 +398,15 @@ public class HomeSection extends javax.swing.JFrame {
         jLabel10.setText("Hello, ");
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(176, 82, 240));
+        jLabel11.setForeground(new java.awt.Color(153, 51, 255));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(198, 131, 243));
         jLabel12.setText("Welcome To Bank");
 
+        TransactionTable.setBackground(new java.awt.Color(204, 255, 255));
+        TransactionTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240)));
+        TransactionTable.setForeground(new java.awt.Color(153, 51, 255));
         TransactionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -410,44 +440,66 @@ public class HomeSection extends javax.swing.JFrame {
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/atm.gif"))); // NOI18N
 
         jLabel15.setFont(new java.awt.Font("Microsoft Sans Serif", 0, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(176, 82, 240));
         jLabel15.setText("Available Balance");
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(153, 51, 255));
         jLabel16.setText(" 10000");
 
         jLabel17.setBackground(new java.awt.Color(255, 255, 255));
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(153, 51, 255));
         jLabel17.setText("₹ ");
+
+        jButton3.setBackground(new java.awt.Color(176, 82, 240));
+        jButton3.setText("Clear");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton3MouseExited(evt);
+            }
+        });
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout homepanelLayout = new javax.swing.GroupLayout(homepanel);
         homepanel.setLayout(homepanelLayout);
         homepanelLayout.setHorizontalGroup(
             homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homepanelLayout.createSequentialGroup()
-                .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton3)
                     .addGroup(homepanelLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
                         .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(homepanelLayout.createSequentialGroup()
-                                .addComponent(jLabel17)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel16))))
-                    .addGroup(homepanelLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                                .addGap(26, 26, 26)
+                                .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel15)
+                                    .addGroup(homepanelLayout.createSequentialGroup()
+                                        .addComponent(jLabel17)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel16))))
+                            .addGroup(homepanelLayout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12)
+                                    .addGroup(homepanelLayout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(12, 12, 12)
                         .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(homepanelLayout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(12, 12, 12)
-                .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(homepanelLayout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(jLabel13)))
+                                .addGap(162, 162, 162)
+                                .addComponent(jLabel13)))))
                 .addContainerGap(1512, Short.MAX_VALUE))
         );
         homepanelLayout.setVerticalGroup(
@@ -477,10 +529,10 @@ public class HomeSection extends javax.swing.JFrame {
                         .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
                             .addComponent(jLabel17))))
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(jButton3)
+                .addContainerGap(97, Short.MAX_VALUE))
         );
-
-        jLabel11.getAccessibleContext().setAccessibleName("");
 
         centeralpanel.add(homepanel, "card2");
 
@@ -496,10 +548,28 @@ public class HomeSection extends javax.swing.JFrame {
         jTextField1.setForeground(new java.awt.Color(120, 120, 120));
         jTextField1.setText(" Enter Amount");
         jTextField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
+        jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField1MouseClicked(evt);
+            }
+        });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(176, 82, 240));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setText("Confirm");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -516,10 +586,36 @@ public class HomeSection extends javax.swing.JFrame {
         jTextField2.setForeground(new java.awt.Color(120, 120, 120));
         jTextField2.setText(" Enter Amount");
         jTextField2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
+        jTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField2MouseClicked(evt);
+            }
+        });
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField2KeyPressed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(176, 82, 240));
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton2.setText("Confirm");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton2MouseExited(evt);
+            }
+        });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout transactionpanelLayout = new javax.swing.GroupLayout(transactionpanel);
         transactionpanel.setLayout(transactionpanelLayout);
@@ -733,14 +829,14 @@ public class HomeSection extends javax.swing.JFrame {
                                     .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(54, 54, 54)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel34)
-                            .addComponent(jLabel42)
-                            .addComponent(jLabel43)
-                            .addComponent(jLabel44)
-                            .addComponent(jLabel45)
-                            .addComponent(jLabel46)
-                            .addComponent(jLabel47))))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                            .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -807,7 +903,7 @@ public class HomeSection extends javax.swing.JFrame {
                 .addGroup(ProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         centeralpanel.add(ProfilePanel, "card4");
@@ -848,9 +944,7 @@ public class HomeSection extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
-        // TODO add your handling code here:   
-       
-        
+     jLabel2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_jLabel2MouseEntered
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
@@ -865,6 +959,7 @@ public class HomeSection extends javax.swing.JFrame {
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
         homepanel.setVisible(true);
+        jLabel1.setText("HOME SECTION");
         transactionpanel.setVisible(false);
         ProfilePanel.setVisible(false);
     }//GEN-LAST:event_jLabel2MouseClicked
@@ -872,6 +967,7 @@ public class HomeSection extends javax.swing.JFrame {
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
         homepanel.setVisible(true);
+        jLabel1.setText("HOME SECTION");
         transactionpanel.setVisible(false);
         ProfilePanel.setVisible(false);
     }//GEN-LAST:event_jLabel3MouseClicked
@@ -879,6 +975,7 @@ public class HomeSection extends javax.swing.JFrame {
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
           transactionpanel.setVisible(true);
+          jLabel1.setText("TRANSACTION SECTION");
          homepanel.setVisible(false);
          ProfilePanel.setVisible(false);
     }//GEN-LAST:event_jLabel6MouseClicked
@@ -886,6 +983,7 @@ public class HomeSection extends javax.swing.JFrame {
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
           transactionpanel.setVisible(true);
+          jLabel1.setText("TRANSACTION SECTION");
          homepanel.setVisible(false);
          ProfilePanel.setVisible(false);
     }//GEN-LAST:event_jLabel7MouseClicked
@@ -894,6 +992,7 @@ public class HomeSection extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         ProfilePanel.setVisible(true);
+        jLabel1.setText("PROFILE SECTION");
         homepanel.setVisible(false);
         transactionpanel.setVisible(false);
         
@@ -903,6 +1002,7 @@ public class HomeSection extends javax.swing.JFrame {
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         // TODO add your handling code here:
          ProfilePanel.setVisible(true);
+         jLabel1.setText("PROFILE SECTION");
         homepanel.setVisible(false);
         transactionpanel.setVisible(false);
     }//GEN-LAST:event_jLabel8MouseClicked
@@ -949,59 +1049,308 @@ public class HomeSection extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try{
+            
             con =database.db();
             stm =  con.createStatement();
             String sql ="select * from AccountDetails where AccountNumber = '"+account+"'; ";
             rs = stm.executeQuery(sql);
-           while(rs.next()){
-                double amt =Double.parseDouble(jTextField1.getText());
-                java.sql.Date date=new java.sql.Date(System.currentTimeMillis());
-                String cd = "Debited";
-                String query1 = "insert into transactions values (?,?,?,?);";
-                PreparedStatement pst = con.prepareStatement(query1);
-                pst.setDate(1,date);
-                pst.setString(2,account);
-                pst.setDouble(3, amt);
-                pst.setString(4,cd);
-                pst.execute();
-                
-                amt =rs.getDouble("Deposit")-amt;
-                accountdetails info = new accountdetails(account);
-                info.depositamount= amt;
-                String query2 = "update AccountDetails set Deposit = ? where AccountNumber = ?;";
-                PreparedStatement pst1 = con.prepareStatement(query2);
-                pst1.setDouble(1,amt); 
-                pst1.setString(2, account);
-                pst1.execute();
-                
-                jLabel16.setText(" "+info.depositamount);
+            pf = new JPasswordField(12);
+            String password = null ;
+           
+            Box box = Box.createHorizontalBox();
+
+            JLabel jl = new JLabel("Password: ");
+            box.add(jl);
+
+            JPasswordField jpf = new JPasswordField(16);
+            box.add(jpf);
+
+            int button = JOptionPane.showConfirmDialog(null, box, "Enter your password", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+            if (button == 0)
+                password = new String(jpf.getPassword());
+            else 
+                return ;
+            
+            if(rs.next()) {
+                if (password.equals(rs.getString("Password"))) {
+                    double amt = Double.parseDouble(jTextField1.getText());
+                    java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
+                    String cd = "Debited";
+                    String query1 = "insert into transactions values (?,?,?,?);";
+                    PreparedStatement pst = con.prepareStatement(query1);
+                    pst.setDate(1, date);
+                    pst.setString(2, account);
+                    pst.setDouble(3, amt);
+                    pst.setString(4, cd);
+                    pst.execute();
+
+                    amt = rs.getDouble("Deposit") - amt;
+                    accountdetails info = new accountdetails(account);
+                    info.depositamount = amt;
+                    String query2 = "update AccountDetails set Deposit = ? where AccountNumber = ?;";
+                    PreparedStatement pst1 = con.prepareStatement(query2);
+                    pst1.setDouble(1, amt);
+                    pst1.setString(2, account);
+                    pst1.execute();
+
+                    JOptionPane.showMessageDialog(null, "Amount Debited ", "Withdrawal",JOptionPane.INFORMATION_MESSAGE);
+                    jLabel16.setText(" " + info.depositamount);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Wrong Password", "Withdrwal",JOptionPane.ERROR_MESSAGE);
+                }
+
             }
-           JOptionPane.showMessageDialog(null,"Amount Debited ","Withdrawal",3);
-           model.setRowCount(0);
-           if(transaction.check()){
-            try {
-                con = database.db();
-                stm = con.createStatement();
-                String sql1 = "select * from transactions where AccountNumber = '"+account+"'; ";
-                rs = stm.executeQuery(sql1);
-                while (rs.next()){
-                    Date tdate =rs.getDate("Date");
-                    String ac = rs.getString("AccountNumber");
-                    double amount = rs.getDouble("Amount");
-                    String cd = rs.getString("CorD");
-                    
-                    model .addRow(new Object [] {tdate,ac,amount,cd});
+            jTextField1.setText("");
+            model.setRowCount(0);
+            if (transaction.check()) {
+                try {
+                    con = database.db();
+                    stm = con.createStatement();
+                    String sql1 = "select * from transactions where AccountNumber = '" + account + "'; ";
+                    rs = stm.executeQuery(sql1);
+                    while (rs.next()) {
+                        Date tdate = rs.getDate("Date");
+                        String ac = rs.getString("AccountNumber");
+                        double amount = rs.getDouble("Amount");
+                        String cd = rs.getString("CorD");
+
+                        model.addRow(new Object[]{tdate, ac, amount, cd});
+                    }
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage(), "Error !!", JOptionPane.ERROR_MESSAGE);
                 }
             }
-            catch (SQLException e){
-                JOptionPane.showMessageDialog(null, e.getMessage(),"Error !!", 3);
-            }
-        }
         }
         catch (HeadlessException | NumberFormatException | SQLException e){
             JOptionPane.showMessageDialog(null,e.getMessage(),"Error !",1);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        // TODO add your handling code here:
+        jButton1.setBackground(new java.awt.Color(51,153, 0));
+        jButton1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_jButton1MouseEntered
+    Boolean b1=true;
+    private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
+        // TODO add your handling code here:
+        jTextField1.setEditable(true);
+        if (b1) {
+            jTextField1.setText("");
+            b1 = false;
+        }
+    }//GEN-LAST:event_jTextField1MouseClicked
+    Boolean b2 = true;
+    private void jTextField2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseClicked
+    
+        jTextField2.setEditable(true);
+        if (b2) {
+            jTextField2.setText("");
+            b2 = false;
+        }
+    }//GEN-LAST:event_jTextField2MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
+     jButton2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+     jButton2.setBackground(new java.awt.Color(51,153, 0));
+    }//GEN-LAST:event_jButton2MouseEntered
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        Box box = Box.createHorizontalBox();
+        JLabel jl = new JLabel("Password: ");
+        box.add(jl);
+        JPasswordField jpf = new JPasswordField(16);
+        box.add(jpf);
+        int button = JOptionPane.showConfirmDialog(null, box, "Enter your password", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+
+        try {
+            con = database.db();
+            stm = con.createStatement();
+            String sql = "select * from AccountDetails where AccountNumber = '" + account + "'; ";
+            rs = stm.executeQuery(sql);
+            pf = new JPasswordField(12);
+            String password = null;
+            String query1 = "insert into transactions values (?,?,?,?);";
+            PreparedStatement pst = con.prepareStatement(query1);
+            String query2 = "update AccountDetails set Deposit = ? where AccountNumber = ?;";
+            PreparedStatement pst1 = con.prepareStatement(query2);
+
+            if (rs.next()) {
+                if (button == JOptionPane.OK_OPTION) {
+                    password = new String(jpf.getPassword());
+
+                    if (password.equals(rs.getString("Password"))) {
+                        double amt = Double.parseDouble(jTextField2.getText());
+                        java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
+                        String cd = "Credited";
+
+                        pst.setDate(1, date);
+                        pst.setString(2, account);
+                        pst.setDouble(3, amt);
+                        pst.setString(4, cd);
+                        pst.execute();
+
+                        amt = rs.getDouble("Deposit") + amt;
+                        accountdetails info = new accountdetails(account);
+                        info.depositamount = amt;
+
+                        pst1.setDouble(1, amt);
+                        pst1.setString(2, account);
+                        pst1.execute();
+
+                        JOptionPane.showMessageDialog(null, "Amount Credited ", "Deposit", 3);
+                        jLabel16.setText(" " + info.depositamount);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Wrong Password", "Deposit", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+
+            }
+            jTextField2.setText("");
+            model.setRowCount(0);
+            if (transaction.check()) {
+                try {
+                    con = database.db();
+                    stm = con.createStatement();
+                    String sql1 = "select * from transactions where AccountNumber = '" + account + "'; ";
+                    rs = stm.executeQuery(sql1);
+                    while (rs.next()) {
+                        Date tdate = rs.getDate("Date");
+                        String ac = rs.getString("AccountNumber");
+                        double amount = rs.getDouble("Amount");
+                        String cd = rs.getString("CorD");
+
+                        model.addRow(new Object[]{tdate, ac, amount, cd});
+                    }
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage(), "Error !!", 3);
+                }
+            }
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error !", 1);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
+    jLabel3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_jLabel3MouseEntered
+
+    private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
+        // TODO add your handling code here:
+        jLabel6.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_jLabel6MouseEntered
+
+    private void jLabel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseEntered
+        // TODO add your handling code here:
+        jLabel7.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_jLabel7MouseEntered
+
+    private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
+        // TODO add your handling code here:
+        jLabel4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_jLabel4MouseEntered
+
+    private void jLabel8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseEntered
+        // TODO add your handling code here:
+        jLabel8.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_jLabel8MouseEntered
+
+    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
+        // TODO add your handling code here:
+        jLabel3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_jLabel5MouseEntered
+
+    private void jLabel9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseEntered
+        // TODO add your handling code here:
+        jLabel9.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_jLabel9MouseEntered
+    Boolean b3=true;
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+    
+        int key=evt.getKeyChar();
+         
+        if(b3 && key >='0' && key <='9' || evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ){
+            if(b3 || jTextField1.getText().equals("Enter Amount")){
+            jTextField1.setText("");
+            }
+            jTextField1.setEditable(true);
+            b3=false;
+            b2=false;
+        }else{
+           
+            if( key >='0' && key <='9'){
+                jTextField1.setEditable(true);
+                jTextField1.setForeground(new java.awt.Color(0, 0, 0));
+            }else{
+                jTextField1.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
+    Boolean b4 = true;
+    private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
+    
+        int key=evt.getKeyChar();
+         
+        if(b4 && key >='0' && key <='9' || evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ){
+            if(b4 || jTextField2.getText().equals("Enter Amount")){
+            jTextField2.setText("");
+            }
+            jTextField2.setEditable(true);
+            b4=false;
+            b3=false;
+        }else{
+           
+            if( key >='0' && key <='9'){
+                jTextField2.setEditable(true);
+                jTextField2.setForeground(new java.awt.Color(0, 0, 0));
+            }else{
+                jTextField2.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_jTextField2KeyPressed
+
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+    
+       jButton1.setBackground(new java.awt.Color(176, 82, 240));
+    }//GEN-LAST:event_jButton1MouseExited
+
+    private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
+        // TODO add your handling code here:
+        jButton2.setBackground(new java.awt.Color(176, 82, 240));
+    }//GEN-LAST:event_jButton2MouseExited
+
+    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
+        // TODO add your handling code here:
+        jButton3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        jButton3.setBackground(new java.awt.Color(51, 153, 0));
+    }//GEN-LAST:event_jButton3MouseEntered
+
+    private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
+        // TODO add your handling code here:
+        jButton3.setBackground(new java.awt.Color(176, 82, 240));
+    }//GEN-LAST:event_jButton3MouseExited
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+         int p=JOptionPane.showConfirmDialog(null, "Are you Sure to clear Transaactions?","Clear",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE);
+        if(p==0){
+        try {
+            // TODO add your handling code here:
+            model.setRowCount(0);
+            con = database.db();
+            stm = con.createStatement();
+            String sql = "delete from transactions where AccountNumber ='"+account+"'; ";
+            stm.executeUpdate(sql);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage(),"ERROR",JOptionPane.ERROR_MESSAGE);
+        }
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1046,6 +1395,7 @@ public class HomeSection extends javax.swing.JFrame {
     private javax.swing.JPanel homepanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

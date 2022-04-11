@@ -1,3 +1,4 @@
+import java.awt.Cursor;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -53,10 +54,10 @@ public class Registration extends javax.swing.JFrame {
         RaccountNumber = new javax.swing.JTextField();
         RdepositAmount = new javax.swing.JTextField();
         RpassField1 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        RbackButton = new javax.swing.JButton();
         RpassField2 = new javax.swing.JPasswordField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jButton2 = new javax.swing.JButton();
+        RconfirmButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -133,6 +134,11 @@ public class Registration extends javax.swing.JFrame {
         RemailId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RemailIdActionPerformed(evt);
+            }
+        });
+        RemailId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                RemailIdKeyPressed(evt);
             }
         });
 
@@ -238,13 +244,26 @@ public class Registration extends javax.swing.JFrame {
                 RpassField1FocusLost(evt);
             }
         });
+        RpassField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                RpassField1KeyPressed(evt);
+            }
+        });
 
-        jButton1.setBackground(new java.awt.Color(176, 82, 240));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setText("Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        RbackButton.setBackground(new java.awt.Color(176, 82, 240));
+        RbackButton.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        RbackButton.setText("Back");
+        RbackButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RbackButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RbackButtonMouseExited(evt);
+            }
+        });
+        RbackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                RbackButtonActionPerformed(evt);
             }
         });
 
@@ -259,15 +278,33 @@ public class Registration extends javax.swing.JFrame {
                 RpassField2FocusLost(evt);
             }
         });
+        RpassField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RpassField2ActionPerformed(evt);
+            }
+        });
+        RpassField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                RpassField2KeyPressed(evt);
+            }
+        });
 
         jDateChooser1.setDateFormatString("yyyy-MM-dd");
 
-        jButton2.setBackground(new java.awt.Color(176, 82, 240));
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton2.setText("Confirm");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        RconfirmButton.setBackground(new java.awt.Color(176, 82, 240));
+        RconfirmButton.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        RconfirmButton.setText("Confirm");
+        RconfirmButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RconfirmButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RconfirmButtonMouseExited(evt);
+            }
+        });
+        RconfirmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                RconfirmButtonActionPerformed(evt);
             }
         });
 
@@ -289,9 +326,9 @@ public class Registration extends javax.swing.JFrame {
                         .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(RbackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(RconfirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(RpassField1)
                         .addComponent(RdepositAmount)
                         .addComponent(RaccountNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
@@ -340,8 +377,8 @@ public class Registration extends javax.swing.JFrame {
                 .addComponent(RpassField2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(RbackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RconfirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -409,11 +446,11 @@ public class Registration extends javax.swing.JFrame {
         
     }//GEN-LAST:event_RaccountNumberActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void RbackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RbackButtonActionPerformed
     
         new Login().setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_RbackButtonActionPerformed
 
     private void RdepositAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RdepositAmountActionPerformed
         // TODO add your handling code here:
@@ -538,11 +575,12 @@ public class Registration extends javax.swing.JFrame {
         
         if(new  String( RpassField2.getPassword()).equals(" Confirm Password")){
                 RpassField2.setEchoChar( '*');
+                RpassField2.setForeground(new java.awt.Color(0, 0, 0));
                 RpassField2.setText("");
         }
     }//GEN-LAST:event_RpassField2FocusGained
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void RconfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RconfirmButtonActionPerformed
         // TODO add your handling code here:
         
             try {
@@ -595,7 +633,7 @@ public class Registration extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,e.getMessage());
             }
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_RconfirmButtonActionPerformed
 
     private void RaccountNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RaccountNumberFocusLost
         // TODO add your handling code here:
@@ -633,7 +671,7 @@ public class Registration extends javax.swing.JFrame {
     private void RemailIdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RemailIdFocusLost
         // TODO add your handling code here:
         if(RemailId.getText().equals("")){
-           
+           RemailId.setForeground(new java.awt.Color(120, 120, 120));
             RemailId.setText(" Email Id");
         }
     }//GEN-LAST:event_RemailIdFocusLost
@@ -656,6 +694,7 @@ public class Registration extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(new  String( RpassField1.getPassword()).equals("")){
                 RpassField1.setEchoChar( (char) 0);
+                RpassField1.setForeground(new java.awt.Color(120, 120, 120));
                 RpassField1.setText(" Password");
         }
     }//GEN-LAST:event_RpassField1FocusLost
@@ -664,7 +703,9 @@ public class Registration extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(new  String( RpassField2.getPassword()).equals("")){
                 RpassField2.setEchoChar( (char) 0);
+                
                 RpassField2.setText(" Confirm Password");
+                RpassField2.setForeground(new java.awt.Color(120, 120, 120));
         }
     }//GEN-LAST:event_RpassField2FocusLost
 
@@ -677,6 +718,48 @@ public class Registration extends javax.swing.JFrame {
         // TODO add your handling code here:
        RlastName.setForeground(new java.awt.Color(0, 0, 0));
     }//GEN-LAST:event_RlastNameKeyPressed
+
+    private void RemailIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RemailIdKeyPressed
+        // TODO add your handling code here:
+        RemailId.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_RemailIdKeyPressed
+
+    private void RpassField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RpassField1KeyPressed
+        // TODO add your handling code here:
+        RpassField1.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_RpassField1KeyPressed
+
+    private void RpassField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RpassField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RpassField2ActionPerformed
+
+    private void RpassField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RpassField2KeyPressed
+        // TODO add your handling code here:
+        RpassField2.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_RpassField2KeyPressed
+
+    private void RbackButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RbackButtonMouseEntered
+        // TODO add your handling code here:
+        RbackButton.setBackground(new java.awt.Color(51,153, 0));
+        RbackButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        
+    }//GEN-LAST:event_RbackButtonMouseEntered
+
+    private void RbackButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RbackButtonMouseExited
+        // TODO add your handling code here:
+        RbackButton.setBackground(new java.awt.Color(176, 82, 240));
+    }//GEN-LAST:event_RbackButtonMouseExited
+
+    private void RconfirmButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RconfirmButtonMouseEntered
+        // TODO add your handling code here:
+        RconfirmButton.setBackground(new java.awt.Color(51,153, 0));
+        RconfirmButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_RconfirmButtonMouseEntered
+
+    private void RconfirmButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RconfirmButtonMouseExited
+        // TODO add your handling code here:
+        RconfirmButton.setBackground(new java.awt.Color(176, 82, 240));
+    }//GEN-LAST:event_RconfirmButtonMouseExited
 
     /**
      * @param args the command line arguments
@@ -709,6 +792,8 @@ public class Registration extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField RaccountNumber;
+    private javax.swing.JButton RbackButton;
+    private javax.swing.JButton RconfirmButton;
     private javax.swing.JTextField RdepositAmount;
     private javax.swing.JTextField RemailId;
     private javax.swing.JTextField RfirstName;
@@ -719,8 +804,6 @@ public class Registration extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
