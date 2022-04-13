@@ -61,6 +61,14 @@ public class ResetPassword extends javax.swing.JFrame {
         VaccountNumber.setForeground(new java.awt.Color(120, 120, 120));
         VaccountNumber.setText(" Enter Account Number");
         VaccountNumber.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
+        VaccountNumber.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                VaccountNumberFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                VaccountNumberFocusLost(evt);
+            }
+        });
         VaccountNumber.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 VaccountNumberMouseClicked(evt);
@@ -189,17 +197,43 @@ public class ResetPassword extends javax.swing.JFrame {
 
     private void VaccountNumberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VaccountNumberMouseClicked
         // TODO add your handling code here:
+        if( VaccountNumber.getText().equals(" Enter Account Number")){
+            VaccountNumber.setText("");
+        }
         
     }//GEN-LAST:event_VaccountNumberMouseClicked
-
+    Boolean B1=true;
     private void VaccountNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_VaccountNumberKeyPressed
         // TODO add your handling code here:
-        int key = evt.getKeyCode();
+        int key = evt.getKeyChar();
         
-        if(key>='0' && key<='9'){
-           
+        if( ( key>='0' && key<='9' ) || key==java.awt.event.KeyEvent.VK_BACK_SPACE){
+           if(B1){
+               VaccountNumber.setText("");
+               B1=false;
+           }
+           VaccountNumber.setForeground(new java.awt.Color(0, 0, 0));
+           VaccountNumber.setEditable(true);
+        }else{
+            VaccountNumber.setEditable(false);
         }
     }//GEN-LAST:event_VaccountNumberKeyPressed
+
+    
+    private void VaccountNumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_VaccountNumberFocusGained
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_VaccountNumberFocusGained
+    Boolean b3=false;
+    private void VaccountNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_VaccountNumberFocusLost
+        // TODO add your handling code here:
+        if(VaccountNumber.getText().equals(""))
+        {
+            VaccountNumber.setForeground(new java.awt.Color(120, 120, 120));
+            VaccountNumber.setText(" Enter Account Number");
+            b3=true;
+        }
+    }//GEN-LAST:event_VaccountNumberFocusLost
 
     /**
      * @param args the command line arguments

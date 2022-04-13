@@ -24,6 +24,7 @@ public class Registration extends javax.swing.JFrame {
         con = database.db();
         RpassField1.setEchoChar( (char) 0);
         RpassField2.setEchoChar( (char) 0);
+        
     }
 
     /**
