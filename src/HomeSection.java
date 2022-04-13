@@ -1,4 +1,5 @@
 
+import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
@@ -8,6 +9,7 @@ import java.util.logging.Logger;
 import javax.swing.Box;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -35,7 +37,8 @@ public class HomeSection extends javax.swing.JFrame {
     public HomeSection() {
         
         initComponents();
-        
+        WaccountNumber.setCaretPosition(1);
+        DaccountNumber.setCaretPosition(1);
         this.model = (DefaultTableModel)TransactionTable.getModel();
         homepanel.setVisible(true);
         transactionpanel.setVisible(false);
@@ -111,12 +114,12 @@ public class HomeSection extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        WaccountNumber = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        DaccountNumber = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         ProfilePanel = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
@@ -175,6 +178,7 @@ public class HomeSection extends javax.swing.JFrame {
         Iconpanel.setBackground(new java.awt.Color(176, 82, 240));
 
         jPanel1.setBackground(new java.awt.Color(176, 82, 240));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel1MouseClicked(evt);
@@ -229,6 +233,7 @@ public class HomeSection extends javax.swing.JFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(176, 82, 240));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
         jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel2MouseClicked(evt);
@@ -277,6 +282,7 @@ public class HomeSection extends javax.swing.JFrame {
         );
 
         jPanel3.setBackground(new java.awt.Color(176, 82, 240));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/user_icon.png"))); // NOI18N
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -289,7 +295,7 @@ public class HomeSection extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel8.setText("    Profile");
+        jLabel8.setText("   Profile");
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel8MouseClicked(evt);
@@ -304,7 +310,7 @@ public class HomeSection extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -320,6 +326,7 @@ public class HomeSection extends javax.swing.JFrame {
         );
 
         jPanel4.setBackground(new java.awt.Color(176, 82, 240));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logout_icon.png"))); // NOI18N
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -351,7 +358,7 @@ public class HomeSection extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(jLabel5))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -405,9 +412,8 @@ public class HomeSection extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(198, 131, 243));
         jLabel12.setText("Welcome To Bank");
 
-        TransactionTable.setBackground(new java.awt.Color(204, 255, 255));
+        TransactionTable.setBackground(new java.awt.Color(217, 170, 249));
         TransactionTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240)));
-        TransactionTable.setForeground(new java.awt.Color(153, 51, 255));
         TransactionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -420,7 +426,7 @@ public class HomeSection extends javax.swing.JFrame {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -432,9 +438,15 @@ public class HomeSection extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(TransactionTable);
+        if (TransactionTable.getColumnModel().getColumnCount() > 0) {
+            TransactionTable.getColumnModel().getColumn(0).setResizable(false);
+            TransactionTable.getColumnModel().getColumn(1).setResizable(false);
+            TransactionTable.getColumnModel().getColumn(2).setResizable(false);
+            TransactionTable.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(176, 82, 240));
         jLabel13.setText("All Last Transaction");
 
@@ -454,6 +466,7 @@ public class HomeSection extends javax.swing.JFrame {
         jLabel17.setText("₹ ");
 
         jButton3.setBackground(new java.awt.Color(176, 82, 240));
+        jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton3.setText("Clear");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -475,7 +488,7 @@ public class HomeSection extends javax.swing.JFrame {
             homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homepanelLayout.createSequentialGroup()
                 .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(homepanelLayout.createSequentialGroup()
                         .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -495,13 +508,14 @@ public class HomeSection extends javax.swing.JFrame {
                                         .addComponent(jLabel10)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(12, 12, 12)
                         .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(homepanelLayout.createSequentialGroup()
-                                .addGap(162, 162, 162)
+                                .addGap(36, 36, 36)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(homepanelLayout.createSequentialGroup()
+                                .addGap(159, 159, 159)
                                 .addComponent(jLabel13)))))
-                .addContainerGap(1514, Short.MAX_VALUE))
+                .addContainerGap(1498, Short.MAX_VALUE))
         );
         homepanelLayout.setVerticalGroup(
             homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -530,33 +544,42 @@ public class HomeSection extends javax.swing.JFrame {
                         .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
                             .addComponent(jLabel17))))
-                .addGap(36, 36, 36)
-                .addComponent(jButton3)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         centeralpanel.add(homepanel, "card2");
 
         transactionpanel.setBackground(new java.awt.Color(255, 255, 255));
+        transactionpanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 5));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel18.setText("Withdrawal");
+        jLabel18.setText("Withdrawl");
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/withdrawl_icon.png"))); // NOI18N
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Withdraw_new_2.gif"))); // NOI18N
 
-        jTextField1.setForeground(new java.awt.Color(120, 120, 120));
-        jTextField1.setText(" Enter Amount");
-        jTextField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
-        jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField1MouseClicked(evt);
+        WaccountNumber.setForeground(new java.awt.Color(120, 120, 120));
+        WaccountNumber.setText(" Enter Amount");
+        WaccountNumber.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
+        WaccountNumber.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                WaccountNumberFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                WaccountNumberFocusLost(evt);
             }
         });
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        WaccountNumber.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                WaccountNumberMouseClicked(evt);
+            }
+        });
+        WaccountNumber.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField1KeyPressed(evt);
+                WaccountNumberKeyPressed(evt);
             }
         });
 
@@ -578,23 +601,31 @@ public class HomeSection extends javax.swing.JFrame {
         });
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel21.setText("Deposite");
+        jLabel21.setText("Deposit");
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/deposite_icon.png"))); // NOI18N
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/deposit_new.gif"))); // NOI18N
 
-        jTextField2.setForeground(new java.awt.Color(120, 120, 120));
-        jTextField2.setText(" Enter Amount");
-        jTextField2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
-        jTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField2MouseClicked(evt);
+        DaccountNumber.setForeground(new java.awt.Color(120, 120, 120));
+        DaccountNumber.setText(" Enter Amount");
+        DaccountNumber.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
+        DaccountNumber.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                DaccountNumberFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                DaccountNumberFocusLost(evt);
             }
         });
-        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+        DaccountNumber.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DaccountNumberMouseClicked(evt);
+            }
+        });
+        DaccountNumber.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextField2KeyPressed(evt);
+                DaccountNumberKeyPressed(evt);
             }
         });
 
@@ -633,7 +664,7 @@ public class HomeSection extends javax.swing.JFrame {
                         .addGap(27, 27, 27))
                     .addGroup(transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(WaccountNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, transactionpanelLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -641,13 +672,13 @@ public class HomeSection extends javax.swing.JFrame {
                     .addGroup(transactionpanelLayout.createSequentialGroup()
                         .addGap(191, 191, 191)
                         .addGroup(transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DaccountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(transactionpanelLayout.createSequentialGroup()
                                 .addComponent(jLabel21)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel22))
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(1560, Short.MAX_VALUE))
+                .addContainerGap(1558, Short.MAX_VALUE))
         );
         transactionpanelLayout.setVerticalGroup(
             transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -672,20 +703,20 @@ public class HomeSection extends javax.swing.JFrame {
                             .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(DaccountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(WaccountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
         centeralpanel.add(transactionpanel, "card3");
 
         ProfilePanel.setBackground(new java.awt.Color(255, 255, 255));
-        ProfilePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        ProfilePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 5));
 
         jLabel24.setBackground(new java.awt.Color(255, 255, 255));
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/profile_gif.gif"))); // NOI18N
@@ -694,93 +725,93 @@ public class HomeSection extends javax.swing.JFrame {
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/boy_profile.png"))); // NOI18N
 
+        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(50, 49, 49));
         jLabel27.setText("Account Number");
 
         jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(50, 49, 49));
         jLabel28.setText("Name");
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(50, 49, 49));
         jLabel29.setText("Email Id");
 
         jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(50, 49, 49));
         jLabel30.setText("Gender");
 
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(50, 49, 49));
         jLabel31.setText("Phone Number");
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(50, 49, 49));
         jLabel32.setText("Date Of Birth");
 
         jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(50, 49, 49));
         jLabel33.setText("Balance");
 
         jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
         jLabel35.setText(":");
 
         jLabel36.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
         jLabel36.setText(":");
 
         jLabel37.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
         jLabel37.setText(":");
 
         jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
         jLabel38.setText(":");
 
         jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel39.setForeground(new java.awt.Color(255, 255, 255));
         jLabel39.setText(":");
 
         jLabel40.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
         jLabel40.setText(":");
 
         jLabel41.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
         jLabel41.setText(":");
 
-        jLabel34.setFont(new java.awt.Font("Centaur", 1, 14)); // NOI18N
-        jLabel34.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(51, 51, 51));
         jLabel34.setText("jLabel34");
 
-        jLabel42.setFont(new java.awt.Font("Centaur", 1, 14)); // NOI18N
-        jLabel42.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel42.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel42.setForeground(new java.awt.Color(51, 51, 51));
         jLabel42.setText("jLabel42");
 
-        jLabel43.setFont(new java.awt.Font("Centaur", 1, 14)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel43.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(51, 51, 51));
         jLabel43.setText("jLabel43");
 
-        jLabel44.setFont(new java.awt.Font("Centaur", 1, 14)); // NOI18N
-        jLabel44.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel44.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(51, 51, 51));
         jLabel44.setText("jLabel44");
 
-        jLabel45.setFont(new java.awt.Font("Centaur", 1, 14)); // NOI18N
-        jLabel45.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel45.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(51, 51, 51));
         jLabel45.setText("jLabel45");
 
-        jLabel46.setFont(new java.awt.Font("Centaur", 1, 14)); // NOI18N
-        jLabel46.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel46.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel46.setForeground(new java.awt.Color(51, 51, 51));
         jLabel46.setText("jLabel46");
 
-        jLabel47.setFont(new java.awt.Font("Centaur", 1, 14)); // NOI18N
-        jLabel47.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel47.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(51, 51, 51));
         jLabel47.setText("jLabel47");
 
-        jLabel26.setFont(new java.awt.Font("Centaur", 1, 14)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel26.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 14)); // NOI18N
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText("Account Details");
         jLabel26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jButton4.setBackground(new java.awt.Color(255, 0, 51));
-        jButton4.setFont(new java.awt.Font("Lucida Fax", 0, 12)); // NOI18N
+        jButton4.setBackground(new java.awt.Color(245, 45, 45));
+        jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton4.setText("Delete");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -831,22 +862,22 @@ public class HomeSection extends javax.swing.JFrame {
                                     .addComponent(jLabel33))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(54, 54, 54)
+                                    .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)))
+                            .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(123, 123, 123)
                         .addComponent(jLabel25))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(112, 112, 112)
+                        .addGap(105, 105, 105)
                         .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
@@ -860,9 +891,9 @@ public class HomeSection extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jLabel25)
-                .addGap(7, 7, 7)
-                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -894,12 +925,12 @@ public class HomeSection extends javax.swing.JFrame {
                     .addComponent(jLabel40)
                     .addComponent(jLabel32)
                     .addComponent(jLabel46))
-                .addGap(23, 23, 23)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel33)
+                    .addComponent(jLabel47)
                     .addComponent(jLabel41)
-                    .addComponent(jLabel47))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                    .addComponent(jLabel33))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addContainerGap())
         );
@@ -922,7 +953,7 @@ public class HomeSection extends javax.swing.JFrame {
                 .addGroup(ProfilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         centeralpanel.add(ProfilePanel, "card4");
@@ -958,12 +989,13 @@ public class HomeSection extends javax.swing.JFrame {
             .addComponent(mainpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(860, 638));
+        setSize(new java.awt.Dimension(861, 638));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
      jLabel2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+     jLabel2.setForeground(new java.awt.Color(153, 51, 255));
     }//GEN-LAST:event_jLabel2MouseEntered
 
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
@@ -977,6 +1009,10 @@ public class HomeSection extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
         homepanel.setVisible(true);
         jLabel1.setText("HOME SECTION");
         transactionpanel.setVisible(false);
@@ -993,6 +1029,10 @@ public class HomeSection extends javax.swing.JFrame {
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
           transactionpanel.setVisible(true);
           jLabel1.setText("TRANSACTION SECTION");
          homepanel.setVisible(false);
@@ -1009,7 +1049,10 @@ public class HomeSection extends javax.swing.JFrame {
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
-        
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
         ProfilePanel.setVisible(true);
         jLabel1.setText("PROFILE SECTION");
         homepanel.setVisible(false);
@@ -1042,7 +1085,11 @@ public class HomeSection extends javax.swing.JFrame {
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
-        int p=JOptionPane.showConfirmDialog(null, "Are you Sure to LogOut ?","LogOut",JOptionPane.YES_NO_OPTION);
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        int p=JOptionPane.showConfirmDialog(null, "Are you Sure to LogOut ?","LogOut",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
                    if(p==0)
                    {
                        new Login().setVisible(true);
@@ -1072,7 +1119,9 @@ public class HomeSection extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jPanel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseEntered
-        // TODO add your handling code here:
+        // TODO add your handling code here
+        jPanel1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+      //  jPanel1.setForeground(new java.awt.Color(1,11,1));
          
     }//GEN-LAST:event_jPanel1MouseEntered
 
@@ -1093,13 +1142,15 @@ public class HomeSection extends javax.swing.JFrame {
             String password = null ;
            
             Box box = Box.createHorizontalBox();
-
+            box.setBackground(new java.awt.Color(176, 82, 240));
             JLabel jl = new JLabel("Password: ");
             box.add(jl);
 
             JPasswordField jpf = new JPasswordField(16);
             box.add(jpf);
 
+            UIManager.put("OptionPane.background", Color.RED);
+            UIManager.put("Panel.background", Color.blue);
             int button = JOptionPane.showConfirmDialog(null, box, "Enter your password", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
             if (button == 0)
                 password = new String(jpf.getPassword());
@@ -1108,7 +1159,7 @@ public class HomeSection extends javax.swing.JFrame {
             
             if(rs.next()) {
                 if (password.equals(rs.getString("Password"))) {
-                    double amt = Double.parseDouble(jTextField1.getText());
+                    double amt = Double.parseDouble(WaccountNumber.getText());
                     java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
                     String cd = "Debited";
                     String query1 = "insert into transactions values (?,?,?,?);";
@@ -1135,7 +1186,8 @@ public class HomeSection extends javax.swing.JFrame {
                 }
 
             }
-            jTextField1.setText("");
+            WaccountNumber.setForeground(new java.awt.Color(120, 120, 120));
+            WaccountNumber.setText(" Enter Amount");
             model.setRowCount(0);
             if (transaction.check()) {
                 try {
@@ -1166,24 +1218,26 @@ public class HomeSection extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(51,153, 0));
         jButton1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_jButton1MouseEntered
-    Boolean b1=true;
-    private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
-        // TODO add your handling code here:
-        jTextField1.setEditable(true);
-        if (b1) {
-            jTextField1.setText("");
-            b1 = false;
-        }
-    }//GEN-LAST:event_jTextField1MouseClicked
-    Boolean b2 = true;
-    private void jTextField2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseClicked
     
-        jTextField2.setEditable(true);
+    Boolean b1=true;
+    private void WaccountNumberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WaccountNumberMouseClicked
+        // TODO add your handling code here:
+        if(WaccountNumber.getText().equals(" Enter Amount")){
+            WaccountNumber.setText("");
+            b1=false;
+        }
+        WaccountNumber.setEditable(true);
+    }//GEN-LAST:event_WaccountNumberMouseClicked
+    
+    Boolean b2 = true;
+    private void DaccountNumberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DaccountNumberMouseClicked
+    
+        DaccountNumber.setEditable(true);
         if (b2) {
-            jTextField2.setText("");
+            DaccountNumber.setText("");
             b2 = false;
         }
-    }//GEN-LAST:event_jTextField2MouseClicked
+    }//GEN-LAST:event_DaccountNumberMouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
@@ -1220,7 +1274,7 @@ public class HomeSection extends javax.swing.JFrame {
                     password = new String(jpf.getPassword());
 
                     if (password.equals(rs.getString("Password"))) {
-                        double amt = Double.parseDouble(jTextField2.getText());
+                        double amt = Double.parseDouble(DaccountNumber.getText());
                         java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
                         String cd = "Credited";
 
@@ -1246,7 +1300,8 @@ public class HomeSection extends javax.swing.JFrame {
                 }
 
             }
-            jTextField2.setText("");
+            DaccountNumber.setForeground(new java.awt.Color(120,120,120));
+            DaccountNumber.setText(" Enter Amount");
             model.setRowCount(0);
             if (transaction.check()) {
                 try {
@@ -1305,49 +1360,49 @@ public class HomeSection extends javax.swing.JFrame {
         jLabel9.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_jLabel9MouseEntered
     Boolean b3=true;
-    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+    private void WaccountNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_WaccountNumberKeyPressed
     
         int key=evt.getKeyChar();
          
         if(b3 && key >='0' && key <='9' || evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ){
-            if(b3 || jTextField1.getText().equals("Enter Amount")){
-            jTextField1.setText("");
+            if(b3 || WaccountNumber.getText().equals("Enter Amount")){
+            WaccountNumber.setText("");
             }
-            jTextField1.setEditable(true);
+            WaccountNumber.setEditable(true);
             b3=false;
             b2=false;
         }else{
            
             if( key >='0' && key <='9'){
-                jTextField1.setEditable(true);
-                jTextField1.setForeground(new java.awt.Color(0, 0, 0));
+                WaccountNumber.setEditable(true);
+                WaccountNumber.setForeground(new java.awt.Color(0, 0, 0));
             }else{
-                jTextField1.setEditable(false);
+                WaccountNumber.setEditable(false);
             }
         }
-    }//GEN-LAST:event_jTextField1KeyPressed
+    }//GEN-LAST:event_WaccountNumberKeyPressed
     Boolean b4 = true;
-    private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
+    private void DaccountNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DaccountNumberKeyPressed
     
         int key=evt.getKeyChar();
          
         if(b4 && key >='0' && key <='9' || evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ){
-            if(b4 || jTextField2.getText().equals("Enter Amount")){
-            jTextField2.setText("");
+            if(b4 || DaccountNumber.getText().equals("Enter Amount")){
+            DaccountNumber.setText("");
             }
-            jTextField2.setEditable(true);
+            DaccountNumber.setEditable(true);
             b4=false;
             b3=false;
         }else{
            
             if( key >='0' && key <='9'){
-                jTextField2.setEditable(true);
-                jTextField2.setForeground(new java.awt.Color(0, 0, 0));
+                DaccountNumber.setEditable(true);
+                DaccountNumber.setForeground(new java.awt.Color(0, 0, 0));
             }else{
-                jTextField2.setEditable(false);
+                DaccountNumber.setEditable(false);
             }
         }
-    }//GEN-LAST:event_jTextField2KeyPressed
+    }//GEN-LAST:event_DaccountNumberKeyPressed
 
     private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
     
@@ -1389,12 +1444,11 @@ public class HomeSection extends javax.swing.JFrame {
 
     private void jButton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseEntered
         // TODO add your handling code here:
-        jButton4.setBackground(new java.awt.Color(51,153, 0));
         jButton4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_jButton4MouseEntered
 
     private void jButton4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseExited
-         jButton4.setBackground(new java.awt.Color(255,0,51));
+  
     }//GEN-LAST:event_jButton4MouseExited
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -1415,6 +1469,44 @@ public class HomeSection extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    boolean B5=true;
+    private void WaccountNumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_WaccountNumberFocusGained
+        // TODO add your handling code here:
+        if(WaccountNumber.getText().equals(" Enter Amount") && B5==false){
+            WaccountNumber.setText("");
+        }
+    }//GEN-LAST:event_WaccountNumberFocusGained
+
+    boolean B6=true;
+    private void WaccountNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_WaccountNumberFocusLost
+        // TODO add your handling code here:
+        if(WaccountNumber.getText().equals("")){
+            WaccountNumber.setForeground(new java.awt.Color(120, 120, 120));
+            WaccountNumber.setText(" Enter Amount"); 
+            
+        }
+        B6=false;
+    }//GEN-LAST:event_WaccountNumberFocusLost
+    
+    
+    private void DaccountNumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DaccountNumberFocusGained
+        // TODO add your handling code here:
+        if(DaccountNumber.getText().equals(" Enter Amount")){
+            DaccountNumber.setText("");
+        }
+    }//GEN-LAST:event_DaccountNumberFocusGained
+
+    boolean B8=true;
+    private void DaccountNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DaccountNumberFocusLost
+        // TODO add your handling code here:
+        if(DaccountNumber.getText().equals("")){
+            DaccountNumber.setForeground(new java.awt.Color(120, 120, 120));
+            DaccountNumber.setText(" Enter Amount"); 
+            
+        }
+        B8=false;
+    }//GEN-LAST:event_DaccountNumberFocusLost
 
     /**
      * @param args the command line arguments
@@ -1451,9 +1543,11 @@ public class HomeSection extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField DaccountNumber;
     private javax.swing.JPanel Iconpanel;
     private javax.swing.JPanel ProfilePanel;
     private javax.swing.JTable TransactionTable;
+    private javax.swing.JTextField WaccountNumber;
     private javax.swing.JLayeredPane centeralpanel;
     private javax.swing.JPanel headpanel;
     private javax.swing.JPanel homepanel;
@@ -1515,8 +1609,6 @@ public class HomeSection extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel mainpanel;
     private javax.swing.JPanel transactionpanel;
     // End of variables declaration//GEN-END:variables

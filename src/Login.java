@@ -28,6 +28,7 @@ public class Login extends javax.swing.JFrame {
         LForgetField.setText("<html>Forget Password ?</html>");
         LForgetField.setAlignmentX(RIGHT_ALIGNMENT);
         LaccountField.setCaretPosition(1);
+        
     }
 
     /**
@@ -181,7 +182,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(639, 199, -1, 27));
 
         LpassField.setForeground(new java.awt.Color(120, 120, 120));
-        LpassField.setText("Password");
+        LpassField.setText(" Password");
         LpassField.setToolTipText("Password");
         LpassField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
         LpassField.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -284,7 +285,7 @@ public class Login extends javax.swing.JFrame {
          int key=evt.getKeyChar();
          
         if(B1 && key >='0' && key <='9' || evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ){
-            if(B1 || LaccountField.getText().equals("Account Number")){
+            if( B1 || LaccountField.getText().equals("Account Number")){
             LaccountField.setText("");
             }
             LaccountField.setEditable(true);
@@ -398,7 +399,7 @@ public class Login extends javax.swing.JFrame {
 
         if( pass.equals("")){
             LpassField.setForeground(new java.awt.Color(120, 120, 120));
-            LpassField.setText("Password");
+            LpassField.setText(" Password");
             LpassField.setEchoChar( (char) 0);
         }
 
@@ -407,7 +408,7 @@ public class Login extends javax.swing.JFrame {
     private void LpassFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LpassFieldFocusGained
         // TODO add your handling code here:
         String pass = new String(LpassField.getPassword());
-        if(B4 || pass.equals("Password")){
+        if(B4 || pass.equals(" Password")){
             LpassField.setText("");
             B4=false;
 
