@@ -193,6 +193,11 @@ public class Login extends javax.swing.JFrame {
                 LpassFieldFocusLost(evt);
             }
         });
+        LpassField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LpassFieldActionPerformed(evt);
+            }
+        });
         LpassField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 LpassFieldKeyPressed(evt);
@@ -422,6 +427,10 @@ public class Login extends javax.swing.JFrame {
         jframe =this;
         jframe.setEnabled(false);
     }//GEN-LAST:event_LForgetFieldMouseClicked
+
+    private void LpassFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LpassFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LpassFieldActionPerformed
 
    public JFrame getJframe(){
        return this;
