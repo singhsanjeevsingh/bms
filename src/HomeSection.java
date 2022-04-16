@@ -1,15 +1,12 @@
 
-import java.awt.Color;
+
 import java.awt.Cursor;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Box;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
-import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -32,7 +29,6 @@ public class HomeSection extends javax.swing.JFrame {
         private  Connection con;
         private  Statement stm;
         private ResultSet rs;
-        private JPasswordField pf;
         
     public HomeSection() {
         
@@ -734,7 +730,7 @@ public class HomeSection extends javax.swing.JFrame {
 
         jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(50, 49, 49));
-        jLabel28.setText("Name");
+        jLabel28.setText("Username");
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(50, 49, 49));
@@ -807,7 +803,7 @@ public class HomeSection extends javax.swing.JFrame {
 
         jLabel26.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 14)); // NOI18N
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel26.setText("Account Details");
+        jLabel26.setText("Name");
         jLabel26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jButton4.setBackground(new java.awt.Color(245, 45, 45));
@@ -843,7 +839,7 @@ public class HomeSection extends javax.swing.JFrame {
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel27)
-                                    .addComponent(jLabel28))
+                                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel36)
@@ -1026,6 +1022,10 @@ public class HomeSection extends javax.swing.JFrame {
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         // TODO add your handling code here:
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
         homepanel.setVisible(true);
         jLabel1.setText("HOME SECTION");
         transactionpanel.setVisible(false);
@@ -1034,43 +1034,50 @@ public class HomeSection extends javax.swing.JFrame {
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
+        
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
-          transactionpanel.setVisible(true);
-          jLabel1.setText("TRANSACTION SECTION");
-         homepanel.setVisible(false);
-         ProfilePanel.setVisible(false);
+        transactionpanel.setVisible(true);
+        jLabel1.setText("TRANSACTION SECTION");
+        homepanel.setVisible(false);
+        ProfilePanel.setVisible(false);
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        // TODO add your handling code here:
-          transactionpanel.setVisible(true);
-          jLabel1.setText("TRANSACTION SECTION");
-         homepanel.setVisible(false);
-         ProfilePanel.setVisible(false);
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+        transactionpanel.setVisible(true);
+        jLabel1.setText("TRANSACTION SECTION");
+        homepanel.setVisible(false);
+        ProfilePanel.setVisible(false);
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
-        ProfilePanel.setVisible(true);
-        jLabel1.setText("PROFILE SECTION");
-        homepanel.setVisible(false);
-        transactionpanel.setVisible(false);
+        
         try{
             accountdetails detail = new accountdetails(account);
             jLabel34.setText(account);
-            jLabel42.setText(detail.fname+" "+detail.lname);
+            jLabel42.setText(detail.username);
             jLabel43.setText(detail.emailid);
             jLabel44.setText(detail.gender);
             jLabel45.setText(detail.phonenumber);
-            jLabel46.setText(""+detail.dob);
-            jLabel47.setText(""+detail.depositamount);
+            jLabel46.setText("" + detail.dob);
+            jLabel47.setText("" + detail.depositamount);
+            jLabel26.setText(detail.fname + " " + detail.lname);
+
+            jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+            jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+            jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+            jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+            ProfilePanel.setVisible(true);
+            jLabel1.setText("PROFILE SECTION");
+            homepanel.setVisible(false);
+            transactionpanel.setVisible(false);
             
         }
         catch (Exception e){
@@ -1081,11 +1088,30 @@ public class HomeSection extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        // TODO add your handling code here:
-         ProfilePanel.setVisible(true);
-         jLabel1.setText("PROFILE SECTION");
-        homepanel.setVisible(false);
-        transactionpanel.setVisible(false);
+ try{
+            accountdetails detail = new accountdetails(account);
+            jLabel34.setText(account);
+            jLabel42.setText(detail.username);
+            jLabel43.setText(detail.emailid);
+            jLabel44.setText(detail.gender);
+            jLabel45.setText(detail.phonenumber);
+            jLabel46.setText("" + detail.dob);
+            jLabel47.setText("" + detail.depositamount);
+            jLabel26.setText(detail.fname + " " + detail.lname);
+
+            jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+            jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+            jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+            jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+            ProfilePanel.setVisible(true);
+            jLabel1.setText("PROFILE SECTION");
+            homepanel.setVisible(false);
+            transactionpanel.setVisible(false);
+            
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
@@ -1143,8 +1169,7 @@ public class HomeSection extends javax.swing.JFrame {
             stm =  con.createStatement();
             String sql ="select * from AccountDetails where AccountNumber = '"+account+"'; ";
             rs = stm.executeQuery(sql);
-            pf = new JPasswordField(12);
-            String password = null ;
+            String password;
            
             Box box = Box.createHorizontalBox();
             box.setBackground(new java.awt.Color(176, 82, 240));
@@ -1154,8 +1179,6 @@ public class HomeSection extends javax.swing.JFrame {
             JPasswordField jpf = new JPasswordField(16);
             box.add(jpf);
 
-            UIManager.put("OptionPane.background", Color.RED);
-            UIManager.put("Panel.background", Color.blue);
             int button = JOptionPane.showConfirmDialog(null, box, "Enter your password", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
             if (button == 0)
                 password = new String(jpf.getPassword());
@@ -1267,8 +1290,8 @@ public class HomeSection extends javax.swing.JFrame {
             stm = con.createStatement();
             String sql = "select * from AccountDetails where AccountNumber = '" + account + "'; ";
             rs = stm.executeQuery(sql);
-            pf = new JPasswordField(12);
-            String password = null;
+            
+            String password;
             String query1 = "insert into transactions values (?,?,?,?);";
             PreparedStatement pst = con.prepareStatement(query1);
             String query2 = "update AccountDetails set Deposit = ? where AccountNumber = ?;";

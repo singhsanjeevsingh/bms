@@ -24,6 +24,9 @@ public class accountdetails {
     public  Date dob ;
     public  double depositamount;
     public  String password;
+    public  String username;
+    public  String adharno;
+    public  String panno;
     
     public accountdetails(String accountn){
     
@@ -37,10 +40,13 @@ public class accountdetails {
         {
             fname = rs.getString("FirstName");
             lname = rs.getString("LastName");
+            username=rs.getString("Username");
             emailid = rs.getString("Email");
             gender = rs.getString("Gender");
             phonenumber =rs.getString("Phone");
             dob = rs.getDate("DOB");
+            adharno = rs.getString("AdharNumber");
+            panno = rs.getString("PanNumber");
             depositamount = rs.getDouble("Deposit");
             password = rs.getString("Password");  
         }
