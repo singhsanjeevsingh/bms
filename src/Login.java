@@ -103,7 +103,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(LregisterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(704, 440, 110, 40));
 
         LaccountField.setForeground(new java.awt.Color(120, 120, 120));
-        LaccountField.setText(" Account Number");
+        LaccountField.setText(" UserName");
         LaccountField.setToolTipText("Account Number");
         LaccountField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
         LaccountField.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -127,6 +127,9 @@ public class Login extends javax.swing.JFrame {
         LaccountField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 LaccountFieldKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                LaccountFieldKeyTyped(evt);
             }
         });
         jPanel1.add(LaccountField, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 263, 240, 42));
@@ -160,7 +163,7 @@ public class Login extends javax.swing.JFrame {
         LForgetField.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         LForgetField.setForeground(new java.awt.Color(51, 153, 0));
         LForgetField.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        LForgetField.setText("Forget Password ?");
+        LForgetField.setText("Forgot Password ?");
         LForgetField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 LForgetFieldMouseClicked(evt);
@@ -287,24 +290,16 @@ public class Login extends javax.swing.JFrame {
     Boolean B1=true;
     private void LaccountFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LaccountFieldKeyPressed
         // TODO add your handling code here:
-         int key=evt.getKeyChar();
-         
-        if(B1 && key >='0' && key <='9' || evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ){
-            if( B1 || LaccountField.getText().equals("Account Number")){
-            LaccountField.setText("");
-            }
-            LaccountField.setEditable(true);
-            B1=false;
-            B2=false;
-        }else{
-           
-            if( key >='0' && key <='9'){
-                LaccountField.setEditable(true);
-                LaccountField.setForeground(new java.awt.Color(0, 0, 0));
-            }else{
+        int key=evt.getKeyCode();
+        
+        if( key == java.awt.event.KeyEvent.VK_SPACE)
                 LaccountField.setEditable(false);
-            }
-        }
+        else {
+            LaccountField.setEditable(true);
+            LaccountField.setForeground( new Color(0,0,0));
+            if( LaccountField.getText().equals(" UserName"))
+                LaccountField.setText("");
+        }   
     }//GEN-LAST:event_LaccountFieldKeyPressed
 
         Boolean B4=true;
@@ -350,7 +345,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(LaccountField.getText().equals("")){
             LaccountField.setForeground(new java.awt.Color(120, 120, 120));
-            LaccountField.setText(" Account Number");
+            LaccountField.setText(" UserName");
             B10=false;
         }
     }//GEN-LAST:event_LaccountFieldFocusLost
@@ -431,6 +426,10 @@ public class Login extends javax.swing.JFrame {
     private void LpassFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LpassFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LpassFieldActionPerformed
+
+    private void LaccountFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LaccountFieldKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LaccountFieldKeyTyped
 
    public JFrame getJframe(){
        return this;

@@ -1129,6 +1129,14 @@ public class HomeSection extends javax.swing.JFrame {
                    }
                    else
                    {
+                       jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+                       if( homepanel.isVisible()){
+                           jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+                       }else if( transactionpanel.isVisible()){
+                           jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+                       }else{
+                           jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+                       }
                        this.setVisible(true);
                    }
         
@@ -1136,7 +1144,11 @@ public class HomeSection extends javax.swing.JFrame {
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         // TODO add your handling code here:
-        int p=JOptionPane.showConfirmDialog(null, "Are you Sure to LogOut ?","LogOut",JOptionPane.YES_NO_OPTION);
+       jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        int p=JOptionPane.showConfirmDialog(null, "Are you Sure to LogOut ?","LogOut",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
                    if(p==0)
                    {
                        new Login().setVisible(true);
@@ -1145,8 +1157,17 @@ public class HomeSection extends javax.swing.JFrame {
                    }
                    else
                    {
+                       jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
+                       if( homepanel.isVisible()){
+                           jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+                       }else if( transactionpanel.isVisible()){
+                           jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+                       }else{
+                           jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+                       }
                        this.setVisible(true);
                    }
+        
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jPanel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseEntered
