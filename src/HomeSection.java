@@ -40,7 +40,7 @@ public class HomeSection extends javax.swing.JFrame {
         transactionpanel.setVisible(false);
         ProfilePanel.setVisible(false);
         
-        String accountn = Login.LaccountField.getText();
+        String accountn = Login.Accountnumber;
         accountdetails info = new  accountdetails(accountn);
         jLabel11.setText(info.fname);
         jLabel16.setText(""+info.depositamount);

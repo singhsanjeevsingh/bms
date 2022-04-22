@@ -189,10 +189,10 @@ public class ResetPassword extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             stm = con.createStatement();
-            String accountn = VaccountNumber.getText();
+            String username = VaccountNumber.getText();
             String phone = VPhoneField.getText();
             
-            String sql = "select * from AccountDetails where AccountNumber = '"+accountn+"' and Phone ='"+phone+"'; ";
+            String sql = "select * from AccountDetails where Username = '"+username+"' and Phone ='"+phone+"'; ";
             
             rs = stm.executeQuery(sql);
             if(rs.next()){
