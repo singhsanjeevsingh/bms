@@ -364,6 +364,10 @@ public class Login extends javax.swing.JFrame {
         int key= evt.getKeyCode();
         LpassField.setForeground(new java.awt.Color(0, 0, 0));
         LpassField.setEchoChar('*');
+        if( evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE)
+            LpassField.setEditable(false);
+        else
+            LpassField.setEditable(true);
         if( key==10){
             //comparision yahan pr krio next screen pr jaane ke liye
             try {

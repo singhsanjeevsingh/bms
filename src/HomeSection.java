@@ -29,7 +29,6 @@ public class HomeSection extends javax.swing.JFrame {
         private  Connection con;
         private  Statement stm;
         private ResultSet rs;
-        
     public HomeSection() {
         
         initComponents();
@@ -703,9 +702,9 @@ public class HomeSection extends javax.swing.JFrame {
                             .addComponent(DaccountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(WaccountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(transactionpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(146, Short.MAX_VALUE))
         );
 
@@ -1010,6 +1009,7 @@ public class HomeSection extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
+        
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(176, 82, 240), 2));
@@ -1181,7 +1181,7 @@ public class HomeSection extends javax.swing.JFrame {
         // TODO add your handling code here:
          
     }//GEN-LAST:event_jPanel1MouseExited
-
+  
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try{
@@ -1198,8 +1198,9 @@ public class HomeSection extends javax.swing.JFrame {
             box.add(jl);
 
             JPasswordField jpf = new JPasswordField(16);
+            
             box.add(jpf);
-
+            
             int button = JOptionPane.showConfirmDialog(null, box, "Enter your password", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
             if (button == 0)
                 password = new String(jpf.getPassword());
@@ -1209,31 +1210,34 @@ public class HomeSection extends javax.swing.JFrame {
             if(rs.next()) {
                 if (password.equals(rs.getString("Password"))) {
                     double amt = Double.parseDouble(WaccountNumber.getText());
-                    java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
-                    String cd = "Debited";
-                    String query1 = "insert into transactions values (?,?,?,?);";
-                    PreparedStatement pst = con.prepareStatement(query1);
-                    pst.setDate(1, date);
-                    pst.setString(2, account);
-                    pst.setDouble(3, amt);
-                    pst.setString(4, cd);
-                    pst.execute();
+                    if (amt <= rs.getDouble("Deposit")) {
+                        java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
+                        String cd = "Debited";
+                        String query1 = "insert into transactions values (?,?,?,?);";
+                        PreparedStatement pst = con.prepareStatement(query1);
+                        pst.setDate(1, date);
+                        pst.setString(2, account);
+                        pst.setDouble(3, amt);
+                        pst.setString(4, cd);
+                        pst.execute();
 
-                    amt = rs.getDouble("Deposit") - amt;
-                    accountdetails info = new accountdetails(account);
-                    info.depositamount = amt;
-                    String query2 = "update AccountDetails set Deposit = ? where AccountNumber = ?;";
-                    PreparedStatement pst1 = con.prepareStatement(query2);
-                    pst1.setDouble(1, amt);
-                    pst1.setString(2, account);
-                    pst1.execute();
+                        amt = rs.getDouble("Deposit") - amt;
+                        accountdetails info = new accountdetails(account);
+                        info.depositamount = amt;
+                        String query2 = "update AccountDetails set Deposit = ? where AccountNumber = ?;";
+                        PreparedStatement pst1 = con.prepareStatement(query2);
+                        pst1.setDouble(1, amt);
+                        pst1.setString(2, account);
+                        pst1.execute();
 
-                    JOptionPane.showMessageDialog(null, "Amount Debited ", "Withdrawal",JOptionPane.INFORMATION_MESSAGE);
-                    jLabel16.setText(" " + info.depositamount);
+                        JOptionPane.showMessageDialog(null, "Amount Debited ", "Withdrawal", JOptionPane.INFORMATION_MESSAGE);
+                        jLabel16.setText(" " + info.depositamount);
+                    }
+                    else
+                        JOptionPane.showMessageDialog(null, "Unsufficient Balance!!", "Warnning",JOptionPane.ERROR_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(null, "Wrong Password", "Withdrwal",JOptionPane.ERROR_MESSAGE);
                 }
-
             }
             WaccountNumber.setForeground(new java.awt.Color(120, 120, 120));
             WaccountNumber.setText(" Enter Amount");

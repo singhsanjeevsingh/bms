@@ -21,6 +21,7 @@ public class ResetPassword extends javax.swing.JFrame {
     public ResetPassword() {
         initComponents();
         con = database.db();
+        VaccountNumber.setCaretPosition(1);
     }
    
     /**
