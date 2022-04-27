@@ -17,6 +17,7 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    public static String Accountnumber;
     Connection con =null;
     ResultSet rs = null;
     Statement stm = null;
@@ -228,15 +229,15 @@ public class Login extends javax.swing.JFrame {
         try {
             
             stm =con.createStatement();
-            String accountn = LaccountField.getText();
+            String username = LaccountField.getText();
             String pass = new String(LpassField.getPassword());
-            
-            String sql = "select * from AccountDetails where AccountNumber = '"+accountn+"' and Password ='"+pass+"'; ";
+            String sql = "select * from AccountDetails where Username = '"+username+"' and Password ='"+pass+"'; ";
             
             rs = stm.executeQuery(sql);
             
             if(rs.next())
             {
+                 Accountnumber =rs.getString("AccountNumber");
                  new HomeSection().setVisible(true);
                  this.setVisible(false);
                  this.dispose();
@@ -363,20 +364,25 @@ public class Login extends javax.swing.JFrame {
         int key= evt.getKeyCode();
         LpassField.setForeground(new java.awt.Color(0, 0, 0));
         LpassField.setEchoChar('*');
+        if( evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE)
+            LpassField.setEditable(false);
+        else
+            LpassField.setEditable(true);
         if( key==10){
             //comparision yahan pr krio next screen pr jaane ke liye
             try {
 
                 stm =con.createStatement();
-                String accountn = LaccountField.getText();
+                String username = LaccountField.getText();
                 String pass = new String(LpassField.getPassword());
 
-                String sql = "select * from AccountDetails where AccountNumber = '"+accountn+"' and Password ='"+pass+"'; ";
+                String sql = "select * from AccountDetails where Username = '"+username+"' and Password ='"+pass+"'; ";
 
                 rs = stm.executeQuery(sql);
 
                 if(rs.next())
                 {
+                    Accountnumber = rs.getString("AccountNumber");
                     new HomeSection().setVisible(true);
                     this.setVisible(false);
                 }
