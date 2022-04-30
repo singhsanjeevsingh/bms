@@ -27,9 +27,7 @@ public class Registration extends javax.swing.JFrame {
         jPanel2.setVisible(true);
         jPanel3.setVisible(false);
         Rusername.setCaretPosition(1);
-        RaccountNumber.setCaretPosition(1);
-      
-        long number = (long) Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L;
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -58,7 +56,6 @@ public class Registration extends javax.swing.JFrame {
         RconfirmButton = new javax.swing.JButton();
         Rusername = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        RaccountNumber = new javax.swing.JTextField();
         RdepositAmount = new javax.swing.JTextField();
         RpassField1 = new javax.swing.JPasswordField();
         RpassField2 = new javax.swing.JPasswordField();
@@ -337,34 +334,6 @@ public class Registration extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        RaccountNumber.setForeground(new java.awt.Color(120, 120, 120));
-        RaccountNumber.setText(" Account Number");
-        RaccountNumber.setToolTipText(" Account Number");
-        RaccountNumber.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
-        RaccountNumber.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                RaccountNumberFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                RaccountNumberFocusLost(evt);
-            }
-        });
-        RaccountNumber.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                RaccountNumberMouseClicked(evt);
-            }
-        });
-        RaccountNumber.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RaccountNumberActionPerformed(evt);
-            }
-        });
-        RaccountNumber.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                RaccountNumberKeyPressed(evt);
-            }
-        });
-
         RdepositAmount.setForeground(new java.awt.Color(120, 120, 120));
         RdepositAmount.setText(" Deposit Amount");
         RdepositAmount.setToolTipText(" Depsoit Amount");
@@ -546,20 +515,17 @@ public class Registration extends javax.swing.JFrame {
                             .addComponent(RpassField1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(RdepositAmount, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(RpanNumber, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(RadharNumber, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(RaccountNumber, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(RadharNumber, javax.swing.GroupLayout.Alignment.LEADING))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(69, 69, 69)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addGap(35, 35, 35)
-                .addComponent(RaccountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addComponent(RadharNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(RpanNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -569,11 +535,11 @@ public class Registration extends javax.swing.JFrame {
                 .addComponent(RpassField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(RpassField2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addGap(70, 70, 70)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RbackButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RconfirmButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(75, 75, 75))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
         jLayeredPane1.add(jPanel3, "card3");
@@ -796,54 +762,6 @@ public class Registration extends javax.swing.JFrame {
             RdepositAmount.setText("");
         }
     }//GEN-LAST:event_RdepositAmountFocusGained
-
-    private void RaccountNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RaccountNumberKeyPressed
-        // TODO add your handling code here:
-        int key = evt.getKeyChar();
-
-        if (key >= '0' && key <= '9' || evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE) {
-            if (B1) {
-                RaccountNumber.setText("");
-            }
-            RaccountNumber.setEditable(true);
-            RaccountNumber.setForeground(new java.awt.Color(0, 0, 0));
-            B1 = false;
-            B2 = false;
-        } else {
-            RaccountNumber.setEditable(false);
-        }
-    }//GEN-LAST:event_RaccountNumberKeyPressed
-
-    private void RaccountNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RaccountNumberActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_RaccountNumberActionPerformed
-
-    private void RaccountNumberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RaccountNumberMouseClicked
-        // TODO add your handling code here:
-        if (RaccountNumber.getText().equals(" Account Number")) {
-            RaccountNumber.setText("");
-            B2 = false;
-        }
-        RaccountNumber.setEditable(true);
-    }//GEN-LAST:event_RaccountNumberMouseClicked
-
-    private void RaccountNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RaccountNumberFocusLost
-        // TODO add your handling code here:
-        if (RaccountNumber.getText().equals("")) {
-            RaccountNumber.setForeground(new java.awt.Color(120, 120, 120));
-            RaccountNumber.setText(" Account Number");
-
-        }
-        B2 = false;
-    }//GEN-LAST:event_RaccountNumberFocusLost
-
-    private void RaccountNumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RaccountNumberFocusGained
-        // TODO add your handling code here:
-        if (RaccountNumber.getText().equals(" Account Number") && B2 == false && !userinfo) {
-            RaccountNumber.setText("");
-        }
-    }//GEN-LAST:event_RaccountNumberFocusGained
 
     private void RphoneNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RphoneNumberKeyPressed
         // TODO add your handling code here:
@@ -1279,7 +1197,6 @@ public boolean accountnumbercheck(long n){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField RaccountNumber;
     private javax.swing.JTextField RadharNumber;
     private javax.swing.JButton RbackButton;
     private javax.swing.JButton RbackButton1;
