@@ -26,7 +26,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         con = database.db();
         LpassField.setEchoChar( (char) 0);
-        LForgetField.setText("<html>Forget Password ?</html>");
+        LForgetField.setText("<html>Forgot Password ?</html>");
         LForgetField.setAlignmentX(RIGHT_ALIGNMENT);
         LaccountField.setCaretPosition(1);
         
@@ -76,7 +76,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setText("Bank Managment System");
         jPanel2.add(jLabel1);
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 828, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 850, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/login_new.gif"))); // NOI18N
         jLabel2.setText("jLabel2");

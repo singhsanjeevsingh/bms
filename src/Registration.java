@@ -1,36 +1,36 @@
+
 import java.awt.Cursor;
 import java.awt.HeadlessException;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.font.TextAttribute;
-import java.lang.Character;
-import java.util.Map;
+
 public class Registration extends javax.swing.JFrame {
 
     /**
      * Creates new form Registration
      */
-    Connection con ;
+    Connection con;
     ResultSet rs;
     PreparedStatement pst;
     Statement stm;
     Boolean userinfo;
     Boolean accountinfo;
+
     public Registration() {
         initComponents();
         con = database.db();
-        RpassField1.setEchoChar( (char) 0);
-        RpassField2.setEchoChar( (char) 0);
+        RpassField1.setEchoChar((char) 0);
+        RpassField2.setEchoChar((char) 0);
         jPanel2.setVisible(true);
         jPanel3.setVisible(false);
         Rusername.setCaretPosition(1);
         RaccountNumber.setCaretPosition(1);
-        userinfo=false;
-        accountinfo=false;
+        userinfo = false;
+        accountinfo = false;
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -257,6 +257,11 @@ public class Registration extends javax.swing.JFrame {
                 RusernameFocusLost(evt);
             }
         });
+        Rusername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RusernameActionPerformed(evt);
+            }
+        });
         Rusername.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 RusernameKeyPressed(evt);
@@ -292,7 +297,7 @@ public class Registration extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(Rusername))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -320,7 +325,7 @@ public class Registration extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RbackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RconfirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -542,7 +547,7 @@ public class Registration extends javax.swing.JFrame {
                             .addComponent(RpanNumber, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(RadharNumber, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(RaccountNumber, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(57, 82, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -563,7 +568,7 @@ public class Registration extends javax.swing.JFrame {
                 .addComponent(RpassField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(RpassField2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RbackButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RconfirmButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -580,17 +585,16 @@ public class Registration extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLayeredPane1))
+                    .addComponent(jLayeredPane1)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -613,26 +617,61 @@ public class Registration extends javax.swing.JFrame {
 
     private void RconfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RconfirmButtonActionPerformed
         // TODO add your handling code here:
-        
-        try{
-            String uname = Rusername.getText();
-            String query = "select * from accountdetails where Username = '" + uname + "';";
-            stm = con.createStatement();
-            rs = stm.executeQuery(query);
-            
-            if(rs.next()){
-                JOptionPane.showMessageDialog(null,"Duplicate entry!,Username already exists","Warning",JOptionPane.ERROR_MESSAGE);
-            }
-            else{
-                jPanel3.setVisible(true);
-                jPanel2.setVisible(false);
-            }
-            accountinfo=true;
+        boolean checker = true;
+        String gender = "";
+        if (jRadioButton1.isSelected()) {
+            gender = "Male";
         }
-        catch(HeadlessException | SQLException e){
-            JOptionPane.showMessageDialog(null,e.getMessage(),"ERROR!",JOptionPane.ERROR_MESSAGE);
+        if (jRadioButton2.isSelected()) {
+            gender = "Female";
         }
-        
+        if (Rusername.getText().equals("") || Rusername.getText().equals(" Username")) {
+            JOptionPane.showMessageDialog(null, "Username is empty !", "Warning", JOptionPane.WARNING_MESSAGE);
+            checker = false;
+        } else if (RfirstName.getText().equals("") || RfirstName.getText().equals(" First Name")) {
+            JOptionPane.showMessageDialog(null, "Firstname is empty !", "Warning", JOptionPane.WARNING_MESSAGE);
+            checker = false;
+        } else if (RlastName.getText().equals(" Last Name") || RlastName.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Lastame is empty !", "Warning", JOptionPane.WARNING_MESSAGE);
+            checker = false;
+        } else if (RemailId.getText().equals(" Email Id") || RemailId.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Email id is empty !", "Warning", JOptionPane.WARNING_MESSAGE);
+            checker = false;
+        } else if (gender.equals("")) {
+            JOptionPane.showMessageDialog(null, "Gender is empty !", "Warning", JOptionPane.WARNING_MESSAGE);
+            checker = false;
+        } else if (RphoneNumber.getText().equals(" Phone Number") || RphoneNumber.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Phone Number is empty !", "Warning", JOptionPane.WARNING_MESSAGE);
+            checker = false;
+        } else if (RphoneNumber.getText().length() < 10) {
+            JOptionPane.showMessageDialog(null, "Phone Number has only " + RphoneNumber.getText().length() + " digits", "Phone Number Incorrect", JOptionPane.WARNING_MESSAGE);
+            checker = false;
+        } else if (jDateChooser1.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "Date of Birth is empty !", "Warning", JOptionPane.WARNING_MESSAGE);
+            checker = false;
+        } else {
+            checker = true;
+        }
+
+        if (checker) {
+            try {
+                String uname = Rusername.getText();
+                String query = "select * from accountdetails where Username = '" + uname + "';";
+                stm = con.createStatement();
+                rs = stm.executeQuery(query);
+
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(null, "Duplicate entry!,Username already exists", "Warning", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    jPanel3.setVisible(true);
+                    jPanel2.setVisible(false);
+                }
+                accountinfo = true;
+            } catch (HeadlessException | SQLException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR!", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+
 
     }//GEN-LAST:event_RconfirmButtonActionPerformed
 
@@ -643,14 +682,14 @@ public class Registration extends javax.swing.JFrame {
 
     private void RconfirmButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RconfirmButtonMouseEntered
         // TODO add your handling code here:
-        RconfirmButton.setBackground(new java.awt.Color(51,153, 0));
+        RconfirmButton.setBackground(new java.awt.Color(51, 153, 0));
         RconfirmButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_RconfirmButtonMouseEntered
 
     private void RpassField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RpassField2KeyPressed
         // TODO add your handling code here:
         RpassField2.setForeground(new java.awt.Color(0, 0, 0));
-        if( evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE)
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE)
             RpassField1.setEditable(false);
         else
             RpassField1.setEditable(true);
@@ -662,8 +701,8 @@ public class Registration extends javax.swing.JFrame {
 
     private void RpassField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RpassField2FocusLost
         // TODO add your handling code here:
-        if(new  String( RpassField2.getPassword()).equals("")){
-            RpassField2.setEchoChar( (char) 0);
+        if (new String(RpassField2.getPassword()).equals("")) {
+            RpassField2.setEchoChar((char) 0);
 
             RpassField2.setText(" Confirm Password");
             RpassField2.setForeground(new java.awt.Color(120, 120, 120));
@@ -673,8 +712,8 @@ public class Registration extends javax.swing.JFrame {
     private void RpassField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RpassField2FocusGained
         // TODO add your handling code here:
 
-        if(new  String( RpassField2.getPassword()).equals(" Confirm Password")){
-            RpassField2.setEchoChar( '*');
+        if (new String(RpassField2.getPassword()).equals(" Confirm Password")) {
+            RpassField2.setEchoChar('*');
             RpassField2.setForeground(new java.awt.Color(0, 0, 0));
             RpassField2.setText("");
         }
@@ -693,7 +732,7 @@ public class Registration extends javax.swing.JFrame {
 
     private void RbackButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RbackButtonMouseEntered
         // TODO add your handling code here:
-        RbackButton.setBackground(new java.awt.Color(51,153, 0));
+        RbackButton.setBackground(new java.awt.Color(51, 153, 0));
         RbackButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
     }//GEN-LAST:event_RbackButtonMouseEntered
@@ -701,7 +740,7 @@ public class Registration extends javax.swing.JFrame {
     private void RpassField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RpassField1KeyPressed
         // TODO add your handling code here:
         RpassField1.setForeground(new java.awt.Color(0, 0, 0));
-        if( evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE)
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_SPACE)
             RpassField1.setEditable(false);
         else
             RpassField1.setEditable(true);
@@ -709,8 +748,8 @@ public class Registration extends javax.swing.JFrame {
 
     private void RpassField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RpassField1FocusLost
         // TODO add your handling code here:
-        if(new  String( RpassField1.getPassword()).equals("")){
-            RpassField1.setEchoChar( (char) 0);
+        if (new String(RpassField1.getPassword()).equals("")) {
+            RpassField1.setEchoChar((char) 0);
             RpassField1.setForeground(new java.awt.Color(120, 120, 120));
             RpassField1.setText(" Password");
         }
@@ -719,7 +758,7 @@ public class Registration extends javax.swing.JFrame {
     private void RpassField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RpassField1FocusGained
         // TODO add your handling code here:
 
-        if( new String(RpassField1.getPassword()).equals(" Password")){
+        if (new String(RpassField1.getPassword()).equals(" Password")) {
             RpassField1.setText("");
             RpassField1.setEchoChar('*');
 
@@ -728,14 +767,13 @@ public class Registration extends javax.swing.JFrame {
 
     private void RdepositAmountKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RdepositAmountKeyPressed
         // TODO add your handling code here:
-        int key=evt.getKeyChar();
+        int key = evt.getKeyChar();
 
-        
-        if( key >='0' && key <='9' || evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ){
+        if ( ((key >= '0' && key <= '9') && RdepositAmount.getText().length()<8 )|| evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE) {
             RdepositAmount.setEditable(true);
             RdepositAmount.setForeground(new java.awt.Color(0, 0, 0));
 
-        }else{
+        } else {
             RdepositAmount.setEditable(false);
         }
     }//GEN-LAST:event_RdepositAmountKeyPressed
@@ -746,31 +784,31 @@ public class Registration extends javax.swing.JFrame {
 
     private void RdepositAmountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RdepositAmountFocusLost
         // TODO add your handling code here:
-        if(RdepositAmount.getText().equals("")){
+        if (RdepositAmount.getText().equals("")) {
             RdepositAmount.setText(" Deposit Amount");
         }
     }//GEN-LAST:event_RdepositAmountFocusLost
 
     private void RdepositAmountFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RdepositAmountFocusGained
         // TODO add your handling code here:
-        if(  RdepositAmount.getText().equals(" Deposit Amount")){
+        if (RdepositAmount.getText().equals(" Deposit Amount")) {
             RdepositAmount.setText("");
         }
     }//GEN-LAST:event_RdepositAmountFocusGained
 
     private void RaccountNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RaccountNumberKeyPressed
         // TODO add your handling code here:
-        int key=evt.getKeyChar();
+        int key = evt.getKeyChar();
 
-        if( key >='0' && key <='9' || evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ){
-            if(B1){
+        if (key >= '0' && key <= '9' || evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE) {
+            if (B1) {
                 RaccountNumber.setText("");
             }
             RaccountNumber.setEditable(true);
             RaccountNumber.setForeground(new java.awt.Color(0, 0, 0));
-            B1=false;
-            B2=false;
-        }else{
+            B1 = false;
+            B2 = false;
+        } else {
             RaccountNumber.setEditable(false);
         }
     }//GEN-LAST:event_RaccountNumberKeyPressed
@@ -782,39 +820,39 @@ public class Registration extends javax.swing.JFrame {
 
     private void RaccountNumberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RaccountNumberMouseClicked
         // TODO add your handling code here:
-        if(RaccountNumber.getText().equals( " Account Number")){
+        if (RaccountNumber.getText().equals(" Account Number")) {
             RaccountNumber.setText("");
-            B2=false;
+            B2 = false;
         }
         RaccountNumber.setEditable(true);
     }//GEN-LAST:event_RaccountNumberMouseClicked
 
     private void RaccountNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RaccountNumberFocusLost
         // TODO add your handling code here:
-        if(RaccountNumber.getText().equals("")){
+        if (RaccountNumber.getText().equals("")) {
             RaccountNumber.setForeground(new java.awt.Color(120, 120, 120));
             RaccountNumber.setText(" Account Number");
 
         }
-        B2=false;
+        B2 = false;
     }//GEN-LAST:event_RaccountNumberFocusLost
 
     private void RaccountNumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RaccountNumberFocusGained
         // TODO add your handling code here:
-        if(RaccountNumber.getText().equals(" Account Number") && B2==false && !userinfo){
+        if (RaccountNumber.getText().equals(" Account Number") && B2 == false && !userinfo) {
             RaccountNumber.setText("");
         }
     }//GEN-LAST:event_RaccountNumberFocusGained
 
     private void RphoneNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RphoneNumberKeyPressed
         // TODO add your handling code here:
-        int key=evt.getKeyChar();
-        
-        if( ( (key >='0' && key <='9') && RphoneNumber.getText().length() < 10) || evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE ){
+        int key = evt.getKeyChar();
+
+        if (((key >= '0' && key <= '9') && RphoneNumber.getText().length() < 10) || evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE) {
             RphoneNumber.setEditable(true);
             RphoneNumber.setForeground(new java.awt.Color(0, 0, 0));
 
-        }else{
+        } else {
             RphoneNumber.setEditable(false);
         }
     }//GEN-LAST:event_RphoneNumberKeyPressed
@@ -825,7 +863,7 @@ public class Registration extends javax.swing.JFrame {
 
     private void RphoneNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RphoneNumberFocusLost
         // TODO add your handling code here:
-        if(RphoneNumber.getText().equals("")){
+        if (RphoneNumber.getText().equals("")) {
             RphoneNumber.setText(" Phone Number");
         }
     }//GEN-LAST:event_RphoneNumberFocusLost
@@ -833,8 +871,8 @@ public class Registration extends javax.swing.JFrame {
     private void RphoneNumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RphoneNumberFocusGained
         // TODO add your handling code here:
         // TODO add your handling code here:
-        
-        if(RphoneNumber.getText().equals(" Phone Number")){
+
+        if (RphoneNumber.getText().equals(" Phone Number")) {
             RphoneNumber.setText("");
 
         }
@@ -860,24 +898,24 @@ public class Registration extends javax.swing.JFrame {
 
     private void RemailIdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RemailIdFocusLost
         // TODO add your handling code here:
-        
-        if(RemailId.getText().equals("")){
+
+        if (RemailId.getText().equals("")) {
             RemailId.setForeground(new java.awt.Color(120, 120, 120));
             RemailId.setText(" Email Id");
-        }else{
-            String emailid=RemailId.getText();
-            if( !emailid.contains("@gmail.com") ){
+        } else {
+            String emailid = RemailId.getText();
+            if (!emailid.contains("@gmail.com")) {
                 RemailId.setForeground(Color.red);
-                }else{
+            } else {
                 RemailId.setForeground(Color.black);
             }
-            
+
         }
     }//GEN-LAST:event_RemailIdFocusLost
 
     private void RemailIdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RemailIdFocusGained
         // TODO add your handling code here:
-        if( RemailId.getText().equals(" Email Id")){
+        if (RemailId.getText().equals(" Email Id")) {
             RemailId.setText("");
 
         }
@@ -885,14 +923,14 @@ public class Registration extends javax.swing.JFrame {
 
     private void RlastNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RlastNameKeyPressed
         // TODO add your handling code here:
-        
+
         RlastName.setForeground(new java.awt.Color(0, 0, 0));
         int key = evt.getKeyChar();
-        
-        if( (key >= 65 && key <= 90) || (key >= 97 && key <= 122)||  key==java.awt.event.KeyEvent.VK_BACK_SPACE  ){
-                RlastName.setEditable(true);
-              
-            }else{
+
+        if ((key >= 65 && key <= 90) || (key >= 97 && key <= 122) || key == java.awt.event.KeyEvent.VK_BACK_SPACE) {
+            RlastName.setEditable(true);
+
+        } else {
             RlastName.setEditable(false);
         }
     }//GEN-LAST:event_RlastNameKeyPressed
@@ -903,10 +941,10 @@ public class Registration extends javax.swing.JFrame {
 
     private void RlastNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RlastNameFocusLost
         // TODO add your handling code here:
-        if(RlastName.getText().equals("")){
+        if (RlastName.getText().equals("")) {
             RlastName.setForeground(new java.awt.Color(120, 120, 120));
             RlastName.setText(" Last Name");
-        }else{
+        } else {
             String cap = RlastName.getText().substring(0, 1).toUpperCase() + RlastName.getText().substring(1);
             RlastName.setText(cap);
         }
@@ -914,7 +952,7 @@ public class Registration extends javax.swing.JFrame {
 
     private void RlastNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RlastNameFocusGained
         // TODO add your handling code here:
-        if(RlastName.getText().equals(" Last Name")){
+        if (RlastName.getText().equals(" Last Name")) {
             RlastName.setText("");
         }
     }//GEN-LAST:event_RlastNameFocusGained
@@ -923,16 +961,16 @@ public class Registration extends javax.swing.JFrame {
         // TODO add your handling code here:
         RfirstName.setForeground(new java.awt.Color(0, 0, 0));
         int key = evt.getKeyChar();
-        
-        if( (key >= 65 && key <= 90) || (key >= 97 && key <= 122) || key==java.awt.event.KeyEvent.VK_BACK_SPACE ){
-                RfirstName.getCaret();
-                RfirstName.setEditable(true);
-                RfirstName.setForeground(new java.awt.Color(0, 0, 0));
-            }else{
+
+        if ((key >= 65 && key <= 90) || (key >= 97 && key <= 122) || key == java.awt.event.KeyEvent.VK_BACK_SPACE) {
+            RfirstName.getCaret();
+            RfirstName.setEditable(true);
+            RfirstName.setForeground(new java.awt.Color(0, 0, 0));
+        } else {
             RfirstName.setEditable(false);
-            
+
         }
-        
+
     }//GEN-LAST:event_RfirstNameKeyPressed
 
     private void RfirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RfirstNameActionPerformed
@@ -941,10 +979,10 @@ public class Registration extends javax.swing.JFrame {
 
     private void RfirstNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RfirstNameFocusLost
         // TODO add your handling code here:
-        if(RfirstName.getText().equals("")){
+        if (RfirstName.getText().equals("")) {
             RfirstName.setForeground(new java.awt.Color(120, 120, 120));
             RfirstName.setText(" First Name");
-        }else{
+        } else {
             String cap = RfirstName.getText().substring(0, 1).toUpperCase() + RfirstName.getText().substring(1);
             RfirstName.setText(cap);
         }
@@ -953,24 +991,24 @@ public class Registration extends javax.swing.JFrame {
     private void RfirstNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RfirstNameFocusGained
         // TODO add your handling code here:
         RfirstName.setEditable(true);
-        
-        if( RfirstName.getText().equals(" First Name")){
+
+        if (RfirstName.getText().equals(" First Name")) {
             RfirstName.setText("");
         }
     }//GEN-LAST:event_RfirstNameFocusGained
-    
+
     private void RadharNumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RadharNumberFocusGained
         // TODO add your handling code here:
-        if(  RadharNumber.getText().equals(" Aadhaar Number")){
+        if (RadharNumber.getText().equals(" Aadhaar Number")) {
             RadharNumber.setText("");
         }
     }//GEN-LAST:event_RadharNumberFocusGained
-    Boolean ad=false;
+    Boolean ad = false;
     private void RadharNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RadharNumberFocusLost
         // TODO add your handling code here:
-        
-        if( RadharNumber.getText().equals("")){
-            RadharNumber.setForeground( new Color(120,120,120));
+
+        if (RadharNumber.getText().equals("")) {
+            RadharNumber.setForeground(new Color(120, 120, 120));
             RadharNumber.setText(" Aadhaar Number");
         }
     }//GEN-LAST:event_RadharNumberFocusLost
@@ -982,37 +1020,36 @@ public class Registration extends javax.swing.JFrame {
     private void RadharNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadharNumberActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_RadharNumberActionPerformed
-    
+
     private void RadharNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RadharNumberKeyPressed
         // TODO add your handling code here:
-        if( RadharNumber.getText().equals(" Aadhaar Number")){
+        if (RadharNumber.getText().equals(" Aadhaar Number")) {
             RadharNumber.setText("");
             return;
         }
-        
-        
-        int key= evt.getKeyCode();
+
+        int key = evt.getKeyCode();
         String number = RadharNumber.getText().replaceAll("\\s", "");
-        if( (( key  >='0' && key <='9') && number.length() <16 ) || key==java.awt.event.KeyEvent.VK_BACK_SPACE ){
+        if (((key >= '0' && key <= '9') && number.length() <12) || key == java.awt.event.KeyEvent.VK_BACK_SPACE) {
             RadharNumber.setEditable(true);
-            RadharNumber.setForeground( new Color(0,0,0));
-        }else{
-            
+            RadharNumber.setForeground(new Color(0, 0, 0));
+        } else {
+
             RadharNumber.setEditable(false);
         }
     }//GEN-LAST:event_RadharNumberKeyPressed
 
     private void RpanNumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RpanNumberFocusGained
         // TODO add your handling code here:
-        if( RpanNumber.getText().equals(" Pan Number")){
+        if (RpanNumber.getText().equals(" Pan Number")) {
             RpanNumber.setText("");
         }
     }//GEN-LAST:event_RpanNumberFocusGained
 
     private void RpanNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RpanNumberFocusLost
         // TODO add your handling code here:
-        if( RpanNumber.getText().equals("")){
-            RpanNumber.setForeground(new Color(120,120,120));
+        if (RpanNumber.getText().equals("")) {
+            RpanNumber.setForeground(new Color(120, 120, 120));
             RpanNumber.setText(" Pan Number");
         }
     }//GEN-LAST:event_RpanNumberFocusLost
@@ -1027,24 +1064,23 @@ public class Registration extends javax.swing.JFrame {
 
     private void RpanNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RpanNumberKeyPressed
         // TODO add your handling code here:
-        if( RpanNumber.getText().equals("Pan Number")){
+        if (RpanNumber.getText().equals("Pan Number")) {
             RpanNumber.setText("");
         }
-        
-        
-        int key= evt.getKeyCode();
-        String number =RpanNumber.getText();
-        if(  number.length() <10 || key==java.awt.event.KeyEvent.VK_BACK_SPACE ){
+
+        int key = evt.getKeyCode();
+        String number = RpanNumber.getText();
+        if (number.length() < 10 || key == java.awt.event.KeyEvent.VK_BACK_SPACE) {
             RpanNumber.setEditable(true);
-            RpanNumber.setForeground( new Color(0,0,0));
-        }else{
+            RpanNumber.setForeground(new Color(0, 0, 0));
+        } else {
             RpanNumber.setEditable(false);
         }
     }//GEN-LAST:event_RpanNumberKeyPressed
 
     private void RconfirmButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RconfirmButton1MouseEntered
         // TODO add your handling code here:
-         RconfirmButton1.setBackground(new java.awt.Color(51,153, 0));
+        RconfirmButton1.setBackground(new java.awt.Color(51, 153, 0));
         RconfirmButton1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_RconfirmButton1MouseEntered
 
@@ -1054,63 +1090,83 @@ public class Registration extends javax.swing.JFrame {
     }//GEN-LAST:event_RconfirmButton1MouseExited
 
     private void RconfirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RconfirmButton1ActionPerformed
-            try {
-
-            String sql = "insert into AccountDetails values(?,?,?,?,?,?,?,?,?,?,?,?);";
-            pst = con.prepareStatement(sql);
-            String gender="";
-            if(jRadioButton1.isSelected())
-            {
-                gender = "Male";
-            }
-            if(jRadioButton2.isSelected())
-            {
-                gender = "Female";
-            }
-            pst.setString(1,RaccountNumber.getText());
-            pst.setString(2,RfirstName.getText());
-            pst.setString(3,RlastName.getText());
-            pst.setString(4,Rusername.getText());
-            pst.setString(5,RemailId.getText());
-            pst.setString(6,gender);
-            pst.setString(7,RphoneNumber.getText());
-            pst.setString(8,((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText());
-            pst.setString(9,RadharNumber.getText());
-            pst.setString(10,RpanNumber.getText());
-            pst.setString(11,RdepositAmount.getText());
-            pst.setString(12,new String(RpassField1.getPassword()));
-
-            if(new String(RpassField1.getPassword()).equals(new String(RpassField2.getPassword())))
-            {
-
-                int p=JOptionPane.showConfirmDialog(null, "Are you Sure to save?","Confirm",JOptionPane.YES_NO_OPTION);
-                if(p==0)
-                {
-                    pst.execute();
-                    JOptionPane.showMessageDialog(null,"Account created sucessfully ");
-                    new Login().setVisible(true);
-                    this.setVisible(false);
-                    this.dispose();
-                }
-                else
-                {
-                    this.setVisible(true);
-                }
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(null,"Password not matched please check ! ");
-            }
-
+        boolean checker = true;
+        if (RaccountNumber.getText().equals(" Account Number") || RaccountNumber.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Account number is empty !", "Warnning", JOptionPane.WARNING_MESSAGE);
+            checker = false;
+        } else if (RadharNumber.getText().equals(" Aadhaar Number") || RadharNumber.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Adhaar Number is empty !", "Warnning", JOptionPane.WARNING_MESSAGE);
+            checker = false;
+        } else if (RadharNumber.getText().length() < 12) {
+            JOptionPane.showMessageDialog(null, "Adhaar Number has only"+RadharNumber.getText().length()+"digits !", "Warnning", JOptionPane.WARNING_MESSAGE);
+            checker = false;
+        } else if (RpanNumber.getText().equals(" Pan Number") || RpanNumber.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Pan Number is empty !", "Warnning", JOptionPane.WARNING_MESSAGE);
+            checker = false;
+        } else if (RpanNumber.getText().length() < 10) {
+            JOptionPane.showMessageDialog(null, "Pan Number has only "+RpanNumber.getText().length()+" digits !", "Warnning", JOptionPane.WARNING_MESSAGE);
+            checker = false;
+        } else if (RdepositAmount.getText().equals(" Deposit Amount") || RdepositAmount.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Deposit Amount is empty !", "Warnning", JOptionPane.WARNING_MESSAGE);
+            checker = false;
+        } else if (new String(RpassField1.getPassword()).equals("") || new String(RpassField1.getPassword()).equals(" Password")) {
+            JOptionPane.showMessageDialog(null, "Password is empty !", "Warnning", JOptionPane.WARNING_MESSAGE);
+            checker = false;
+        } else if (new String(RpassField2.getPassword()).equals("") || new String(RpassField2.getPassword()).equals(" Confirm Password")) {
+            JOptionPane.showMessageDialog(null, "Confirm Password is empty !", "Warnning", JOptionPane.WARNING_MESSAGE);
+            checker = false;
+        } else {
+            checker = true;
         }
-        catch (SQLException e){
-            JOptionPane.showMessageDialog(null,e.getMessage());
+
+        if (checker) {
+            try {
+                String sql = "insert into AccountDetails values(?,?,?,?,?,?,?,?,?,?,?,?);";
+                pst = con.prepareStatement(sql);
+                String gender = "";
+                if (jRadioButton1.isSelected()) {
+                    gender = "Male";
+                }
+                if (jRadioButton2.isSelected()) {
+                    gender = "Female";
+                }
+                pst.setString(1, RaccountNumber.getText());
+                pst.setString(2, RfirstName.getText());
+                pst.setString(3, RlastName.getText());
+                pst.setString(4, Rusername.getText());
+                pst.setString(5, RemailId.getText());
+                pst.setString(6, gender);
+                pst.setString(7, RphoneNumber.getText());
+                pst.setString(8, ((JTextField) jDateChooser1.getDateEditor().getUiComponent()).getText());
+                pst.setString(9, RadharNumber.getText());
+                pst.setString(10, RpanNumber.getText());
+                pst.setString(11, RdepositAmount.getText());
+                pst.setString(12, new String(RpassField1.getPassword()));
+
+                if (new String(RpassField1.getPassword()).equals(new String(RpassField2.getPassword()))) {
+
+                    int p = JOptionPane.showConfirmDialog(null, "Are you Sure to save?", "Confirm", JOptionPane.YES_NO_OPTION);
+                    if (p == 0) {
+                        pst.execute();
+                        JOptionPane.showMessageDialog(null, "Account created sucessfully ");
+                        new Login().setVisible(true);
+                        this.setVisible(false);
+                        this.dispose();
+                    } else {
+                        this.setVisible(true);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Password not matched please check ! ");
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+            }
         }
     }//GEN-LAST:event_RconfirmButton1ActionPerformed
 
     private void RbackButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RbackButton1MouseEntered
         // TODO add your handling code here:
-         RbackButton1.setBackground(new java.awt.Color(51,153, 0));
+        RbackButton1.setBackground(new java.awt.Color(51, 153, 0));
         RbackButton1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_RbackButton1MouseEntered
 
@@ -1120,43 +1176,43 @@ public class Registration extends javax.swing.JFrame {
     }//GEN-LAST:event_RbackButton1MouseExited
 
     private void RbackButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RbackButton1ActionPerformed
-        userinfo=true;
+        userinfo = true;
         jPanel2.setVisible(true);
         jPanel3.setVisible(false);
     }//GEN-LAST:event_RbackButton1ActionPerformed
-   
-    Boolean Rb=true;
+
+    Boolean Rb = true;
     private void RusernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RusernameKeyPressed
         // TODO add your handling code here:
-       
-       char c= evt.getKeyChar();
-       if( Rusername.getText().equals(" Username")){
-           Rusername.setText("");
-       }
-       
-       if(  c==java.awt.event.KeyEvent.VK_SPACE) {
-           Rusername.setEditable(false);
-           
-       }else{
-            Rusername.setForeground(new Color(0,0,0));
-           Rusername.setEditable(true);
-       }
-    }//GEN-LAST:event_RusernameKeyPressed
-    Boolean Rc=true;
-    private void RusernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RusernameFocusGained
-        // TODO add your handling code here:
-        
-        if( !Rc  && Rusername.getText().equals(" Username") && !accountinfo ){
+
+        char c = evt.getKeyChar();
+        if (Rusername.getText().equals(" Username")) {
             Rusername.setText("");
         }
-        Rc=false;
-        accountinfo=false; 
+
+        if (c == java.awt.event.KeyEvent.VK_SPACE) {
+            Rusername.setEditable(false);
+
+        } else {
+            Rusername.setForeground(new Color(0, 0, 0));
+            Rusername.setEditable(true);
+        }
+    }//GEN-LAST:event_RusernameKeyPressed
+    Boolean Rc = true;
+    private void RusernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RusernameFocusGained
+        // TODO add your handling code here:
+
+        if (!Rc && Rusername.getText().equals(" Username") && !accountinfo) {
+            Rusername.setText("");
+        }
+        Rc = false;
+        accountinfo = false;
     }//GEN-LAST:event_RusernameFocusGained
 
     private void RusernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_RusernameFocusLost
         // TODO add your handling code here:
-        if(Rusername.getText().equals("")){
-            Rusername.setForeground(new Color(120,120,120));
+        if (Rusername.getText().equals("")) {
+            Rusername.setForeground(new Color(120, 120, 120));
             Rusername.setText(" Username");
         }
     }//GEN-LAST:event_RusernameFocusLost
@@ -1171,8 +1227,13 @@ public class Registration extends javax.swing.JFrame {
         RlastName.setEditable(true);
     }//GEN-LAST:event_RlastNameMouseClicked
 
-    Boolean B2= true;
-    Boolean B1=true;          
+    private void RusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RusernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RusernameActionPerformed
+
+    Boolean B2 = true;
+    Boolean B1 = true;
+
     public static void main(String args[]) {
 
         try {

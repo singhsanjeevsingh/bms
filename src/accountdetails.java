@@ -48,7 +48,8 @@ public class accountdetails {
             adharno = rs.getString("AdharNumber");
             panno = rs.getString("PanNumber");
             depositamount = rs.getDouble("Deposit");
-            password = rs.getString("Password");  
+            password = rs.getString("Password"); 
+            
         }
         else 
            JOptionPane.showMessageDialog(null, "Unable to find your account","Error !!", 3); 
