@@ -5,6 +5,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Color;
+import java.util.Random;
 
 public class Registration extends javax.swing.JFrame {
 
@@ -27,8 +28,8 @@ public class Registration extends javax.swing.JFrame {
         jPanel3.setVisible(false);
         Rusername.setCaretPosition(1);
         RaccountNumber.setCaretPosition(1);
-        userinfo = false;
-        accountinfo = false;
+      
+        long number = (long) Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L;
     }
 
     @SuppressWarnings("unchecked")
@@ -890,6 +891,11 @@ public class Registration extends javax.swing.JFrame {
     private void RemailIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RemailIdKeyPressed
         // TODO add your handling code here:
         RemailId.setForeground(new java.awt.Color(0, 0, 0));
+        if(RemailId.getText().equals(""))
+        {
+        RemailId.setText("@gmail.com");
+        RemailId.setCaretPosition(0);
+        }
     }//GEN-LAST:event_RemailIdKeyPressed
 
     private void RemailIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemailIdActionPerformed
@@ -1051,6 +1057,8 @@ public class Registration extends javax.swing.JFrame {
         if (RpanNumber.getText().equals("")) {
             RpanNumber.setForeground(new Color(120, 120, 120));
             RpanNumber.setText(" Pan Number");
+        }else{
+            RpanNumber.setText(RpanNumber.getText().toUpperCase());
         }
     }//GEN-LAST:event_RpanNumberFocusLost
 
@@ -1088,13 +1096,23 @@ public class Registration extends javax.swing.JFrame {
         // TODO add your handling code here:
         RconfirmButton1.setBackground(new java.awt.Color(176, 82, 240));
     }//GEN-LAST:event_RconfirmButton1MouseExited
+public boolean accountnumbercheck(long n){
+     try {
+        String query = "select * from accountdetails where AccountNumber = '"+n+"';";
+        stm = con.createStatement();
+        rs = stm.executeQuery(query);
 
+        if (rs.next())
+            return true;
+        
+    }catch (HeadlessException | SQLException e) {
+        JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR!", JOptionPane.ERROR_MESSAGE);
+    }
+     return false;
+}
     private void RconfirmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RconfirmButton1ActionPerformed
-        boolean checker = true;
-        if (RaccountNumber.getText().equals(" Account Number") || RaccountNumber.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Account number is empty !", "Warnning", JOptionPane.WARNING_MESSAGE);
-            checker = false;
-        } else if (RadharNumber.getText().equals(" Aadhaar Number") || RadharNumber.getText().equals("")) {
+        boolean checker,b1 =true;
+        if (RadharNumber.getText().equals(" Aadhaar Number") || RadharNumber.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Adhaar Number is empty !", "Warnning", JOptionPane.WARNING_MESSAGE);
             checker = false;
         } else if (RadharNumber.getText().length() < 12) {
@@ -1130,7 +1148,16 @@ public class Registration extends javax.swing.JFrame {
                 if (jRadioButton2.isSelected()) {
                     gender = "Female";
                 }
-                pst.setString(1, RaccountNumber.getText());
+                long number = (long) Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L;
+                while(b1){
+                    if(accountnumbercheck(number)){
+                        number = (long) Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L;
+                    }
+                    else
+                        b1=false;
+                }
+                String Raccountn= Integer.toString( (int) number);
+                pst.setString(1,Raccountn);
                 pst.setString(2, RfirstName.getText());
                 pst.setString(3, RlastName.getText());
                 pst.setString(4, Rusername.getText());

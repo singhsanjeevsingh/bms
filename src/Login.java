@@ -105,7 +105,7 @@ public class Login extends javax.swing.JFrame {
 
         LaccountField.setForeground(new java.awt.Color(120, 120, 120));
         LaccountField.setText(" UserName");
-        LaccountField.setToolTipText("Account Number");
+        LaccountField.setToolTipText("User Name");
         LaccountField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(100, 100, 100), 2, true));
         LaccountField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
