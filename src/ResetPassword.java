@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import java.awt.Cursor;
 import javax.swing.JOptionPane;
 import java.sql.*;
 
@@ -41,7 +42,7 @@ public class ResetPassword extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Resset Password");
+        setTitle("Reset Password");
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -116,6 +117,17 @@ public class ResetPassword extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(176, 82, 240));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setText("Verify User");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -205,7 +217,7 @@ public class ResetPassword extends javax.swing.JFrame {
             }
             else
             {
-                JOptionPane.showMessageDialog(null,"Wrong Account Number or Phone Number !!","Resset Failed",2);
+                JOptionPane.showMessageDialog(null,"Wrong Account Number or Phone Number !!","Reset Failed",2);
             }
         }
         catch (SQLException e){
@@ -288,6 +300,22 @@ public class ResetPassword extends javax.swing.JFrame {
         // TODO add your handling code here:
         VPhoneField.setEditable(true);
     }//GEN-LAST:event_VPhoneFieldMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        // TODO add your handling code here:
+        jButton1.setBackground(new java.awt.Color(51,153, 0));
+        jButton1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+        // TODO add your handling code here:
+        jButton1.setBackground(new java.awt.Color(176, 82, 240));
+        jButton1.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_jButton1MouseExited
 
     /**
      * @param args the command line arguments
