@@ -35,7 +35,6 @@ public class accountdetails {
         Statement stm = con.createStatement();
         String sql = "select * from AccountDetails where AccountNumber = '"+accountn+"'; ";
         ResultSet rs = stm.executeQuery(sql);
-        
         if(rs.next())
         {
             fname = rs.getString("FirstName");
