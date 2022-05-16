@@ -7,6 +7,7 @@ import javax.swing.JTextField;
 import java.awt.Color;
 import java.util.Random;
 import java.awt.event.KeyEvent;
+import javax.swing.text.Caret;
 
 public class Registration extends javax.swing.JFrame {
 
@@ -19,7 +20,7 @@ public class Registration extends javax.swing.JFrame {
     Statement stm;
     Boolean userinfo;
     Boolean accountinfo;
-
+    
     public Registration() {
         initComponents();
         con = database.db();
@@ -28,7 +29,7 @@ public class Registration extends javax.swing.JFrame {
         jPanel2.setVisible(true);
         jPanel3.setVisible(false);
         Rusername.setCaretPosition(1);
-
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -202,6 +203,11 @@ public class Registration extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 RphoneNumberFocusLost(evt);
+            }
+        });
+        RphoneNumber.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RphoneNumberMouseClicked(evt);
             }
         });
         RphoneNumber.addActionListener(new java.awt.event.ActionListener() {
@@ -856,9 +862,11 @@ public class Registration extends javax.swing.JFrame {
     private void RphoneNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RphoneNumberKeyPressed
         // TODO add your handling code here:
         int key = evt.getKeyCode();
-
+         
         RphoneNumber.setEditable(true);
         int pos = RphoneNumber.getCaretPosition();
+        String num=RphoneNumber.getText();
+        
         if ((key >= '0' && key <= '9') || key == KeyEvent.VK_BACK_SPACE || key == 37 || key == 39 || key == 40 || key == 38) {
 
             if ((key == 37 && pos == 1) || (key == 39 || key == 40 || key == 38) && RphoneNumber.getText().equals(" Phone Number")) {
@@ -878,6 +886,7 @@ public class Registration extends javax.swing.JFrame {
             } else if (!RphoneNumber.getText().equals(" Phone Number") && RphoneNumber.getText().length() > 10 && key != KeyEvent.VK_BACK_SPACE) {
                 RphoneNumber.setEditable(false);
             }
+            
         } else {
             RphoneNumber.setEditable(false);
         }
@@ -975,6 +984,7 @@ public class Registration extends javax.swing.JFrame {
         int key = evt.getKeyCode();
         RlastName.setEditable(true);
         int pos = RlastName.getCaretPosition();
+        
         if ((key >= 65 && key <= 90) || (key >= 97 && key <= 122) || key == java.awt.event.KeyEvent.VK_BACK_SPACE || key == 37 || key == 39 || key == 40 || key == 38) {
             if ((key == 37 && pos == 1) || (key == 39 || key == 40 || key == 38) && RlastName.getText().equals(" Last Name")) {
                 evt.consume();
@@ -1457,6 +1467,14 @@ public class Registration extends javax.swing.JFrame {
             RpassField1.setCaretPosition(1);
         }
     }//GEN-LAST:event_RpassField1KeyReleased
+
+    private void RphoneNumberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RphoneNumberMouseClicked
+        // TODO add your handling code here:
+        RphoneNumber.setEditable(true);
+        Caret caret=RphoneNumber.getCaret();
+        caret.setVisible(true);
+        
+    }//GEN-LAST:event_RphoneNumberMouseClicked
 
     public static void main(String args[]) {
 
