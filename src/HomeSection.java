@@ -7,7 +7,8 @@ import javax.swing.Box;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.table.DefaultTableModel;
-
+import java.awt.event.KeyEvent;
+import java.awt.Color;
 public class HomeSection extends javax.swing.JFrame {
 
     private final DefaultTableModel model;
@@ -478,7 +479,7 @@ public class HomeSection extends javax.swing.JFrame {
                                     .addComponent(jLabel15)
                                     .addGroup(homepanelLayout.createSequentialGroup()
                                         .addComponent(jLabel17)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGap(0, 0, 0)
                                         .addComponent(jLabel16))))
                             .addGroup(homepanelLayout.createSequentialGroup()
                                 .addGap(27, 27, 27)
@@ -561,6 +562,9 @@ public class HomeSection extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 WaccountNumberKeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                WaccountNumberKeyReleased(evt);
+            }
         });
 
         jButton1.setBackground(new java.awt.Color(176, 82, 240));
@@ -606,6 +610,9 @@ public class HomeSection extends javax.swing.JFrame {
         DaccountNumber.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 DaccountNumberKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                DaccountNumberKeyReleased(evt);
             }
         });
 
@@ -1103,7 +1110,7 @@ public class HomeSection extends javax.swing.JFrame {
             jLabel43.setText(detail.emailid);
             jLabel44.setText(detail.gender);
             jLabel45.setText(detail.phonenumber);
-            jLabel46.setText("" + detail.dob);
+            jLabel46.setText(""+ detail.dob);
             jLabel47.setText(String.format("₹ %.0f",detail.depositamount));
             jLabel26.setText(detail.fname + " " + detail.lname);
             jLabel50.setText(detail.adharno);
@@ -1248,7 +1255,7 @@ public class HomeSection extends javax.swing.JFrame {
 
             if (rs.next()) {
                 if (password.equals(rs.getString("Password"))) {
-                    double amt = Double.parseDouble(WaccountNumber.getText());
+                    double amt = Double.parseDouble(WaccountNumber.getText().trim());
                     if (amt <= rs.getDouble("Deposit")) {
                         java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
                         String cd = "Debited";
@@ -1369,7 +1376,7 @@ public class HomeSection extends javax.swing.JFrame {
                     password = new String(jpf.getPassword());
 
                     if (password.equals(rs.getString("Password"))) {
-                        double amt = Double.parseDouble(DaccountNumber.getText());
+                        double amt = Double.parseDouble(DaccountNumber.getText().trim());
                         java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
                         String cd = "Credited";
 
@@ -1457,45 +1464,64 @@ public class HomeSection extends javax.swing.JFrame {
     Boolean b3 = true;
     private void WaccountNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_WaccountNumberKeyPressed
 
-        int key = evt.getKeyChar();
-
-        if (b3 && key >= '0' && key <= '9' || evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE) {
-            if (b3 || WaccountNumber.getText().equals("Enter Amount")) {
-                WaccountNumber.setText("");
-            }
-            WaccountNumber.setEditable(true);
-            b3 = false;
-            b2 = false;
-        } else {
-
-            if (key >= '0' && key <= '9') {
+       int key = evt.getKeyCode();
+        
+        WaccountNumber.setEditable(true);
+        int pos = WaccountNumber.getCaretPosition();
+        
+        if (  (key >= '0' && key <= '9')  || key ==KeyEvent.VK_BACK_SPACE || (key == 37 ||key == 39)   ) {
+            
+            if ( (key == 37 && pos == 1 )|| (key == 39 && WaccountNumber.getText().equals(" Enter Amount"))) {
+                evt.consume();
+            } else if (key == KeyEvent.VK_SPACE) {
+                WaccountNumber.setEditable(false);
+            } else if ((key == KeyEvent.VK_BACK_SPACE && WaccountNumber.getText().equals(" Enter Amount")) || (pos == 1 && WaccountNumber.getText().length() >= 2 && key == KeyEvent.VK_BACK_SPACE)) {
+                evt.consume();
+            } else if (WaccountNumber.getText().equals(" Enter Amount")) {
+                WaccountNumber.setForeground(new Color(0, 0, 0));
                 WaccountNumber.setEditable(true);
-                WaccountNumber.setForeground(new java.awt.Color(0, 0, 0));
-            } else {
+                WaccountNumber.setText(" ");
+            } else if (WaccountNumber.getText().length() == 2 && key == KeyEvent.VK_BACK_SPACE && pos == 2) {
+                WaccountNumber.setForeground(new Color(120, 120, 120));
+                WaccountNumber.setText("  Enter Amount");
+                WaccountNumber.setCaretPosition(2);
+            }else if(!WaccountNumber.getText().equals(" Enter Amount") && WaccountNumber.getText().length() >11 && key!=KeyEvent.VK_BACK_SPACE){
                 WaccountNumber.setEditable(false);
             }
+        }else{
+             WaccountNumber.setEditable(false);
         }
+        
     }//GEN-LAST:event_WaccountNumberKeyPressed
     Boolean b4 = true;
     private void DaccountNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DaccountNumberKeyPressed
 
-        int key = evt.getKeyChar();
-
-        if (b4 && key >= '0' && key <= '9' || evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE) {
-            if (b4 || DaccountNumber.getText().equals("Enter Amount")) {
-                DaccountNumber.setText("");
-            }
-            DaccountNumber.setEditable(true);
-            b4 = false;
-            b3 = false;
-        } else {
-
-            if (key >= '0' && key <= '9') {
+        int key = evt.getKeyCode();
+        
+        DaccountNumber.setEditable(true);
+        int pos = DaccountNumber.getCaretPosition();
+        
+        if (  (key >= '0' && key <= '9')  || key ==KeyEvent.VK_BACK_SPACE || (key == 37 ||key == 39)   ) {
+            
+            if ( (key == 37 && pos == 1 )|| (key == 39 && DaccountNumber.getText().equals(" Enter Amount"))) {
+                evt.consume();
+            } else if (key == KeyEvent.VK_SPACE) {
+                DaccountNumber.setEditable(false);
+            } else if ((key == KeyEvent.VK_BACK_SPACE && DaccountNumber.getText().equals(" Enter Amount")) || (pos == 1 && DaccountNumber.getText().length() >= 2 && key == KeyEvent.VK_BACK_SPACE)) {
+                evt.consume();
+            } else if (DaccountNumber.getText().equals(" Enter Amount")) {
+                DaccountNumber.setForeground(new Color(0, 0, 0));
                 DaccountNumber.setEditable(true);
-                DaccountNumber.setForeground(new java.awt.Color(0, 0, 0));
-            } else {
+                DaccountNumber.setText(" ");
+            } else if (DaccountNumber.getText().length() == 2 && key == KeyEvent.VK_BACK_SPACE && pos == 2) {
+                DaccountNumber.setForeground(new Color(120, 120, 120));
+                DaccountNumber.setText("  Enter Amount");
+                DaccountNumber.setCaretPosition(2);
+            }else if(!DaccountNumber.getText().equals(" Enter Amount") && DaccountNumber.getText().length() >11 && key!=KeyEvent.VK_BACK_SPACE){
                 DaccountNumber.setEditable(false);
             }
+        }else{
+             DaccountNumber.setEditable(false);
         }
     }//GEN-LAST:event_DaccountNumberKeyPressed
 
@@ -1565,15 +1591,14 @@ public class HomeSection extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    boolean B5 = true;
+   
     private void WaccountNumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_WaccountNumberFocusGained
         // TODO add your handling code here:
-        if (WaccountNumber.getText().equals(" Enter Amount") && B5 == false) {
-            WaccountNumber.setText("");
-        }
+        if(WaccountNumber.getText().equals(" Enter Amount"))
+            WaccountNumber.setCaretPosition(1);
     }//GEN-LAST:event_WaccountNumberFocusGained
 
-    boolean B6 = true;
+    
     private void WaccountNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_WaccountNumberFocusLost
         // TODO add your handling code here:
         if (WaccountNumber.getText().equals("")) {
@@ -1581,27 +1606,38 @@ public class HomeSection extends javax.swing.JFrame {
             WaccountNumber.setText(" Enter Amount");
 
         }
-        B6 = false;
+       
     }//GEN-LAST:event_WaccountNumberFocusLost
 
 
     private void DaccountNumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DaccountNumberFocusGained
         // TODO add your handling code here:
-        if (DaccountNumber.getText().equals(" Enter Amount")) {
-            DaccountNumber.setText("");
-        }
+        
     }//GEN-LAST:event_DaccountNumberFocusGained
 
-    boolean B8 = true;
+    
     private void DaccountNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DaccountNumberFocusLost
         // TODO add your handling code here:
-        if (DaccountNumber.getText().equals("")) {
-            DaccountNumber.setForeground(new java.awt.Color(120, 120, 120));
-            DaccountNumber.setText(" Enter Amount");
-
-        }
-        B8 = false;
+      
     }//GEN-LAST:event_DaccountNumberFocusLost
+
+    private void WaccountNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_WaccountNumberKeyReleased
+        // TODO add your handling code here:
+        if( WaccountNumber.getText().equals("") || WaccountNumber.getText().equals(" ") ){
+            WaccountNumber.setForeground(new Color(120, 120, 120));
+                WaccountNumber.setText(" Enter Amount");
+                WaccountNumber.setCaretPosition(1);
+        }
+    }//GEN-LAST:event_WaccountNumberKeyReleased
+
+    private void DaccountNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DaccountNumberKeyReleased
+        // TODO add your handling code here:
+        if( DaccountNumber.getText().equals("") || DaccountNumber.getText().equals(" ") ){
+            DaccountNumber.setForeground(new Color(120, 120, 120));
+                DaccountNumber.setText(" Enter Amount");
+                DaccountNumber.setCaretPosition(1);
+        }
+    }//GEN-LAST:event_DaccountNumberKeyReleased
 
     public static void main(String args[]) {
         try {
