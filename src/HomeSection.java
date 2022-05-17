@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
 import javax.swing.text.Caret;
+
 public class HomeSection extends javax.swing.JFrame {
 
     private final DefaultTableModel model;
@@ -31,7 +32,7 @@ public class HomeSection extends javax.swing.JFrame {
         String accountn = Login.Accountnumber;
         accountdetails info = new accountdetails(accountn);
         jLabel11.setText(info.fname);
-        jLabel16.setText(String.format("%.0f",info.depositamount));
+        jLabel16.setText(String.format("%.0f", info.depositamount));
         account = accountn;
         if (transaction.check()) {
             try {
@@ -45,7 +46,7 @@ public class HomeSection extends javax.swing.JFrame {
                     double amount = rs.getDouble("Amount");
                     String cd = rs.getString("CorD");
 
-                    model.addRow(new Object[]{tdate, ac, amount, cd});
+                    model.addRow(new Object[]{tdate, ac, String.format("₹ %.0f", amount), cd});
                 }
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Error !!", 3);
@@ -53,6 +54,7 @@ public class HomeSection extends javax.swing.JFrame {
         }
 
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -1112,8 +1114,8 @@ public class HomeSection extends javax.swing.JFrame {
             jLabel43.setText(detail.emailid);
             jLabel44.setText(detail.gender);
             jLabel45.setText(detail.phonenumber);
-            jLabel46.setText(""+ detail.dob);
-            jLabel47.setText(String.format("₹ %.0f",detail.depositamount));
+            jLabel46.setText("" + detail.dob);
+            jLabel47.setText(String.format("₹ %.0f", detail.depositamount));
             jLabel26.setText(detail.fname + " " + detail.lname);
             jLabel50.setText(detail.adharno);
             jLabel53.setText(detail.panno);
@@ -1135,7 +1137,7 @@ public class HomeSection extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-       try {
+        try {
             accountdetails detail = new accountdetails(account);
             jLabel34.setText(account);
             jLabel42.setText(detail.username);
@@ -1143,7 +1145,7 @@ public class HomeSection extends javax.swing.JFrame {
             jLabel44.setText(detail.gender);
             jLabel45.setText(detail.phonenumber);
             jLabel46.setText("" + detail.dob);
-            jLabel47.setText(String.format("₹ %.0f",detail.depositamount));
+            jLabel47.setText(String.format("₹ %.0f", detail.depositamount));
             jLabel26.setText(detail.fname + " " + detail.lname);
             jLabel50.setText(detail.adharno);
             jLabel53.setText(detail.panno);
@@ -1279,7 +1281,7 @@ public class HomeSection extends javax.swing.JFrame {
                         pst1.execute();
 
                         JOptionPane.showMessageDialog(null, "Amount Debited ", "Withdrawal", JOptionPane.INFORMATION_MESSAGE);
-                        jLabel16.setText(" " + info.depositamount);
+                        jLabel16.setText(String.format("%.0f", info.depositamount));
                     } else {
                         JOptionPane.showMessageDialog(null, "Unsufficient Balance!!", "Warnning", JOptionPane.ERROR_MESSAGE);
                     }
@@ -1302,7 +1304,7 @@ public class HomeSection extends javax.swing.JFrame {
                         double amount = rs.getDouble("Amount");
                         String cd = rs.getString("CorD");
 
-                        model.addRow(new Object[]{tdate, ac, amount, cd});
+                        model.addRow(new Object[]{tdate, ac, String.format("₹ %.0f", amount), cd});
                     }
                 } catch (SQLException e) {
                     JOptionPane.showMessageDialog(null, e.getMessage(), "Error !!", JOptionPane.ERROR_MESSAGE);
@@ -1319,20 +1321,20 @@ public class HomeSection extends javax.swing.JFrame {
         jButton1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_jButton1MouseEntered
 
-    
+
     private void WaccountNumberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WaccountNumberMouseClicked
         // TODO add your handling code here:
-       Caret caret=WaccountNumber.getCaret();
-       caret.setVisible(true);
-       WaccountNumber.setEditable(true);
+        Caret caret = WaccountNumber.getCaret();
+        caret.setVisible(true);
+        WaccountNumber.setEditable(true);
     }//GEN-LAST:event_WaccountNumberMouseClicked
 
-    
+
     private void DaccountNumberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DaccountNumberMouseClicked
 
-       Caret caret=DaccountNumber.getCaret();
-       caret.setVisible(true);
-       DaccountNumber.setEditable(true);
+        Caret caret = DaccountNumber.getCaret();
+        caret.setVisible(true);
+        DaccountNumber.setEditable(true);
     }//GEN-LAST:event_DaccountNumberMouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
@@ -1356,7 +1358,6 @@ public class HomeSection extends javax.swing.JFrame {
         JPasswordField jpf = new JPasswordField(16);
         box.add(jpf);
         int button = JOptionPane.showConfirmDialog(null, box, "Enter your password", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
-
         try {
             con = database.db();
             stm = con.createStatement();
@@ -1375,30 +1376,37 @@ public class HomeSection extends javax.swing.JFrame {
 
                     if (password.equals(rs.getString("Password"))) {
                         double amt = Double.parseDouble(DaccountNumber.getText().trim());
-                        java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
-                        String cd = "Credited";
+                        double totalamt = rs.getDouble("Deposit") + amt;
+                        if (totalamt <=10000000) {
+                            java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
+                            String cd = "Credited";
 
-                        pst.setDate(1, date);
-                        pst.setString(2, account);
-                        pst.setDouble(3, amt);
-                        pst.setString(4, cd);
-                        pst.execute();
+                            pst.setDate(1, date);
+                            pst.setString(2, account);
+                            pst.setDouble(3, amt);
+                            pst.setString(4, cd);
+                            pst.execute();
 
-                        amt = rs.getDouble("Deposit") + amt;
-                        accountdetails info = new accountdetails(account);
-                        info.depositamount = amt;
+                            accountdetails info = new accountdetails(account);
+                            info.depositamount = totalamt;
 
-                        pst1.setDouble(1, amt);
-                        pst1.setString(2, account);
-                        pst1.execute();
+                            pst1.setDouble(1, totalamt);
+                            pst1.setString(2, account);
+                            pst1.execute();
 
-                        JOptionPane.showMessageDialog(null, "Amount Credited ", "Deposit", 3);
-                        jLabel16.setText(" " + info.depositamount);
+                            JOptionPane.showMessageDialog(null, "Amount Credited ", "Deposit", 3);
+                            jLabel16.setText(String.format("%.0f", info.depositamount));
+                          
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Deposit amount exceeds 1 cr\n decrease deposit amount !", "Deposit Warning", JOptionPane.WARNING_MESSAGE);
+                        }
+
                     } else {
                         JOptionPane.showMessageDialog(null, "Wrong Password", "Deposit", JOptionPane.ERROR_MESSAGE);
                     }
                 }
-
+                else
+                    return;
             }
             DaccountNumber.setForeground(new java.awt.Color(120, 120, 120));
             DaccountNumber.setText(" Enter Amount");
@@ -1415,7 +1423,7 @@ public class HomeSection extends javax.swing.JFrame {
                         double amount = rs.getDouble("Amount");
                         String cd = rs.getString("CorD");
 
-                        model.addRow(new Object[]{tdate, ac, amount, cd});
+                        model.addRow(new Object[]{tdate, ac, String.format("₹ %.0f", amount), cd});
                     }
                 } catch (SQLException e) {
                     JOptionPane.showMessageDialog(null, e.getMessage(), "Error !!", 3);
@@ -1462,14 +1470,14 @@ public class HomeSection extends javax.swing.JFrame {
     Boolean b3 = true;
     private void WaccountNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_WaccountNumberKeyPressed
 
-       int key = evt.getKeyCode();
-        
+        int key = evt.getKeyCode();
+
         WaccountNumber.setEditable(true);
         int pos = WaccountNumber.getCaretPosition();
-        
-        if (  (key >= '0' && key <= '9')  || key ==KeyEvent.VK_BACK_SPACE || (key == 37 ||key == 39)   ) {
-            
-            if ( (key == 37 && pos == 1 )|| (key == 39 && WaccountNumber.getText().equals(" Enter Amount"))) {
+
+        if ((key >= '0' && key <= '9') || key == KeyEvent.VK_BACK_SPACE || (key == 37 || key == 39)) {
+
+            if ((key == 37 && pos == 1) || (key == 39 && WaccountNumber.getText().equals(" Enter Amount"))) {
                 evt.consume();
             } else if (key == KeyEvent.VK_SPACE) {
                 WaccountNumber.setEditable(false);
@@ -1483,25 +1491,25 @@ public class HomeSection extends javax.swing.JFrame {
                 WaccountNumber.setForeground(new Color(120, 120, 120));
                 WaccountNumber.setText("  Enter Amount");
                 WaccountNumber.setCaretPosition(2);
-            }else if(!WaccountNumber.getText().equals(" Enter Amount") && WaccountNumber.getText().length() >11 && key!=KeyEvent.VK_BACK_SPACE){
+            } else if (!WaccountNumber.getText().equals(" Enter Amount") && WaccountNumber.getText().length() > 11 && key != KeyEvent.VK_BACK_SPACE) {
                 WaccountNumber.setEditable(false);
             }
-        }else{
-             WaccountNumber.setEditable(false);
+        } else {
+            WaccountNumber.setEditable(false);
         }
-        
+
     }//GEN-LAST:event_WaccountNumberKeyPressed
     Boolean b4 = true;
     private void DaccountNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DaccountNumberKeyPressed
 
         int key = evt.getKeyCode();
-        
+
         DaccountNumber.setEditable(true);
         int pos = DaccountNumber.getCaretPosition();
-        
-        if (  (key >= '0' && key <= '9')  || key ==KeyEvent.VK_BACK_SPACE || (key == 37 ||key == 39)   ) {
-            
-            if ( (key == 37 && pos == 1 )|| (key == 39 && DaccountNumber.getText().equals(" Enter Amount"))) {
+
+        if ((key >= '0' && key <= '9') || key == KeyEvent.VK_BACK_SPACE || (key == 37 || key == 39)) {
+
+            if ((key == 37 && pos == 1) || (key == 39 && DaccountNumber.getText().equals(" Enter Amount"))) {
                 evt.consume();
             } else if (key == KeyEvent.VK_SPACE) {
                 DaccountNumber.setEditable(false);
@@ -1515,11 +1523,11 @@ public class HomeSection extends javax.swing.JFrame {
                 DaccountNumber.setForeground(new Color(120, 120, 120));
                 DaccountNumber.setText("  Enter Amount");
                 DaccountNumber.setCaretPosition(2);
-            }else if(!DaccountNumber.getText().equals(" Enter Amount") && DaccountNumber.getText().length() >11 && key!=KeyEvent.VK_BACK_SPACE){
+            } else if (!DaccountNumber.getText().equals(" Enter Amount") && DaccountNumber.getText().length() > 11 && key != KeyEvent.VK_BACK_SPACE) {
                 DaccountNumber.setEditable(false);
             }
-        }else{
-             DaccountNumber.setEditable(false);
+        } else {
+            DaccountNumber.setEditable(false);
         }
     }//GEN-LAST:event_DaccountNumberKeyPressed
 
@@ -1553,8 +1561,6 @@ public class HomeSection extends javax.swing.JFrame {
                 model.setRowCount(0);
                 con = database.db();
                 stm = con.createStatement();
-                String sql = "delete from transactions where AccountNumber ='" + account + "'; ";
-                stm.executeUpdate(sql);
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
             }
@@ -1589,14 +1595,14 @@ public class HomeSection extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
-   
+
     private void WaccountNumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_WaccountNumberFocusGained
         // TODO add your handling code here:
-        if(WaccountNumber.getText().equals(" Enter Amount"))
+        if (WaccountNumber.getText().equals(" Enter Amount"))
             WaccountNumber.setCaretPosition(1);
     }//GEN-LAST:event_WaccountNumberFocusGained
 
-    
+
     private void WaccountNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_WaccountNumberFocusLost
         // TODO add your handling code here:
         if (WaccountNumber.getText().equals("")) {
@@ -1604,38 +1610,39 @@ public class HomeSection extends javax.swing.JFrame {
             WaccountNumber.setText(" Enter Amount");
 
         }
-       
+
     }//GEN-LAST:event_WaccountNumberFocusLost
 
 
     private void DaccountNumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DaccountNumberFocusGained
         // TODO add your handling code here:
-        if(DaccountNumber.getText().equals(" Enter Amount"))
+        if (DaccountNumber.getText().equals(" Enter Amount")) {
             DaccountNumber.setCaretPosition(1);
-            
+        }
+
     }//GEN-LAST:event_DaccountNumberFocusGained
 
-    
+
     private void DaccountNumberFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DaccountNumberFocusLost
         // TODO add your handling code here:
-      
+
     }//GEN-LAST:event_DaccountNumberFocusLost
 
     private void WaccountNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_WaccountNumberKeyReleased
         // TODO add your handling code here:
-        if( WaccountNumber.getText().equals("") || WaccountNumber.getText().equals(" ") ){
+        if (WaccountNumber.getText().equals("") || WaccountNumber.getText().equals(" ")) {
             WaccountNumber.setForeground(new Color(120, 120, 120));
-                WaccountNumber.setText(" Enter Amount");
-                WaccountNumber.setCaretPosition(1);
+            WaccountNumber.setText(" Enter Amount");
+            WaccountNumber.setCaretPosition(1);
         }
     }//GEN-LAST:event_WaccountNumberKeyReleased
 
     private void DaccountNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DaccountNumberKeyReleased
         // TODO add your handling code here:
-        if( DaccountNumber.getText().equals("") || DaccountNumber.getText().equals(" ") ){
+        if (DaccountNumber.getText().equals("") || DaccountNumber.getText().equals(" ")) {
             DaccountNumber.setForeground(new Color(120, 120, 120));
-                DaccountNumber.setText(" Enter Amount");
-                DaccountNumber.setCaretPosition(1);
+            DaccountNumber.setText(" Enter Amount");
+            DaccountNumber.setCaretPosition(1);
         }
     }//GEN-LAST:event_DaccountNumberKeyReleased
 

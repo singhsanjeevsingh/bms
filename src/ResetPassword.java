@@ -7,7 +7,6 @@ import javax.swing.JOptionPane;
 import java.sql.*;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
-import javax.swing.JTextField;
 import javax.swing.text.Caret;
 
 /**
@@ -28,8 +27,6 @@ public class ResetPassword extends javax.swing.JFrame {
         con = database.db();
         VaccountNumber.setCaretPosition(1);
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -248,31 +245,31 @@ public class ResetPassword extends javax.swing.JFrame {
 
     private void VaccountNumberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VaccountNumberMouseClicked
         // TODO add your handling code here:
-        
+
         if (VaccountNumber.getText().equals(" Enter Account Number")) {
             VaccountNumber.setCaretPosition(1);
         }
 
     }//GEN-LAST:event_VaccountNumberMouseClicked
-    
+
     private void VaccountNumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_VaccountNumberKeyPressed
         // TODO add your handling code here:
-        int key=evt.getKeyCode();
+        int key = evt.getKeyCode();
         VaccountNumber.setEditable(true);
-        int pos= VaccountNumber.getCaretPosition();
-        
-        if((key == 37 && pos == 1) || (key == 39 || key==40 || key==38) && VaccountNumber.getText().equals(" Enter UserName")  ){
+        int pos = VaccountNumber.getCaretPosition();
+
+        if ((key == 37 && pos == 1) || (key == 39 || key == 40 || key == 38) && VaccountNumber.getText().equals(" Enter UserName")) {
             evt.consume();
-        }else if( key == KeyEvent.VK_SPACE){
+        } else if (key == KeyEvent.VK_SPACE) {
             VaccountNumber.setEditable(false);
-        }else if( (key == KeyEvent.VK_BACK_SPACE && VaccountNumber.getText().equals(" Enter UserName") ) || ( pos ==1 && VaccountNumber.getText().length() >= 2 && key == KeyEvent.VK_BACK_SPACE) ){
+        } else if ((key == KeyEvent.VK_BACK_SPACE && VaccountNumber.getText().equals(" Enter UserName")) || (pos == 1 && VaccountNumber.getText().length() >= 2 && key == KeyEvent.VK_BACK_SPACE)) {
             evt.consume();
-        }else if(VaccountNumber.getText().equals(" Enter UserName")){
-            VaccountNumber.setForeground(new Color(0,0,0));
+        } else if (VaccountNumber.getText().equals(" Enter UserName")) {
+            VaccountNumber.setForeground(new Color(0, 0, 0));
             VaccountNumber.setEditable(true);
             VaccountNumber.setText(" ");
-        }else if(VaccountNumber.getText().length() ==2 && evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE && pos ==2 ){
-            VaccountNumber.setForeground(new Color(120,120,120));
+        } else if (VaccountNumber.getText().length() == 2 && evt.getKeyCode() == java.awt.event.KeyEvent.VK_BACK_SPACE && pos == 2) {
+            VaccountNumber.setForeground(new Color(120, 120, 120));
             VaccountNumber.setText("  Enter UserName");
             VaccountNumber.setCaretPosition(2);
         }
@@ -294,8 +291,9 @@ public class ResetPassword extends javax.swing.JFrame {
 
     private void VPhoneFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_VPhoneFieldFocusGained
         // TODO add your handling code here:
-        if(VPhoneField.getText().equals(" Enter Phone Number"))
+        if (VPhoneField.getText().equals(" Enter Phone Number")) {
             VPhoneField.setCaretPosition(1);
+        }
 
     }//GEN-LAST:event_VPhoneFieldFocusGained
 
@@ -308,13 +306,24 @@ public class ResetPassword extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         int key = evt.getKeyCode();
-        
+
         VPhoneField.setEditable(true);
         int pos = VPhoneField.getCaretPosition();
-        
-        if (  (key >= '0' && key <= '9')  || key ==KeyEvent.VK_BACK_SPACE || (key == 37 ||key == 39)   ) {
-            
-            if ( (key == 37 && pos == 1 )|| (key == 39 && VPhoneField.getText().equals(" Enter Phone Number"))) {
+        if (VPhoneField.getText().length() > 10) {
+            if (key == 37 && pos != 1) {
+                VPhoneField.setCaretPosition(pos - 1);
+                evt.consume();
+                return;
+            } else if (key == 39) {
+                VPhoneField.setCaretPosition(pos + 1);
+                evt.consume();
+                return;
+            }
+
+        }
+        if ((key >= '0' && key <= '9') || key == KeyEvent.VK_BACK_SPACE || (key == 37 || key == 39)) {
+
+            if ((key == 37 && pos == 1) || (key == 39 && VPhoneField.getText().equals(" Enter Phone Number"))) {
                 evt.consume();
             } else if (key == KeyEvent.VK_SPACE) {
                 VPhoneField.setEditable(false);
@@ -328,18 +337,18 @@ public class ResetPassword extends javax.swing.JFrame {
                 VPhoneField.setForeground(new Color(120, 120, 120));
                 VPhoneField.setText("  Enter Phone Number");
                 VPhoneField.setCaretPosition(2);
-            }else if(!VPhoneField.getText().equals(" Enter Phone Number") && VPhoneField.getText().length() >10 && key!=KeyEvent.VK_BACK_SPACE){
+            } else if (!VPhoneField.getText().equals(" Enter Phone Number") && VPhoneField.getText().length() > 10 && key != KeyEvent.VK_BACK_SPACE) {
                 VPhoneField.setEditable(false);
             }
-        }else{
-             VPhoneField.setEditable(false);
+        } else {
+            VPhoneField.setEditable(false);
         }
-        
+
     }//GEN-LAST:event_VPhoneFieldKeyPressed
 
     private void VPhoneFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VPhoneFieldMouseClicked
         // TODO add your handling code here:
-        Caret caret= VPhoneField.getCaret();
+        Caret caret = VPhoneField.getCaret();
         caret.setVisible(true);
     }//GEN-LAST:event_VPhoneFieldMouseClicked
 
@@ -361,21 +370,23 @@ public class ResetPassword extends javax.swing.JFrame {
 
     private void VaccountNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_VaccountNumberKeyReleased
         // TODO add your handling code here:
-         if( VaccountNumber.getText().equals("") || VaccountNumber.getText().equals(" ") ){
+        if (VaccountNumber.getText().equals("") || VaccountNumber.getText().equals(" ")) {
             VaccountNumber.setForeground(new Color(120, 120, 120));
-                VaccountNumber.setText(" Enter UserName");
-                VaccountNumber.setCaretPosition(1);
+            VaccountNumber.setText(" Enter UserName");
+            VaccountNumber.setCaretPosition(1);
         }
-        
+
     }//GEN-LAST:event_VaccountNumberKeyReleased
 
     private void VPhoneFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_VPhoneFieldKeyReleased
         // TODO add your handling code here:
-        if( VPhoneField.getText().equals("") || VPhoneField.getText().equals(" ") ){
+
+        if (VPhoneField.getText().equals("") || VPhoneField.getText().equals(" ")) {
             VPhoneField.setForeground(new Color(120, 120, 120));
-                VPhoneField.setText(" Enter Phone Number");
-                VPhoneField.setCaretPosition(1);
+            VPhoneField.setText(" Enter Phone Number");
+            VPhoneField.setCaretPosition(1);
         }
+
     }//GEN-LAST:event_VPhoneFieldKeyReleased
 
     private void VaccountNumberCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_VaccountNumberCaretUpdate
@@ -384,11 +395,11 @@ public class ResetPassword extends javax.swing.JFrame {
 
     private void VaccountNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_VaccountNumberKeyTyped
         // TODO add your handling code here:
-        if(VPhoneField.getText().equals("") || VPhoneField.getText().equals(" ")){
-             VPhoneField.setForeground(new Color(120, 120, 120));
-                VPhoneField.setText("  Enter Phone Number");
-                VPhoneField.setCaretPosition(1);
-                
+        if (VPhoneField.getText().equals("") || VPhoneField.getText().equals(" ")) {
+            VPhoneField.setForeground(new Color(120, 120, 120));
+            VPhoneField.setText("  Enter Phone Number");
+            VPhoneField.setCaretPosition(1);
+
         }
     }//GEN-LAST:event_VaccountNumberKeyTyped
 

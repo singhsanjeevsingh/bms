@@ -5,19 +5,12 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Color;
-import java.awt.Font;
 import java.util.Random;
 import java.awt.event.KeyEvent;
-import javax.swing.UIManager;
-import javax.swing.border.EmptyBorder;
-import javax.swing.plaf.ColorUIResource;
 import javax.swing.text.Caret;
 
 public class Registration extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Registration
-     */
     Connection con;
     ResultSet rs;
     PreparedStatement pst;
@@ -658,9 +651,8 @@ public class Registration extends javax.swing.JFrame {
         if (jRadioButton2.isSelected()) {
             gender = "Female";
         }
-        if (Rusername.getText().equals("") || Rusername.getText().equals(" Username")) {
+        if (Rusername.getText().equals("") || Rusername.getText().equals(" UserName")) {
             JOptionPane.showMessageDialog(null, "Username is empty !", "Warning", JOptionPane.WARNING_MESSAGE);
-
             checker = false;
         } else if (RfirstName.getText().equals("") || RfirstName.getText().equals(" First Name")) {
             JOptionPane.showMessageDialog(null, "Firstname is empty !", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -671,11 +663,14 @@ public class Registration extends javax.swing.JFrame {
         } else if (RemailId.getText().equals(" Email Id") || RemailId.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Email id is empty !", "Warning", JOptionPane.WARNING_MESSAGE);
             checker = false;
+        }else if (!RemailId.getText().contains("@gmail.com" )) {
+            JOptionPane.showMessageDialog(null, "Invalid Email Formant", "Warning", JOptionPane.WARNING_MESSAGE);
+            checker = false;
         } else if (RphoneNumber.getText().equals(" Phone Number") || RphoneNumber.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Phone Number is empty !", "Warning", JOptionPane.WARNING_MESSAGE);
             checker = false;
-        } else if (RphoneNumber.getText().length() < 10) {
-            JOptionPane.showMessageDialog(null, "Phone Number has only " + RphoneNumber.getText().length() + " digits", "Phone Number Incorrect", JOptionPane.WARNING_MESSAGE);
+        } else if (RphoneNumber.getText().length() < 11) {
+            JOptionPane.showMessageDialog(null, "Phone Number has only " + (RphoneNumber.getText().length() -1 ) + " digits", "Phone Number Incorrect", JOptionPane.WARNING_MESSAGE);
             checker = false;
         } else if (gender.equals("")) {
             JOptionPane.showMessageDialog(null, "Gender is empty !", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -838,7 +833,18 @@ public class Registration extends javax.swing.JFrame {
 
         RdepositAmount.setEditable(true);
         int pos = RdepositAmount.getCaretPosition();
+        if ( RdepositAmount.getText().length() > 10) {
+            if (key == 37 && pos != 1) {
+                 RdepositAmount.setCaretPosition(pos - 1);
+                evt.consume();
+                return;
+            } else if (key == 39) {
+                 RdepositAmount.setCaretPosition(pos + 1);
+                evt.consume();
+                return;
+            }
 
+        }
         if ((key >= '0' && key <= '9') || key == KeyEvent.VK_BACK_SPACE || (key == 37 || key == 39)) {
 
             if ((key == 37 && pos == 1) || (key == 39 && RdepositAmount.getText().equals(" Deposit Amount"))) {
@@ -888,7 +894,18 @@ public class Registration extends javax.swing.JFrame {
         RphoneNumber.setEditable(true);
         int pos = RphoneNumber.getCaretPosition();
         String num = RphoneNumber.getText();
-        
+        if (RphoneNumber.getText().length() > 10) {
+            if (key == 37 && pos != 1) {
+                RphoneNumber.setCaretPosition(pos - 1);
+                evt.consume();
+                return;
+            } else if (key == 39) {
+                RphoneNumber.setCaretPosition(pos + 1);
+                evt.consume();
+                return;
+            }
+
+        }
         if ((key >= '0' && key <= '9') || key == KeyEvent.VK_BACK_SPACE || key == 37 || key == 39 || key == 40 || key == 38) {
 
             if ((key == 37 && pos == 1) || (key == 39 || key == 40 || key == 38) && RphoneNumber.getText().equals(" Phone Number")) {
@@ -1143,7 +1160,18 @@ public class Registration extends javax.swing.JFrame {
 
         RadharNumber.setEditable(true);
         int pos = RadharNumber.getCaretPosition();
+        if (RadharNumber.getText().length() > 12) {
+            if (key == 37 && pos != 1) {
+                RadharNumber.setCaretPosition(pos - 1);
+                evt.consume();
+                return;
+            } else if (key == 39) {
+                RadharNumber.setCaretPosition(pos + 1);
+                evt.consume();
+                return;
+            }
 
+        }
         if ((key >= '0' && key <= '9') || key == KeyEvent.VK_BACK_SPACE || (key == 37 || key == 39)) {
 
             if ((key == 37 && pos == 1) || (key == 39 && RadharNumber.getText().equals(" Aadhaar Number"))) {
@@ -1203,7 +1231,18 @@ public class Registration extends javax.swing.JFrame {
         int key = evt.getKeyCode();
         RpanNumber.setEditable(true);
         int pos = RpanNumber.getCaretPosition();
-        
+        if (RpanNumber.getText().length() > 10) {
+            if (key == 37 && pos != 1) {
+                RpanNumber.setCaretPosition(pos - 1);
+                evt.consume();
+                return;
+            } else if (key == 39) {
+                RpanNumber.setCaretPosition(pos + 1);
+                evt.consume();
+                return;
+            }
+
+        }
         if ((key == 37 && pos == 1) || (key == 39 || key == 40 || key == 38) && RpanNumber.getText().equals(" Pan Number")) {
             evt.consume();
         } else if (key == KeyEvent.VK_SPACE) {
@@ -1266,8 +1305,14 @@ public class Registration extends javax.swing.JFrame {
         } else if (RdepositAmount.getText().equals(" Deposit Amount") || RdepositAmount.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Deposit Amount is empty !", "Warnning", JOptionPane.WARNING_MESSAGE);
             checker = false;
+        }else if (Double.parseDouble(RdepositAmount.getText())>10000000.0) {
+            JOptionPane.showMessageDialog(null, "Deposit Amount should not exccede 1 cr !", "Warnning", JOptionPane.WARNING_MESSAGE);
+            checker = false;
         } else if (new String(RpassField1.getPassword()).equals("") || new String(RpassField1.getPassword()).equals(" Password")) {
             JOptionPane.showMessageDialog(null, "Password is empty !", "Warnning", JOptionPane.WARNING_MESSAGE);
+            checker = false;
+        }else if (new String(RpassField1.getPassword()).length() <6) {
+            JOptionPane.showMessageDialog(null, "Password must have 6 characters !", "Warnning", JOptionPane.WARNING_MESSAGE);
             checker = false;
         } else if (new String(RpassField2.getPassword()).equals("") || new String(RpassField2.getPassword()).equals(" Confirm Password")) {
             JOptionPane.showMessageDialog(null, "Confirm Password is empty !", "Warnning", JOptionPane.WARNING_MESSAGE);
