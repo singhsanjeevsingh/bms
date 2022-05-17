@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import java.sql.*;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
+import javax.swing.text.Caret;
 
 /**
  *
@@ -114,6 +115,9 @@ public class ResetPassword extends javax.swing.JFrame {
         VPhoneField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 VPhoneFieldMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                VPhoneFieldMouseEntered(evt);
             }
         });
         VPhoneField.addActionListener(new java.awt.event.ActionListener() {
@@ -321,7 +325,7 @@ public class ResetPassword extends javax.swing.JFrame {
                 VPhoneField.setForeground(new Color(120, 120, 120));
                 VPhoneField.setText("  Enter Phone Number");
                 VPhoneField.setCaretPosition(2);
-            }else if(!VPhoneField.getText().equals(" Enter Phone Number") && VPhoneField.getText().length() >11 && key!=KeyEvent.VK_BACK_SPACE){
+            }else if(!VPhoneField.getText().equals(" Enter Phone Number") && VPhoneField.getText().length() >10 && key!=KeyEvent.VK_BACK_SPACE){
                 VPhoneField.setEditable(false);
             }
         }else{
@@ -332,7 +336,8 @@ public class ResetPassword extends javax.swing.JFrame {
 
     private void VPhoneFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VPhoneFieldMouseClicked
         // TODO add your handling code here:
-        VPhoneField.setEditable(true);
+        Caret caret= VPhoneField.getCaret();
+        caret.setVisible(true);
     }//GEN-LAST:event_VPhoneFieldMouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -383,6 +388,10 @@ public class ResetPassword extends javax.swing.JFrame {
                 
         }
     }//GEN-LAST:event_VaccountNumberKeyTyped
+
+    private void VPhoneFieldMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VPhoneFieldMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VPhoneFieldMouseEntered
 
     /**
      * @param args the command line arguments
