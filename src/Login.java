@@ -74,7 +74,7 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(jLabel4);
 
         jLabel1.setFont(new java.awt.Font("Algerian", 1, 36)); // NOI18N
-        jLabel1.setText("Bank Managment System");
+        jLabel1.setText("Banking Managment System");
         jPanel2.add(jLabel1);
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 850, -1));

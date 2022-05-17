@@ -1376,8 +1376,8 @@ public class HomeSection extends javax.swing.JFrame {
 
                     if (password.equals(rs.getString("Password"))) {
                         double amt = Double.parseDouble(DaccountNumber.getText().trim());
-                        amt = rs.getDouble("Deposit") + amt;
-                        if (amt <=10000000) {
+                        double totalamt = rs.getDouble("Deposit") + amt;
+                        if (totalamt <=10000000) {
                             java.sql.Date date = new java.sql.Date(System.currentTimeMillis());
                             String cd = "Credited";
 
@@ -1388,9 +1388,9 @@ public class HomeSection extends javax.swing.JFrame {
                             pst.execute();
 
                             accountdetails info = new accountdetails(account);
-                            info.depositamount = amt;
+                            info.depositamount = totalamt;
 
-                            pst1.setDouble(1, amt);
+                            pst1.setDouble(1, totalamt);
                             pst1.setString(2, account);
                             pst1.execute();
 
@@ -1561,8 +1561,6 @@ public class HomeSection extends javax.swing.JFrame {
                 model.setRowCount(0);
                 con = database.db();
                 stm = con.createStatement();
-                String sql = "delete from transactions where AccountNumber ='" + account + "'; ";
-                stm.executeUpdate(sql);
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
             }

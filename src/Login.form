@@ -92,7 +92,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Algerian" size="36" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Bank Managment System"/>
+                <Property name="text" type="java.lang.String" value="Banking Managment System"/>
               </Properties>
             </Component>
           </SubComponents>
