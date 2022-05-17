@@ -333,7 +333,7 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_LaccountFieldKeyPressed
 
-    Boolean B4 = true;
+    
     private void LoginButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LoginButtonKeyPressed
         // TODO add your handling code here:
 
@@ -371,7 +371,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         LregisterButton.setBackground(new java.awt.Color(176, 82, 240));
     }//GEN-LAST:event_LregisterButtonMouseExited
-    Boolean B10 = true;
+   
     private void LaccountFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LaccountFieldFocusLost
         // TODO add your handling code here:
 

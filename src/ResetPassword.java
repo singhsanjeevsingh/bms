@@ -7,7 +7,6 @@ import javax.swing.JOptionPane;
 import java.sql.*;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
-import javax.swing.JTextField;
 import javax.swing.text.Caret;
 
 /**
@@ -368,14 +367,16 @@ public class ResetPassword extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_VaccountNumberKeyReleased
-
+  
     private void VPhoneFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_VPhoneFieldKeyReleased
         // TODO add your handling code here:
+        
         if( VPhoneField.getText().equals("") || VPhoneField.getText().equals(" ") ){
             VPhoneField.setForeground(new Color(120, 120, 120));
                 VPhoneField.setText(" Enter Phone Number");
                 VPhoneField.setCaretPosition(1);
         }
+        
     }//GEN-LAST:event_VPhoneFieldKeyReleased
 
     private void VaccountNumberCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_VaccountNumberCaretUpdate

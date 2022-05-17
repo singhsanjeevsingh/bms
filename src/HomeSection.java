@@ -45,7 +45,7 @@ public class HomeSection extends javax.swing.JFrame {
                     double amount = rs.getDouble("Amount");
                     String cd = rs.getString("CorD");
 
-                    model.addRow(new Object[]{tdate, ac, amount, cd});
+                    model.addRow(new Object[]{tdate, ac,String.format("₹ %.0f",amount), cd});
                 }
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Error !!", 3);
@@ -1279,7 +1279,7 @@ public class HomeSection extends javax.swing.JFrame {
                         pst1.execute();
 
                         JOptionPane.showMessageDialog(null, "Amount Debited ", "Withdrawal", JOptionPane.INFORMATION_MESSAGE);
-                        jLabel16.setText(" " + info.depositamount);
+                        jLabel16.setText(String.format("%.0f",info.depositamount));
                     } else {
                         JOptionPane.showMessageDialog(null, "Unsufficient Balance!!", "Warnning", JOptionPane.ERROR_MESSAGE);
                     }
@@ -1302,7 +1302,7 @@ public class HomeSection extends javax.swing.JFrame {
                         double amount = rs.getDouble("Amount");
                         String cd = rs.getString("CorD");
 
-                        model.addRow(new Object[]{tdate, ac, amount, cd});
+                        model.addRow(new Object[]{tdate, ac, String.format("₹ %.0f",amount), cd});
                     }
                 } catch (SQLException e) {
                     JOptionPane.showMessageDialog(null, e.getMessage(), "Error !!", JOptionPane.ERROR_MESSAGE);
@@ -1393,7 +1393,7 @@ public class HomeSection extends javax.swing.JFrame {
                         pst1.execute();
 
                         JOptionPane.showMessageDialog(null, "Amount Credited ", "Deposit", 3);
-                        jLabel16.setText(" " + info.depositamount);
+                        jLabel16.setText(String.format("₹ %.0f",info.depositamount));
                     } else {
                         JOptionPane.showMessageDialog(null, "Wrong Password", "Deposit", JOptionPane.ERROR_MESSAGE);
                     }
@@ -1415,7 +1415,7 @@ public class HomeSection extends javax.swing.JFrame {
                         double amount = rs.getDouble("Amount");
                         String cd = rs.getString("CorD");
 
-                        model.addRow(new Object[]{tdate, ac, amount, cd});
+                        model.addRow(new Object[]{tdate, ac,String.format(" %.0f",amount), cd});
                     }
                 } catch (SQLException e) {
                     JOptionPane.showMessageDialog(null, e.getMessage(), "Error !!", 3);

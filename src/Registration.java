@@ -1266,6 +1266,9 @@ public class Registration extends javax.swing.JFrame {
         } else if (RdepositAmount.getText().equals(" Deposit Amount") || RdepositAmount.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Deposit Amount is empty !", "Warnning", JOptionPane.WARNING_MESSAGE);
             checker = false;
+        }else if (Double.parseDouble(RdepositAmount.getText())>10000000.0) {
+            JOptionPane.showMessageDialog(null, "Deposit Amount should not exccede 1 cr !", "Warnning", JOptionPane.WARNING_MESSAGE);
+            checker = false;
         } else if (new String(RpassField1.getPassword()).equals("") || new String(RpassField1.getPassword()).equals(" Password")) {
             JOptionPane.showMessageDialog(null, "Password is empty !", "Warnning", JOptionPane.WARNING_MESSAGE);
             checker = false;
