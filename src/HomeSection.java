@@ -9,6 +9,7 @@ import javax.swing.JPasswordField;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
+import javax.swing.text.Caret;
 public class HomeSection extends javax.swing.JFrame {
 
     private final DefaultTableModel model;
@@ -1317,24 +1318,20 @@ public class HomeSection extends javax.swing.JFrame {
         jButton1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_jButton1MouseEntered
 
-    Boolean b1 = true;
+    
     private void WaccountNumberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WaccountNumberMouseClicked
         // TODO add your handling code here:
-        if (WaccountNumber.getText().equals(" Enter Amount")) {
-            WaccountNumber.setText("");
-            b1 = false;
-        }
-        WaccountNumber.setEditable(true);
+       Caret caret=WaccountNumber.getCaret();
+       caret.setVisible(true);
+       WaccountNumber.setEditable(true);
     }//GEN-LAST:event_WaccountNumberMouseClicked
 
-    Boolean b2 = true;
+    
     private void DaccountNumberMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DaccountNumberMouseClicked
 
-        DaccountNumber.setEditable(true);
-        if (b2) {
-            DaccountNumber.setText("");
-            b2 = false;
-        }
+       Caret caret=DaccountNumber.getCaret();
+       caret.setVisible(true);
+       DaccountNumber.setEditable(true);
     }//GEN-LAST:event_DaccountNumberMouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
@@ -1612,7 +1609,9 @@ public class HomeSection extends javax.swing.JFrame {
 
     private void DaccountNumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DaccountNumberFocusGained
         // TODO add your handling code here:
-        
+        if(DaccountNumber.getText().equals(" Enter Amount"))
+            DaccountNumber.setCaretPosition(1);
+            
     }//GEN-LAST:event_DaccountNumberFocusGained
 
     

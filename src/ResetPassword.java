@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import java.sql.*;
 import java.awt.event.KeyEvent;
 import java.awt.Color;
+import javax.swing.JTextField;
 import javax.swing.text.Caret;
 
 /**
@@ -27,6 +28,8 @@ public class ResetPassword extends javax.swing.JFrame {
         con = database.db();
         VaccountNumber.setCaretPosition(1);
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
