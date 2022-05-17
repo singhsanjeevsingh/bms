@@ -133,6 +133,7 @@ public class HomeSection extends javax.swing.JFrame {
         jLabel53 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("DASHBOARD");
         setResizable(false);
 
         headpanel.setBackground(new java.awt.Color(176, 82, 240));
